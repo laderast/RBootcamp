@@ -2,7 +2,7 @@
 title: 'Chapter 1: The Magic of ggplot2' 
 description: 'Learn how ggplot2 turns variables into statistical graphics'
 prev: null
-next: /chapter2.md
+next: /chapter2
 id: 1
 type: chapter
 ---
@@ -188,9 +188,5 @@ Just move on to the next chapter! (CTRL+K)
 
 
 <codeblock id="01_09">
-*** =pre_exercise_code
-```{r}
-
-```
 </codeblock></exercise>
 

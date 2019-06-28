@@ -1,3 +1,8 @@
+library(fivethirtyeight)
+library(dplyr)
+
+data(biopics)
+options(tibble.width = Inf)
 gender_box_office <- biopics %>% 
     filter(!is.na(box_office)) %>%
     group_by(subject_sex) %>% 

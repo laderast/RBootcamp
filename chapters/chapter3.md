@@ -1,8 +1,8 @@
 ---
 title: 'Chapter 3: Introduction to dplyr' 
 description: 'Learn how to manipulate data into a ggplot2 friendly format'
-prev: /chapter2.md
-next: /chapter4.md
+prev: /chapter2
+next: /chapter4
 id: 3
 type: chapter
 ---
@@ -77,10 +77,6 @@ of our `dplyr` cleaning.
 
 
 <codeblock id="03_02">
-*** =pre_exercise_code
-```{r}
-
-```
 </codeblock></exercise>
 
 <exercise id="2" title="use newValue to calculate multValue">
@@ -96,10 +92,6 @@ multValue
 
 
 <codeblock id="03_02">
-*** =pre_exercise_code
-```{r}
-
-```
 </codeblock></exercise>
 
 <exercise id="2" title="use newValue to calculate multValue">
@@ -114,10 +106,6 @@ multValue <- newValue * 5
 
 
 <codeblock id="03_02">
-*** =pre_exercise_code
-```{r}
-
-```
 </codeblock></exercise>
 
 <exercise id="3" title="Let's look at some data and ways to manipulate it.">
@@ -218,16 +206,6 @@ biopicsUSUK <- biopics %>% filter(country %in% c("US", "UK"))
 
 
 <codeblock id="03_07">
-*** =pre_exercise_code
-```{r}
-library(fivethirtyeight)
-library(dplyr)
-
-data(biopics)
-biopics$country <- factor(biopics$country)
-biopics$type_of_subject <- factor(biopics$type_of_subject)
-options(tibble.width = Inf)
-```
 </codeblock></exercise>
 
 <exercise id="8" title="Removing Missing Values">
@@ -251,15 +229,6 @@ we use the `!`.
 
 
 <codeblock id="03_08">
-*** =pre_exercise_code
-```{r}
-library(fivethirtyeight)
-library(dplyr)
-
-data(biopics)
-biopics$country <- factor(biopics$country)
-options(tibble.width = Inf)
-```
 </codeblock></exercise>
 
 <exercise id="9" title="dplyr::mutate()">
@@ -433,14 +402,6 @@ variable as `mean_bo_by_gender`.  Assign the output to `gender_box_office`.
 
 
 <codeblock id="03_14">
-*** =pre_exercise_code
-```{r}
-library(fivethirtyeight)
-library(dplyr)
-
-data(biopics)
-options(tibble.width = Inf)
-```
 </codeblock></exercise>
 
 <exercise id="15" title="Counting Stuff">
@@ -475,14 +436,6 @@ Sort `biopics` by `year_release` then by `lead_actor_actress`. Assign the output
 
 
 <codeblock id="03_16">
-*** =pre_exercise_code
-```{r}
-library(fivethirtyeight)
-library(dplyr)
-
-data(biopics)
-options(tibble.width = Inf)
-```
 </codeblock></exercise>
 
 <exercise id="17" title="select()">
@@ -503,14 +456,6 @@ Use `select` to extract the following variables: `title` (rename it `movieTitle`
 
 
 <codeblock id="03_17">
-*** =pre_exercise_code
-```{r}
-library(fivethirtyeight)
-library(dplyr)
-
-data(biopics)
-options(tibble.width = Inf)
-```
 </codeblock></exercise>
 
 <exercise id="18" title="Chester Ismay's Mantra">
@@ -641,9 +586,5 @@ to becoming a `tidyverse` ninja!
 
 
 <codeblock id="03_22">
-*** =pre_exercise_code
-```{r}
-
-```
 </codeblock></exercise>
 

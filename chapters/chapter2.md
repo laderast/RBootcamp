@@ -1,8 +1,8 @@
 ---
 title: 'Chapter 2: ggplot2 and categorical data' 
 description: 'More on plotting using ggplot2'
-prev: /chapter1.md
-next: /chapter3.md
+prev: /chapter1
+next: /chapter3
 id: 2
 type: chapter
 ---
@@ -52,11 +52,6 @@ Map `shotsCurrent` to the `fill` aesthetic.
 
 
 <codeblock id="02_03">
-*** =pre_exercise_code
-```{r}
-library(ggplot2)
-pets <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/pets.csv")
-```
 </codeblock></exercise>
 
 <exercise id="4" title="Quick Quiz">
@@ -88,11 +83,6 @@ Change the `position` argument in `geom_bar()` to `"fill"`. What percent of dogs
 
 
 <codeblock id="02_05">
-*** =pre_exercise_code
-```{r}
-library(ggplot2)
-pets <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/pets.csv")
-```
 </codeblock></exercise>
 
 <exercise id="6" title="Dodge those bars!">
@@ -104,11 +94,6 @@ Change the `position` argument in `geom_bar()` to `"dodge"`.
 
 
 <codeblock id="02_06">
-*** =pre_exercise_code
-```{r}
-library(ggplot2)
-pets <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/pets.csv")
-```
 </codeblock></exercise>
 
 <exercise id="7" title="Faceting a graph">
@@ -223,9 +208,5 @@ Just move on to the next chapter! (CTRL+K)
 
 
 <codeblock id="02_14">
-*** =pre_exercise_code
-```{r}
-
-```
 </codeblock></exercise>
 
