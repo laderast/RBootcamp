@@ -17,7 +17,6 @@
     },
     "showProfileImage": true,
     "footerLinks": [
-        { "text": "Website", "url": "https://spacy.io" },
         { "text": "Source", "url": "https://github.com/laderast/RBootcamp" },
         { "text": "Built with ♥", "url": "https://github.com/ines/course-starter-r" }
     ],
