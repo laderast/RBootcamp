@@ -26,6 +26,7 @@ Run `colnames()` and `head()` on the `gap1992` data to see what's in each column
 <codeblock id="01_01">
 </codeblock></exercise>
 
+
 <exercise id="2" title="Thinking about aesthetics">
 Now that we've learned a little about the `data.frame`, we can get to the fun part: making graphs.
 
@@ -68,10 +69,9 @@ Finally, we can superimpose our geometry on the plot using `geom_point()`.
 
 Based on the graph, map the appropriate variables to the `x`, and `y` aesthetics. Run your plot. Remember, you can try plots out in the console before you submit your answer.
 
-
-
 <codeblock id="01_03">Look at the graph. If you need the variable names, you can always use `head()` or `colnames()` on the `gap1992` dataset.
 </codeblock></exercise>
+
 
 <exercise id="4" title="More about aes">
 For `geom_point()`, there are lots of other aesthetics. The important thing to know is that
