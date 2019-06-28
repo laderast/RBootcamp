@@ -1,6 +1,6 @@
 ---
-title: 'Chapter 5:' 
-description: ''
+title: 'Chapter 5: Simple Stats and Modeling with broom' 
+description: 'Now we have tidy data, let's start doing some statistics!'
 prev: /chapter4.md
 next: /chapter6.md
 id: 5
@@ -27,6 +27,16 @@ Now use `table()` as part of a pipe to look at the cross-table of `fisherman` an
 
 
 <codeblock id="05_02">
+*** =pre_exercise_code
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(broom)
+
+fishdata <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/fisherman_mercury_modified.csv")
+fishdata$fisherman <- factor(fishdata$fisherman)
+```
 </codeblock></exercise>
 
 <exercise id="3" title="Visualize Mean of Total Mercury by Fisherman Status">
@@ -45,6 +55,16 @@ We can add the mean as a point using `stat_summary` to see how the mean differs 
 
 
 <codeblock id="05_03">
+*** =pre_exercise_code
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(broom)
+
+fishdata <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/fisherman_mercury_modified.csv")
+fishdata$fisherman <- factor(fishdata$fisherman)
+```
 </codeblock></exercise>
 
 <exercise id="4" title="Compute Means with group_by">
@@ -57,6 +77,16 @@ Use `group_by` in the `dplyr` package to group the data frame by `fisherman` sta
 
 
 <codeblock id="05_04">
+*** =pre_exercise_code
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(broom)
+
+fishdata <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/fisherman_mercury_modified.csv")
+fishdata$fisherman <- factor(fishdata$fisherman)
+```
 </codeblock></exercise>
 
 <exercise id="5" title="Is there a difference?">
@@ -82,6 +112,16 @@ Use the function `t.test` to compare the mean `total_mercury` in fishermen and n
 
 
 <codeblock id="05_06">
+*** =pre_exercise_code
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(broom)
+
+fishdata <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/fisherman_mercury_modified.csv")
+fishdata$fisherman <- factor(fishdata$fisherman)
+```
 </codeblock></exercise>
 
 <exercise id="7" title="Sweep up that output with Broom">
@@ -94,6 +134,16 @@ Use `tidy()` to save the output of the t.test to a data.frame called `tidyTtest`
 
 
 <codeblock id="05_07">
+*** =pre_exercise_code
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(broom)
+
+fishdata <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/fisherman_mercury_modified.csv")
+fishdata$fisherman <- factor(fishdata$fisherman)
+```
 </codeblock></exercise>
 
 <exercise id="8" title="Let's delve deeper into the data">
@@ -109,6 +159,16 @@ Use `geom_point` to make scatterplots of the two variables.
 
 
 <codeblock id="05_08">
+*** =pre_exercise_code
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(broom)
+
+fishdata <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/fisherman_mercury_modified.csv")
+fishdata$fisherman <- factor(fishdata$fisherman)
+```
 </codeblock></exercise>
 
 <exercise id="9" title="Linear Regression">
@@ -125,6 +185,16 @@ Fit a linear regression with `fisherman` as the independent variable and `total_
 
 
 <codeblock id="05_09">
+*** =pre_exercise_code
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(broom)
+
+fishdata <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/fisherman_mercury_modified.csv")
+fishdata$fisherman <- factor(fishdata$fisherman)
+```
 </codeblock></exercise>
 
 
@@ -140,6 +210,16 @@ Use the output from `summary` to obtain an $R^2 $ for fisherman from `fit_multip
 
 
 <codeblock id="05_11">
+*** =pre_exercise_code
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(broom)
+
+fishdata <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/fisherman_mercury_modified.csv")
+fishdata$fisherman <- factor(fishdata$fisherman)
+```
 </codeblock></exercise>
 
 <exercise id="12" title="Compare our models">
@@ -154,6 +234,16 @@ Extract the covariate information using `tidy` from the two models and bind them
 
 
 <codeblock id="05_12">
+*** =pre_exercise_code
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(broom)
+
+fishdata <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/fisherman_mercury_modified.csv")
+fishdata$fisherman <- factor(fishdata$fisherman)
+```
 </codeblock></exercise>
 
 <exercise id="13" title="Prediction of mercury">
@@ -181,6 +271,16 @@ For both models, use `augment` to obtain fitted values of `total_mercury` and sa
 
 
 <codeblock id="05_14">
+*** =pre_exercise_code
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(broom)
+
+fishdata <- read_csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/fisherman_mercury_modified.csv")
+fishdata$fisherman <- factor(fishdata$fisherman)
+```
 </codeblock></exercise>
 
 

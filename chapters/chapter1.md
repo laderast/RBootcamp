@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 1: Visualization with `ggplot2`' 
+title: 'Chapter 1: The Magic of ggplot2' 
 description: 'Learn how ggplot2 turns variables into statistical graphics'
 prev: null
 next: /chapter2.md
@@ -7,6 +7,8 @@ id: 1
 type: chapter
 ---
 <exercise id="1" title="Quick Data Frame Introduction">
+
+Before we start: please join the [RBootcamp OHSU Group!](https://www.datacamp.com/groups/de163cc541d0d9bde4956157d17dbedfb1149225/invite)
 
 A `data.frame` is basically a table-like format which has the following properties: 
 
@@ -68,7 +70,7 @@ Based on the graph, map the appropriate variables to the `x`, and `y` aesthetics
 
 
 
-<codeblock id="01_03">
+<codeblock id="01_03">Look at the graph. If you need the variable names, you can always use `head()` or `colnames()` on the `gap1992` dataset.
 </codeblock></exercise>
 
 <exercise id="4" title="More about aes">
@@ -186,5 +188,9 @@ Just move on to the next chapter! (CTRL+K)
 
 
 <codeblock id="01_09">
+*** =pre_exercise_code
+```{r}
+
+```
 </codeblock></exercise>
 

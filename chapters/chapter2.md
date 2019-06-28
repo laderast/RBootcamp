@@ -1,6 +1,6 @@
 ---
-title: 'Chapter 2:' 
-description: ''
+title: 'Chapter 2: ggplot2 and categorical data' 
+description: 'More on plotting using ggplot2'
 prev: /chapter1.md
 next: /chapter3.md
 id: 2
@@ -52,6 +52,11 @@ Map `shotsCurrent` to the `fill` aesthetic.
 
 
 <codeblock id="02_03">
+*** =pre_exercise_code
+```{r}
+library(ggplot2)
+pets <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/pets.csv")
+```
 </codeblock></exercise>
 
 <exercise id="4" title="Quick Quiz">
@@ -83,6 +88,11 @@ Change the `position` argument in `geom_bar()` to `"fill"`. What percent of dogs
 
 
 <codeblock id="02_05">
+*** =pre_exercise_code
+```{r}
+library(ggplot2)
+pets <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/pets.csv")
+```
 </codeblock></exercise>
 
 <exercise id="6" title="Dodge those bars!">
@@ -94,6 +104,11 @@ Change the `position` argument in `geom_bar()` to `"dodge"`.
 
 
 <codeblock id="02_06">
+*** =pre_exercise_code
+```{r}
+library(ggplot2)
+pets <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/pets.csv")
+```
 </codeblock></exercise>
 
 <exercise id="7" title="Faceting a graph">
@@ -149,7 +164,8 @@ Is the proportion of animals receiving shots the same across each age category?
 
 
 
-<codeblock id="02_09">
+<codeblock id="02_09">Think about what to map to `x`, and what to map to `fill`, and what `position` argument 
+you need for `geom_bar()`. Finally, think about how to facet the variable. 
 </codeblock></exercise>
 
 <exercise id="10" title="Boxplots">
@@ -174,7 +190,7 @@ Plot a boxplot of `weight` conditioned on `animal`. Is there a difference in wei
 
 
 
-<codeblock id="02_11">
+<codeblock id="02_11">Think about what variables map to what aesthetics. 
 </codeblock></exercise>
 
 <exercise id="12" title="Violin Plots">
@@ -207,5 +223,9 @@ Just move on to the next chapter! (CTRL+K)
 
 
 <codeblock id="02_14">
+*** =pre_exercise_code
+```{r}
+
+```
 </codeblock></exercise>
 

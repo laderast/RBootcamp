@@ -23,8 +23,6 @@ save_exercise_list(exercise_list, "chapter1.md", "c:/Code/RBootcamp_old/chapter1
 
 
 #load chapter as single character string
-yaml_header <- readr::read_file("c:/Code/RBootcamp/chapters/chapter2.yml")
-yaml_header <- convert_to_unix_linebreaks(yaml_header)
 chapter_file <- readr::read_file("c:/Code/RBootcamp_old/chapter2.md")
 chapter_file <- convert_to_unix_linebreaks(chapter_file)
 #chunk text into exercises
@@ -36,6 +34,7 @@ exercise_list <- number_ex_list(exercise_list, basename = "02")
 #save the exercises and rewritten chapter.md
 save_exercise_list(exercise_list, "chapter2.md", "c:/Code/RBootcamp_old/chapter2.md")
 
+library(decampr)
 chapter_file <- readr::read_file("c:/Code/RBootcamp_old/chapter3.md")
 chapter_file <- convert_to_unix_linebreaks(chapter_file)
 #chunk text into exercises

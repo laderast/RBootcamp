@@ -1,6 +1,6 @@
 ---
-title: 'Chapter 3:' 
-description: ''
+title: 'Chapter 3: Introduction to dplyr' 
+description: 'Learn how to manipulate data into a ggplot2 friendly format'
 prev: /chapter2.md
 next: /chapter4.md
 id: 3
@@ -45,7 +45,7 @@ Just move on to the next exercise! (CTRL+K)
 
 
 
-<codeblock id="03_01">
+<codeblock id="03_01">No hint.
 </codeblock></exercise>
 
 <exercise id="2" title="A Little Bit about assignment">
@@ -77,6 +77,10 @@ of our `dplyr` cleaning.
 
 
 <codeblock id="03_02">
+*** =pre_exercise_code
+```{r}
+
+```
 </codeblock></exercise>
 
 <exercise id="2" title="use newValue to calculate multValue">
@@ -92,6 +96,10 @@ multValue
 
 
 <codeblock id="03_02">
+*** =pre_exercise_code
+```{r}
+
+```
 </codeblock></exercise>
 
 <exercise id="2" title="use newValue to calculate multValue">
@@ -106,6 +114,10 @@ multValue <- newValue * 5
 
 
 <codeblock id="03_02">
+*** =pre_exercise_code
+```{r}
+
+```
 </codeblock></exercise>
 
 <exercise id="3" title="Let's look at some data and ways to manipulate it.">
@@ -126,7 +138,7 @@ data(biopics)
 
 
 
-<codeblock id="03_03">
+<codeblock id="03_03">Use the `levels()` function.
 </codeblock></exercise>
 
 <exercise id="4" title="dplyr::filter()">
@@ -206,6 +218,16 @@ biopicsUSUK <- biopics %>% filter(country %in% c("US", "UK"))
 
 
 <codeblock id="03_07">
+*** =pre_exercise_code
+```{r}
+library(fivethirtyeight)
+library(dplyr)
+
+data(biopics)
+biopics$country <- factor(biopics$country)
+biopics$type_of_subject <- factor(biopics$type_of_subject)
+options(tibble.width = Inf)
+```
 </codeblock></exercise>
 
 <exercise id="8" title="Removing Missing Values">
@@ -229,6 +251,15 @@ we use the `!`.
 
 
 <codeblock id="03_08">
+*** =pre_exercise_code
+```{r}
+library(fivethirtyeight)
+library(dplyr)
+
+data(biopics)
+biopics$country <- factor(biopics$country)
+options(tibble.width = Inf)
+```
 </codeblock></exercise>
 
 <exercise id="9" title="dplyr::mutate()">
@@ -253,7 +284,7 @@ Remember, you can use the `paste()` function to paste two strings together.
 
 
 
-<codeblock id="03_09">
+<codeblock id="03_09">`paste(subject_race, subject_sex)`
 </codeblock></exercise>
 
 <exercise id="10" title="You can use mutated variables right away!">
@@ -273,7 +304,7 @@ and then used it right away to define a new variable, `box_office_subject`.
 
 
 
-<codeblock id="03_10">
+<codeblock id="03_10">Add `box_office_y_s_num=box_office_year/number_of_subjects` to the statement below.
 </codeblock></exercise>
 
 <exercise id="11" title="Another Use for `mutate()`">
@@ -402,6 +433,14 @@ variable as `mean_bo_by_gender`.  Assign the output to `gender_box_office`.
 
 
 <codeblock id="03_14">
+*** =pre_exercise_code
+```{r}
+library(fivethirtyeight)
+library(dplyr)
+
+data(biopics)
+options(tibble.width = Inf)
+```
 </codeblock></exercise>
 
 <exercise id="15" title="Counting Stuff">
@@ -436,6 +475,14 @@ Sort `biopics` by `year_release` then by `lead_actor_actress`. Assign the output
 
 
 <codeblock id="03_16">
+*** =pre_exercise_code
+```{r}
+library(fivethirtyeight)
+library(dplyr)
+
+data(biopics)
+options(tibble.width = Inf)
+```
 </codeblock></exercise>
 
 <exercise id="17" title="select()">
@@ -456,6 +503,14 @@ Use `select` to extract the following variables: `title` (rename it `movieTitle`
 
 
 <codeblock id="03_17">
+*** =pre_exercise_code
+```{r}
+library(fivethirtyeight)
+library(dplyr)
+
+data(biopics)
+options(tibble.width = Inf)
+```
 </codeblock></exercise>
 
 <exercise id="18" title="Chester Ismay's Mantra">
@@ -529,7 +584,7 @@ and `arrange` on (don't forget to use `desc`!)?
 
 
 
-<codeblock id="03_20">
+<codeblock id="03_20">You can do this!
 </codeblock></exercise>
 
 <exercise id="21" title="Challenge 3: Putting together what we know about ggplot2 and dplyr">
@@ -586,5 +641,9 @@ to becoming a `tidyverse` ninja!
 
 
 <codeblock id="03_22">
+*** =pre_exercise_code
+```{r}
+
+```
 </codeblock></exercise>
 
