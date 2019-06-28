@@ -1,0 +1,1 @@
+threeVarTable <- biopics %>% select(movieTitle=title, box_office, subject_sex)

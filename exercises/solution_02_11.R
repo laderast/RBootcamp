@@ -1,0 +1,1 @@
+ggplot(pets, aes(x=animal, y=weight)) + geom_boxplot()

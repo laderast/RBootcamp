@@ -1,0 +1,1 @@
+biopicsArt <- biopics %>% filter(type_of_subject %in% c("Musician", "Artist", "Singer"))

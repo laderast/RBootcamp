@@ -1,0 +1,1 @@
+fishdata%>%group_by(fisherman)%>%summarize(mean_total_mercury = mean(total_mercury), sd_total_mercury = sd(total_mercury))

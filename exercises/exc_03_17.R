@@ -1,0 +1,1 @@
+threeVarTable <- biopics %>% select()

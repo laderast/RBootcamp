@@ -1,0 +1,1 @@
+t.test(total_mercury~fisherman,data=fishdata)

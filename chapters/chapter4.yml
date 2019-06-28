@@ -1,0 +1,9 @@
+---
+title: 'Chapter 4: Tidy Data'
+description:
+  'The magic of `ggplot2`. Learn about how to map data to aesthetic properties such as x, y, color, and size.'
+prev: /chapter3
+next: /chapter5
+type: chapter
+id: 4
+---

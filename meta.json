@@ -1,8 +1,8 @@
 {
-    "courseId": "course-starter-r",
-    "title": "My cool online course",
-    "slogan": "A free online course",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique libero at est congue, sed vestibulum tortor laoreet. Aenean egestas massa non commodo consequat. Curabitur faucibus, sapien vitae euismod imperdiet, arcu erat semper urna, in accumsan sapien dui ac mi. Pellentesque felis lorem, semper nec velit nec, consectetur placerat enim.",
+    "courseId": "RBootcamp",
+    "title": "RBootcamp",
+    "slogan": "A free online course about the basics of the tidyverse",
+    "description": "The R-Bootcamp is meant to be a gentle and gradual introduction to manipulating and visualizing data in R using the `tidyverse` suite of packages.",
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique libero at est congue, sed vestibulum tortor laoreet. Aenean egestas massa non commodo consequat. Curabitur faucibus, sapien vitae euismod imperdiet, arcu erat semper urna.",
     "siteUrl": "https://course-starter-r.netlify.com",
     "twitter": "spacy_io",

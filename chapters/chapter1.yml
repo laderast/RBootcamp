@@ -1,0 +1,9 @@
+---
+title: 'Chapter 1: Visualization Aesthetics'
+description:
+  'The magic of `ggplot2`. Learn about how to map data to aesthetic properties such as x, y, color, and size.'
+prev: null
+next: /chapter2
+type: chapter
+id: 1
+---
