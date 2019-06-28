@@ -1,8 +1,8 @@
 ---
 title: 'Chapter 5: Simple Stats and Modeling with broom' 
-description: 'Now we have tidy data, let's start doing some statistics!'
+description: Now we have tidy data, let's start doing some statistics!
 prev: /chapter4
-next: /chapter6
+next: null
 id: 5
 type: chapter
 ---
