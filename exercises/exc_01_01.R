@@ -1,7 +1,7 @@
 library(dplyr)
-library(gapminder)
 library(ggplot2)
-gap1992 <- gapminder %>% filter(year == 1992)
+gap1992 <- read.csv("data/gap1992.csv")
+
 ##run head on gap1992
 head(----)
 ##run colnames here on gap1992
