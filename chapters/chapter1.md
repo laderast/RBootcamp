@@ -24,7 +24,6 @@ Run `colnames()` and `head()` on the `gap1992` data to see what's in each column
 
 
 <codeblock id="01_01">
-
 </codeblock></exercise>
 
 <exercise id="2" title="Thinking about aesthetics">
@@ -71,9 +70,8 @@ Based on the graph, map the appropriate variables to the `x`, and `y` aesthetics
 
 
 
-<codeblock id="01_03">Look at the graph. If you need the variable names, you can always use `head()` or `colnames()` on the `gap1992` dataset.
-
-</codeblock></exercise>
+<codeblock id="01_03">
+Look at the graph. If you need the variable names, you can always use `head()` or `colnames()` on the `gap1992` dataset.</codeblock></exercise>
 
 <exercise id="4" title="More about aes">
 For `geom_point()`, there are lots of other aesthetics. The important thing to know is that
@@ -107,7 +105,6 @@ How did the visual presentation of the data change?
 
 
 <codeblock id="01_05">
-
 </codeblock></exercise>
 
 <exercise id="6" title="Geoms are layers on a ggplot">
@@ -121,7 +118,6 @@ Add both `geom_line()` and `geom_point()` to the following ggplot. Are the resul
 
 
 <codeblock id="01_06">
-
 </codeblock></exercise>
 
 <exercise id="6" title="add code here">
@@ -133,7 +129,6 @@ Add both `geom_line()` and `geom_point()` to the following ggplot. Are the resul
 
 
 <codeblock id="01_06">
-
 </codeblock></exercise>
 
 <exercise id="6" title="add code here">
@@ -145,7 +140,6 @@ Add both `geom_line()` and `geom_point()` to the following ggplot. Are the resul
 
 
 <codeblock id="01_06">
-
 </codeblock></exercise>
 
 <exercise id="7" title="Quick review about ggplot2">
@@ -178,7 +172,6 @@ Your final challenge is to completely recreate this graph using the `gap1992` da
 
 
 <codeblock id="01_08">
-
 </codeblock></exercise>
 
 <exercise id="9" title="What you learned in this chapter">
@@ -195,6 +188,5 @@ Just move on to the next chapter! (CTRL+K)
 
 
 <codeblock id="01_09">
-
 </codeblock></exercise>
 

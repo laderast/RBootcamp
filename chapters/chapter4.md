@@ -22,7 +22,6 @@ Just move on to the next exercise. (CTRL+K)
 
 
 <codeblock id="04_01">
-
 </codeblock></exercise>
 
 <exercise id="2" title="What is Tidy Data?">
@@ -64,9 +63,8 @@ calling the column names, or the `key` the name of `year`. The second argument, 
 
 
 
-<codeblock id="04_03">The `mutate` expression to remove the `X` is `mutate(year=str_replace(year, "X", "")`.
-
-</codeblock></exercise>
+<codeblock id="04_03">
+The `mutate` expression to remove the `X` is `mutate(year=str_replace(year, "X", "")`.</codeblock></exercise>
 
 <exercise id="4" title="tidyr::spread()">
 
@@ -91,7 +89,6 @@ column, which is the variable that contains the values we want to fill with.
 
 
 <codeblock id="04_04">
-
 </codeblock></exercise>
 
 <exercise id="5" title="dplyr::separate()">
@@ -122,7 +119,6 @@ be any string.
 
 
 <codeblock id="04_05">
-
 </codeblock></exercise>
 
 <exercise id="6" title="Wide Versus Long Data">
@@ -149,9 +145,8 @@ summarized data to `fertilityMeanByYear`.
 
 
 
-<codeblock id="04_06">You'll have to first use a `filter()` statement, and then a `group_by/summarize` statement.
-
-</codeblock></exercise>
+<codeblock id="04_06">
+You'll have to first use a `filter()` statement, and then a `group_by/summarize` statement.</codeblock></exercise>
 
 <exercise id="7" title="Putting  dplyr, tidyr, and ggplot2 all together">
 
@@ -169,7 +164,6 @@ a balance beam pre and post treatment.
 
 
 <codeblock id="04_07">
-
 </codeblock></exercise>
 
 <exercise id="8" title="Was there a difference?">
@@ -182,7 +176,6 @@ NA</opt>
 <opt text="Yes, the intervals overlapped, but the means were clearly different">
 NA</opt></choice>
 </exercise>
-
 
 
 </codeblock></exercise>

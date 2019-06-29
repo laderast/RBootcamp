@@ -26,7 +26,6 @@ Here's the simple dataset we'll use to investigate how to work with factors in `
 
 
 <codeblock id="02_01">
-
 </codeblock></exercise>
 
 <exercise id="2" title="A Basic Barplot using `geom_bar()`">
@@ -42,7 +41,6 @@ Map the `name` variable to `x` in the `ggplot` statement. What is the most popul
 
 
 <codeblock id="02_02">
-
 </codeblock></exercise>
 
 <exercise id="3" title=" Stacked Bars">
@@ -54,7 +52,6 @@ Map `shotsCurrent` to the `fill` aesthetic.
 
 
 <codeblock id="02_03">
-
 </codeblock></exercise>
 
 <exercise id="4" title="Quick Quiz">
@@ -86,7 +83,6 @@ Change the `position` argument in `geom_bar()` to `"fill"`. What percent of dogs
 
 
 <codeblock id="02_05">
-
 </codeblock></exercise>
 
 <exercise id="6" title="Dodge those bars!">
@@ -98,7 +94,6 @@ Change the `position` argument in `geom_bar()` to `"dodge"`.
 
 
 <codeblock id="02_06">
-
 </codeblock></exercise>
 
 <exercise id="7" title="Faceting a graph">
@@ -121,7 +116,6 @@ Add `free_x` to the scale argument. How many animals named "Morris" did not rece
 
 
 <codeblock id="02_07">
-
 </codeblock></exercise>
 
 <exercise id="8" title="Super Quick Review">
@@ -155,10 +149,9 @@ Is the proportion of animals receiving shots the same across each age category?
 
 
 
-<codeblock id="02_09">Think about what to map to `x`, and what to map to `fill`, and what `position` argument 
-you need for `geom_bar()`. Finally, think about how to facet the variable. 
-
-</codeblock></exercise>
+<codeblock id="02_09">
+Think about what to map to `x`, and what to map to `fill`, and what `position` argument 
+you need for `geom_bar()`. Finally, think about how to facet the variable. </codeblock></exercise>
 
 <exercise id="10" title="Boxplots">
 
@@ -182,9 +175,8 @@ Plot a boxplot of `weight` conditioned on `animal`. Is there a difference in wei
 
 
 
-<codeblock id="02_11">Think about what variables map to what aesthetics. 
-
-</codeblock></exercise>
+<codeblock id="02_11">
+Think about what variables map to what aesthetics. </codeblock></exercise>
 
 <exercise id="12" title="Violin Plots">
 
@@ -197,9 +189,7 @@ Violin plots are another useful way to visualize the data. They provide a more n
 
 
 <codeblock id="02_12">
-
 </codeblock></exercise>
-
 
 
 </codeblock></exercise>
@@ -218,6 +208,5 @@ Just move on to the next chapter! (CTRL+K)
 
 
 <codeblock id="02_14">
-
 </codeblock></exercise>
 

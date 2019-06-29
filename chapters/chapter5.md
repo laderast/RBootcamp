@@ -7,7 +7,6 @@ id: 5
 type: chapter
 ---
 
-
 </codeblock></exercise>
 
 <exercise id="2" title="Let's explore the fishermen mercury dataset">
@@ -28,7 +27,6 @@ Now use `table()` as part of a pipe to look at the cross-table of `fisherman` an
 
 
 <codeblock id="05_02">
-
 </codeblock></exercise>
 
 <exercise id="3" title="Visualize Mean of Total Mercury by Fisherman Status">
@@ -47,7 +45,6 @@ We can add the mean as a point using `stat_summary` to see how the mean differs 
 
 
 <codeblock id="05_03">
-
 </codeblock></exercise>
 
 <exercise id="4" title="Compute Means with group_by">
@@ -60,7 +57,6 @@ Use `group_by` in the `dplyr` package to group the data frame by `fisherman` sta
 
 
 <codeblock id="05_04">
-
 </codeblock></exercise>
 
 <exercise id="5" title="Is there a difference?">
@@ -86,7 +82,6 @@ Use the function `t.test` to compare the mean `total_mercury` in fishermen and n
 
 
 <codeblock id="05_06">
-
 </codeblock></exercise>
 
 <exercise id="7" title="Sweep up that output with Broom">
@@ -99,7 +94,6 @@ Use `tidy()` to save the output of the t.test to a data.frame called `tidyTtest`
 
 
 <codeblock id="05_07">
-
 </codeblock></exercise>
 
 <exercise id="8" title="Let's delve deeper into the data">
@@ -115,7 +109,6 @@ Use `geom_point` to make scatterplots of the two variables.
 
 
 <codeblock id="05_08">
-
 </codeblock></exercise>
 
 <exercise id="9" title="Linear Regression">
@@ -132,9 +125,7 @@ Fit a linear regression with `fisherman` as the independent variable and `total_
 
 
 <codeblock id="05_09">
-
 </codeblock></exercise>
-
 
 
 </codeblock></exercise>
@@ -149,7 +140,6 @@ Use the output from `summary` to obtain an $R^2 $ for fisherman from `fit_multip
 
 
 <codeblock id="05_11">
-
 </codeblock></exercise>
 
 <exercise id="12" title="Compare our models">
@@ -164,7 +154,6 @@ Extract the covariate information using `tidy` from the two models and bind them
 
 
 <codeblock id="05_12">
-
 </codeblock></exercise>
 
 <exercise id="13" title="Prediction of mercury">
@@ -192,13 +181,10 @@ For both models, use `augment` to obtain fitted values of `total_mercury` and sa
 
 
 <codeblock id="05_14">
-
 </codeblock></exercise>
 
 
-
 </codeblock></exercise>
-
 
 
 </codeblock></exercise>

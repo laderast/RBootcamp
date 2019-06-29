@@ -45,9 +45,8 @@ Just move on to the next exercise! (CTRL+K)
 
 
 
-<codeblock id="03_01">No hint.
-
-</codeblock></exercise>
+<codeblock id="03_01">
+No hint.</codeblock></exercise>
 
 <exercise id="2" title="A Little Bit about assignment">
 
@@ -78,7 +77,6 @@ of our `dplyr` cleaning.
 
 
 <codeblock id="03_02">
-
 </codeblock></exercise>
 
 <exercise id="2" title="use newValue to calculate multValue">
@@ -94,7 +92,6 @@ multValue
 
 
 <codeblock id="03_02">
-
 </codeblock></exercise>
 
 <exercise id="2" title="use newValue to calculate multValue">
@@ -109,7 +106,6 @@ multValue <- newValue * 5
 
 
 <codeblock id="03_02">
-
 </codeblock></exercise>
 
 <exercise id="3" title="Let's look at some data and ways to manipulate it.">
@@ -130,9 +126,8 @@ data(biopics)
 
 
 
-<codeblock id="03_03">Use the `levels()` function.
-
-</codeblock></exercise>
+<codeblock id="03_03">
+Use the `levels()` function.</codeblock></exercise>
 
 <exercise id="4" title="dplyr::filter()">
 
@@ -159,7 +154,6 @@ Three things to note here:
 
 
 <codeblock id="03_04">
-
 </codeblock></exercise>
 
 <exercise id="5" title="Comparison operators and chaining comparisons">
@@ -183,7 +177,6 @@ Three things to note:
 
 
 <codeblock id="03_05">
-
 </codeblock></exercise>
 
 <exercise id="6" title="Quick Quiz about Chaining Comparisons">
@@ -213,7 +206,6 @@ biopicsUSUK <- biopics %>% filter(country %in% c("US", "UK"))
 
 
 <codeblock id="03_07">
-
 </codeblock></exercise>
 
 <exercise id="8" title="Removing Missing Values">
@@ -237,7 +229,6 @@ we use the `!`.
 
 
 <codeblock id="03_08">
-
 </codeblock></exercise>
 
 <exercise id="9" title="dplyr::mutate()">
@@ -262,9 +253,8 @@ Remember, you can use the `paste()` function to paste two strings together.
 
 
 
-<codeblock id="03_09">`paste(subject_race, subject_sex)`
-
-</codeblock></exercise>
+<codeblock id="03_09">
+`paste(subject_race, subject_sex)`</codeblock></exercise>
 
 <exercise id="10" title="You can use mutated variables right away!">
 
@@ -283,9 +273,8 @@ and then used it right away to define a new variable, `box_office_subject`.
 
 
 
-<codeblock id="03_10">Add `box_office_y_s_num=box_office_year/number_of_subjects` to the statement below.
-
-</codeblock></exercise>
+<codeblock id="03_10">
+Add `box_office_y_s_num=box_office_year/number_of_subjects` to the statement below.</codeblock></exercise>
 
 <exercise id="11" title="Another Use for `mutate()`">
 
@@ -350,7 +339,6 @@ format is great, because you can apply that pipeline to incoming data that has t
 
 
 <codeblock id="03_13">
-
 </codeblock></exercise>
 
 <exercise id="13" title="The Pipe Operator: %>%">
@@ -387,7 +375,6 @@ filter(str_detect(lead_actor_actress, "Richard"))
 
 
 <codeblock id="03_13">
-
 </codeblock></exercise>
 
 <exercise id="14" title="group_by()/summarize()">
@@ -415,7 +402,6 @@ variable as `mean_bo_by_gender`.  Assign the output to `gender_box_office`.
 
 
 <codeblock id="03_14">
-
 </codeblock></exercise>
 
 <exercise id="15" title="Counting Stuff">
@@ -450,7 +436,6 @@ Sort `biopics` by `year_release` then by `lead_actor_actress`. Assign the output
 
 
 <codeblock id="03_16">
-
 </codeblock></exercise>
 
 <exercise id="17" title="select()">
@@ -471,7 +456,6 @@ Use `select` to extract the following variables: `title` (rename it `movieTitle`
 
 
 <codeblock id="03_17">
-
 </codeblock></exercise>
 
 <exercise id="18" title="Chester Ismay's Mantra">
@@ -500,7 +484,6 @@ use `mutate()` to code a new variable, `box_office_per_subject`.
 
 
 <codeblock id="03_19">
-
 </codeblock></exercise>
 
 <exercise id="19" title="Putting it all together: Challenge 1">
@@ -515,7 +498,6 @@ Now `filter` to remove the NA values in`box_office_per_subject` and `group_by()`
 
 
 <codeblock id="03_19">
-
 </codeblock></exercise>
 
 <exercise id="19" title="Putting it all together: Challenge 1">
@@ -531,7 +513,6 @@ Finally, arrange `biopics_by_country` by your new `bops_by_country` variable.
 
 
 <codeblock id="03_19">
-
 </codeblock></exercise>
 
 <exercise id="20" title="Challenge 2: Show your stuff">
@@ -548,9 +529,8 @@ and `arrange` on (don't forget to use `desc`!)?
 
 
 
-<codeblock id="03_20">You can do this!
-
-</codeblock></exercise>
+<codeblock id="03_20">
+You can do this!</codeblock></exercise>
 
 <exercise id="21" title="Challenge 3: Putting together what we know about ggplot2 and dplyr">
 
@@ -583,7 +563,6 @@ Are you sick of `biopics` yet? I promise this is the last time we use this datas
 
 
 <codeblock id="03_21">
-
 </codeblock></exercise>
 
 <exercise id="22" title="What you learned in this chapter">
@@ -607,6 +586,5 @@ to becoming a `tidyverse` ninja!
 
 
 <codeblock id="03_22">
-
 </codeblock></exercise>
 
