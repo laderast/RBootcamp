@@ -6,8 +6,6 @@ library(decampr)
 
 
 #load chapter as single character string
-yaml_header <- readr::read_file("c:/Code/RBootcamp/chapters/chapter1.yml")
-yaml_header <- convert_to_unix_linebreaks(yaml_header)
 chapter_file <- readr::read_file("c:/Code/RBootcamp_old/chapter1.md")
 chapter_file <- convert_to_unix_linebreaks(chapter_file)
 #chunk text into exercises
