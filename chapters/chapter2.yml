@@ -1,0 +1,9 @@
+---
+title: 'Chapter 2: Factors and Plotting'
+description:
+  'The magic of `ggplot2`. Learn about how to map data to aesthetic properties such as x, y, color, and size.'
+prev: /chapter1
+next: /chapter3
+type: chapter
+id: 2
+---

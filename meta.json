@@ -1,15 +1,15 @@
 {
-    "courseId": "course-starter-r",
-    "title": "My cool online course",
-    "slogan": "A free online course",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique libero at est congue, sed vestibulum tortor laoreet. Aenean egestas massa non commodo consequat. Curabitur faucibus, sapien vitae euismod imperdiet, arcu erat semper urna, in accumsan sapien dui ac mi. Pellentesque felis lorem, semper nec velit nec, consectetur placerat enim.",
-    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique libero at est congue, sed vestibulum tortor laoreet. Aenean egestas massa non commodo consequat. Curabitur faucibus, sapien vitae euismod imperdiet, arcu erat semper urna.",
-    "siteUrl": "https://course-starter-r.netlify.com",
-    "twitter": "spacy_io",
+    "courseId": "RBootcamp",
+    "title": "RBootcamp",
+    "slogan": "A free online course about the basics of the tidyverse",
+    "description": "The R-Bootcamp is meant to be a gentle and gradual introduction to manipulating and visualizing data in R using the `tidyverse` suite of packages.",
+    "bio": "Ted Laderas and Jessica Minnier",
+    "siteUrl": "https://r-bootcamp.netlify.com",
+    "twitter": "tladeras",
     "fonts": "IBM+Plex+Mono:500|IBM+Plex+Sans:700|Lato:400,400i,700,700i",
     "testTemplate": "success <- function(text) {\n    cat(paste(\"\\033[32m\", text, \"\\033[0m\", sep = \"\"))\n}\n\n.solution <- \"${solutionEscaped}\"\n\n${solution}\n\n${test}\ntryCatch({\n    test()\n}, error = function(e) {\n    cat(paste(\"\\033[31m\", e[1], \"\\033[0m\", sep = \"\"))\n})",
     "juniper": {
-        "repo": "ines/course-starter-r",
+        "repo": "laderast/RBootcamp",
         "branch": "binder",
         "lang": "r",
         "kernelType": "ir",
@@ -17,8 +17,7 @@
     },
     "showProfileImage": true,
     "footerLinks": [
-        { "text": "Website", "url": "https://spacy.io" },
-        { "text": "Source", "url": "https://github.com/ines/course-starter-r" },
+        { "text": "Source", "url": "https://github.com/laderast/RBootcamp" },
         { "text": "Built with ♥", "url": "https://github.com/ines/course-starter-r" }
     ],
     "theme": "#de7878"

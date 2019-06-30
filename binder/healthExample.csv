@@ -1,0 +1,9 @@
+PatientID,HealthCodeEncounterCode,timeElapsed
+P1,410/22,20
+P2,410/20,15
+P3,511/22,16
+P4,511/20,17
+P5,511/20,30
+P6,410/22,40
+P7,410/20,50
+P8,511/20,55

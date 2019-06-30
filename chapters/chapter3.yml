@@ -1,0 +1,9 @@
+---
+title: 'Chapter 3: The Magic of `dplyr`'
+description:
+  'The magic of `ggplot2`. Learn about how to map data to aesthetic properties such as x, y, color, and size.'
+prev: /chapter2
+next: /chapter4
+type: chapter
+id: 3
+---
