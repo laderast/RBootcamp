@@ -1,0 +1,1 @@
+options(warn = -1, show.error.messages = FALSE)

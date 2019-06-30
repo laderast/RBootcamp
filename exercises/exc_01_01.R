@@ -1,6 +1,4 @@
-library(dplyr)
-library(ggplot2)
-gap1992 <- read.csv("data/gap1992.csv")
+source("exercises/pre_exercise_01_01.R")
 
 ##run head on gap1992
 head(----)
