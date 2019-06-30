@@ -1,4 +1,16 @@
-# Online course starter: R
+# RBootcamp
+
+The R-Bootcamp is meant to be a gentle and gradual introduction to manipulating and visualizing data in R using the tidyverse suite of packages. Basic programming concepts in R (functions, databases, and control structures) are also covered. Topics covered include:
+
+1. The magic of ggplot2.
+2. More ggplot2 using factors.
+3. Basic Data Manipulation using dplyr.
+4. Tidy Data: Why and How using tidyr.
+5. Simple Statistics using broom.
+
+It is currently available at http://r-bootcamp.netlify.com 
+
+## Ines' starter course notes are below for reference
 
 This is a starter repo based on the
 [course framework](https://github.com/ines/spacy-course) I developed for my
