@@ -8,7 +8,7 @@ type: chapter
 ---
 <exercise id="1" title="Quick Data Frame Introduction">
 
-Before we start: please join the [RBootcamp OHSU Group!](https://www.datacamp.com/groups/de163cc541d0d9bde4956157d17dbedfb1149225/invite)
+Let's review the basics of `data.frame`s.
 
 A `data.frame` is basically a table-like format which has the following properties: 
 
@@ -68,8 +68,9 @@ In order to map our variables to aesthetic properties, we will need to use `aes(
 
 Finally, we can superimpose our geometry on the plot using `geom_point()`.
 
-Based on the graph, map the appropriate variables to the `x`, and `y` aesthetics. Run your plot. Remember, you can try plots out in the console before you submit your answer.
+Based on the graph below, map the appropriate variables to the `x`, and `y` aesthetics. Run your plot. Remember, you can try plots out in the console before you submit your answer.
 
+<img src="gap1992.png">
 
 
 <codeblock id="01_03">
