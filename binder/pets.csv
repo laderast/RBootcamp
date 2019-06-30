@@ -1,0 +1,13 @@
+"id","name","weight","animal","ageCategory","shotsCurrent"
+"C1","Morris",6,"cat","0-2","No"
+"C2","Morris",7,"cat","5-8","Yes"
+"D1","Fido",15,"dog","5-8","No"
+"D4","Mr Bowser",20,"dog","3-4","No"
+"D8","Fido",40,"dog","3-4","Yes"
+"C4","Lady Sheba",10,"cat","5-8","No"
+"D5","Hubert",60,"dog","0-2","No"
+"C10","Apples",17,"cat","5-8","Yes"
+"G4","Nibbles",0.2,"gerbil","0-2",NA
+"C11","Morris",10,"cat","5-8","No"
+"D9","Winky",11,"dog","3-4","No"
+"C6","Fido",6,"cat","5-8","Yes"
