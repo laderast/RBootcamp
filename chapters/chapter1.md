@@ -40,8 +40,9 @@ How do we visually represent a variable in our dataset? Take a look at this grap
 You have things reversed, and you're taking the log of the wrong variable</opt>
 <opt text="x = continent, y = year, color = pop">
 Wrong variables. Go back and look at what's being mapped</opt>
-<opt text="y = lifeExp, x = log(gdpPercap), color = continent">
-Correct! We are displaying lifeExp as our y variable and log(gdpPercap) as our x variable</opt></choice>
+<opt text="y = lifeExp, x = log(gdpPercap), color = continent" correct = "true">
+Correct! We are displaying lifeExp as our y variable and log(gdpPercap) as our x variable</opt>
+</choice>
 </exercise>
 
 <exercise id="3" title="Mapping variables to produce geometric plots">
@@ -81,19 +82,19 @@ For `geom_point()`, there are lots of other aesthetics. The important thing to k
 aesthetics are properties of the `geom`. If you need to know the aesthetics that you can 
 map to a `geom`, you can always use `help()` (such as `help(geom_point)`).
 
-I'd ask you to look at `help(geom_point)`, but the documentation is not correct on Datacamp. 
-Instead, look here: [http://ggplot.yhathq.com/docs/geom_point.html](http://ggplot.yhathq.com/docs/geom_point.html)
+For a list of aesthetics for `geom_point()`, look here: [http://ggplot.yhathq.com/docs/geom_point.html](http://ggplot.yhathq.com/docs/geom_point.html)
 and look at all the aesthetic mappings. 
 
 Which of the following is *not* a mappable aesthetic to `geom_point()`?
 
 <choice>
 <opt text="`x`">
-Great! Now you know where to look for mappable aesthetics.</opt>
+Not quite. You need `x` to map a point!</opt>
 <opt text="`shape`">
 Nope. This is a mappable aesthetic to `geom_point().`</opt>
-<opt text="`linetype`">
-Correct. `linetype` is not mappable to `geom_point()`. Points don't have a `linetype`, do they?</opt></choice>
+<opt text="`linetype`" correct = "true">
+Correct. `linetype` is not mappable to `geom_point()`. Points don't have a `linetype`, do they?</opt>
+</choice>
 </exercise>
 
 <exercise id="5" title="Points versus lines">
@@ -139,10 +140,11 @@ ggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, color=continent)) +
 <choice>
 <opt text="adds one `data.frame` to another `data.frame` ">
 This is not the case. Go back and look at the ggplot code.</opt>
-<opt text="allows you to chain data and geoms together into a single statistical graphic">
+<opt text="allows you to chain data and geoms together into a single statistical graphic" correct="true">
 Correct! This is how we can add data and layer geoms together</opt>
 <opt text="allows you to add variables together in a `data.frame`">
-Look at the ggplot code and see if we are manipulating data or not. Are we?</opt></choice>
+Look at the ggplot code and see if we are manipulating data or not. Are we?</opt>
+</choice>
 </exercise>
 
 <exercise id="8" title="Final Challenge: Recreate this Gapminder Plot">
@@ -153,8 +155,6 @@ Your final challenge is to completely recreate this graph using the `gap1992` da
 
 - If you need to remember variable names, you can always call `head(gap1992)` or `colnames(gap1992)` in the console.
 - Recreate the above graphic by mapping the right variables to the right aesthetic elements. Remember, you can try plots out in the console before you submit your answer.
-
-
 
 <codeblock id="01_08">
 </codeblock></exercise>
@@ -168,9 +168,7 @@ Your final challenge is to completely recreate this graph using the `gap1992` da
 - That `ggplot2` can make some pretty cool graphs
 - That you can do this!
 
-Just move on to the next chapter! (CTRL+K)
-
-
+Just move on to the next chapter!
 
 <codeblock id="01_09">
 </codeblock></exercise>
