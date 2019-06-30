@@ -1,2 +1,9 @@
-pets <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/pets.csv")
+pets <- read.csv("data/pets.csv")
+##look at the pets data
+pets
 
+##show categories for shotsCurrent
+levels(pets$shotsCurrent)
+
+##show categories for ageCategory
+levels(pets$shotsCurrent)
