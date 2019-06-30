@@ -1,9 +1,5 @@
 FROM rocker/binder:3.5.2
 
-## Declares build arguments
-ARG NB_USER
-ARG NB_UID
-
 ## Copies your repo files into the Docker Container
 USER root
 COPY . ${HOME}
