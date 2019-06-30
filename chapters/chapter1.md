@@ -33,6 +33,8 @@ The first thing we are going to is think about how we represent variables in a p
 
 How do we visually represent a variable in our dataset? Take a look at this graph. What variable is mapped to `y`, and what is mapped to `x`, and what is mapped to `color`?
 
+<img src="gap1992.png">
+
 <choice>
 <opt text="x = gdpPercap, y = log(lifeExp), color = continent">
 You have things reversed, and you're taking the log of the wrong variable</opt>
@@ -118,29 +120,9 @@ Add both `geom_line()` and `geom_point()` to the following ggplot. Are the resul
 
 
 <codeblock id="01_06">
-</codeblock></exercise>
+</codeblock>
+</exercise>
 
-<exercise id="6" title="add code here">
-
-```
-
-Add both `geom_line()` and `geom_point()` to the following ggplot. Are the results what you expected?
-
-
-
-<codeblock id="01_06">
-</codeblock></exercise>
-
-<exercise id="6" title="add code here">
-  geom_line() + geom_point()
-```
-
-Add both `geom_line()` and `geom_point()` to the following ggplot. Are the results what you expected?
-
-
-
-<codeblock id="01_06">
-</codeblock></exercise>
 
 <exercise id="7" title="Quick review about ggplot2">
 
@@ -165,6 +147,8 @@ Look at the ggplot code and see if we are manipulating data or not. Are we?</opt
 <exercise id="8" title="Final Challenge: Recreate this Gapminder Plot">
 
 Your final challenge is to completely recreate this graph using the `gap1992` data.
+
+<img src="gap1992.png">
 
 - If you need to remember variable names, you can always call `head(gap1992)` or `colnames(gap1992)` in the console.
 - Recreate the above graphic by mapping the right variables to the right aesthetic elements. Remember, you can try plots out in the console before you submit your answer.

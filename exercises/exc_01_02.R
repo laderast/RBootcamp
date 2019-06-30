@@ -1,9 +1,6 @@
 library(ggplot2)
-pets <- readRDS("data/pets.rds")
+gap1992 <- read.csv("data/gap1992.csv")
 
-##Show a barplot and count by name and fill by animal
-##theme() allows us to angle the text labels so that we can read them
-ggplot(pets, aes(x=   )) + geom_bar() + 
-    ##We make the x axis text angled 
-    ##for better legibility
-    theme(axis.text.x = element_text(angle=45))
+ggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, size=pop, color=continent)) +
+  geom_point() + ggtitle("Gapminder for 1992")
+ggsave("static/gap1992.png", width = 5, height = 3)
