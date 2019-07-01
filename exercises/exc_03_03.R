@@ -1,5 +1,5 @@
-library(fivethirtyeight)
 library(dplyr)
+biopics <- readRDS("data/biopics.rds")
 
 data(biopics)
 biopics$country <- factor(biopics$country)

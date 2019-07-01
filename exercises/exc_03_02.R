@@ -1,4 +1,3 @@
-
 ##assign newValue
 newValue <-
 ## use newValue to calculate multValue

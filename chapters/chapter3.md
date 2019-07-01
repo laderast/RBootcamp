@@ -8,8 +8,6 @@ type: chapter
 ---
 <exercise id="1" title="Introduction to dplyr">
 
-Remember: Please Join our [RBootcamp OHSU Group!](https://www.datacamp.com/groups/de163cc541d0d9bde4956157d17dbedfb1149225/invite)
-
 We've been looking at datasets that fit the `ggplot2` paradigm nicely; however, most data we encounter 
 is really messy (missing values), or is a completely different format. In this chapter, we'll look 
 at one of the most powerful tools in the `tidyverse`: `dplyr`, which lets you manipulate data frames. 
@@ -41,12 +39,9 @@ If you want more information on a function such as `mutate()`, you can always as
 ?mutate
 ```
 
-Just move on to the next exercise! (CTRL+K)
+Just move on to the next exercise!
 
-
-
-<codeblock id="03_01">
-No hint.</codeblock></exercise>
+</exercise>
 
 <exercise id="2" title="A Little Bit about assignment">
 
@@ -74,60 +69,20 @@ of our `dplyr` cleaning.
 + Then use `newValue` to calculate the value of `multValue` by calculating `newValue * 5`. 
 + Show `multValue`.
 
-
-
 <codeblock id="03_02">
 </codeblock></exercise>
 
-<exercise id="2" title="use newValue to calculate multValue">
-multValue <- 
-##show multValue
-multValue
-```
-
-+ Assign `newValue` the value of `10`. 
-+ Then use `newValue` to calculate the value of `multValue` by calculating `newValue * 5`. 
-+ Show `multValue`.
-
-
-
-<codeblock id="03_02">
-</codeblock></exercise>
-
-<exercise id="2" title="use newValue to calculate multValue">
-multValue <- newValue * 5
-##show multValue
-```
-
-+ Assign `newValue` the value of `10`. 
-+ Then use `newValue` to calculate the value of `multValue` by calculating `newValue * 5`. 
-+ Show `multValue`.
-
-
-
-<codeblock id="03_02">
-</codeblock></exercise>
 
 <exercise id="3" title="Let's look at some data and ways to manipulate it.">
 
 We're going to use the `biopics` dataset in the `fivethirtyeight` package to do learn `dplyr`. This is a dataset of 761 different biopic movies. 
 
-This is how we loaded the data into the session. Note that I've already done this for you, so you don't need to do this.
-
-```{r}
-#load fivethirtyeight package
-library(fivethirtyeight)
-#access biopics data
-data(biopics)
-```
-
 + Run a `summary` on the `biopics` dataset. It's already loaded up for you. 
 + How many categories are in the `country` variable?
 
-
-
 <codeblock id="03_03">
-Use the `levels()` function.</codeblock></exercise>
+Use the `levels()` function to count the categories.</codeblock>
+</exercise>
 
 <exercise id="4" title="dplyr::filter()">
 
@@ -148,13 +103,14 @@ Three things to note here:
 + For those who are used to accessing `data.frame` variables by `$`, notice we don't have to use `biopics$country`. Instead, we can just use the variable name `country`.
 + Our filter statement uses `==`. Remember that `==` is an equality test, and `=` is to assign something. (confusing the two will happen to you from time to time.)
 
+###Instructions
+
 + Filter `biopics` so that it only shows `Criminal` movies (you'll have to use the `type_of_subject` variable in `biopics`. 
 + Show how many rows are left using `nrow(crimeMovies)`.
 
-
-
 <codeblock id="03_04">
-</codeblock></exercise>
+</codeblock>
+</exercise>
 
 <exercise id="5" title="Comparison operators and chaining comparisons">
 
@@ -171,10 +127,10 @@ Three things to note:
 + We also chained on another expression, `type_of_subject == "Criminal"` using `&` (and). The other chaining operator that you'll use is `|`, which corresponds to OR. 
 + Chaining expressions is where `filter()` becomes super powerful. However, it's also the source of headaches, so you will need to carefully test your chain of expressions.
 
+###Instructions
+
 + Add another comparison to the chain using `&`. Use `person_of_color == FALSE`. 
 + Show how many rows are left from your filter statement.
-
-
 
 <codeblock id="03_05">
 </codeblock></exercise>
