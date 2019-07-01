@@ -1,7 +1,7 @@
-library(fivethirtyeight)
 library(dplyr)
+biopics <- readRDS("data/biopics.rds")
 
-data(biopics)
-options(tibble.width = Inf)
-threeVarTable <- biopics %>% select()
+threeVarTable <- biopics %>% 
+  select(----, ----, ----)
 
+head(threeVarTable)

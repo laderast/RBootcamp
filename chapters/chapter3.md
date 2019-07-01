@@ -248,6 +248,9 @@ What is this statement doing? Try it out in the console if you're not sure.
 mutate(biopics, subject= paste(subject, year_release))
 ```
 
+<codeblock id="03_11">
+</codeblock>
+
 <choice>
 <opt text="We are defining a brand-new variable with the same name in our dataset and keeping the old variable as well" correct="true">
 Great! Now you know you can also use `mutate()` to process variables in place.</opt>
@@ -271,8 +274,7 @@ biopics %>%
     mutate(isNewer = year_release > 1998) %>% 
     head()
 ```
-<codeblock id = "03_11">
-
+<codeblock id = "03_12">
 </codeblock>
 
 <choice>
@@ -296,9 +298,9 @@ What `%>%` does is that it takes the output of one statement and makes it the in
 biopics %>% filter(race_known == "Known") %>%
     mutate(poc_code = as.numeric(person_of_color))
 ```
-As: I took the `biopics` data, THEN 
-I `filter`ed it down with the `race_known == "Known"` criteria and THEN 
-I defined a new variable called `poc_code`.
+As: I took the `biopics` data, 
+THEN  I `filter`ed it down with the `race_known == "Known"` criteria and 
+THEN I defined a new variable called `poc_code`.
 
 Note that `filter()` doesn't have a `data` argument, because the `data` is `piped` into `filter()`. Same thing for `mutate()`.
 
@@ -338,10 +340,9 @@ First use `filter()` to remove the NA values. Then, use `group_by()` and `summar
 calculate the mean `box_office` by `subject_sex`, naming the summary
 variable as `mean_bo_by_gender`.  Assign the output to `gender_box_office`. 
 
-
-
 <codeblock id="03_14">
-</codeblock></exercise>
+</codeblock>
+</exercise>
 
 <exercise id="15" title="Counting Stuff">
 
@@ -350,6 +351,10 @@ What does the following code do? Try it out in the console!
 ```{r}
 biopics %>% group_by(type_of_subject) %>% summarize(count=n())
 ```
+
+<codeblock id="03_15">
+</codeblock>
+
 
 <choice>
 <opt text="just shows the regular `biopics` `data.frame`">
@@ -375,27 +380,28 @@ it will sort by `year_release`.
 
 Sort `biopics` by `year_release` then by `lead_actor_actress`. Assign the output to `biopics_sorted`.
 
-
-
 <codeblock id="03_16">
 </codeblock></exercise>
 
 <exercise id="17" title="select()">
 
-The final verb we'll learn is `select()`. `select()` allows you to 1) extract columns, 
-2) reorder columns or 3) remove columns from your data, as well as 4) rename your data. 
+The final verb we'll learn is `select()`. `select()` allows you to: 
+
+1) extract columns, 
+2) reorder columns or 
+3) remove columns from your data, as well as 
+4) rename your data. 
+
 For example, look at the following code:
 
 ```{r}
 biopics %>% select(movieTitle=title, box_office)
 ```
-Here, we're just extracting two columns (`title_of_movie`, `box_office`). Notice we also renamed
-`title` to `movieTitle`.
+Here, we're just extracting two columns (`title_of_movie`, `box_office`). Notice we also renamed `title` to `movieTitle`.
 
-Use `select` to extract the following variables: `title` (rename it `movieTitle`), 
-`box_office` and `subject_sex` and assign them to a new table called `threeVarTable`
+### Instructions
 
-
+Use `select` to extract the following variables: `title` (rename it `movieTitle`), `box_office` and `subject_sex` and assign them to a new table called `threeVarTable`.
 
 <codeblock id="03_17">
 </codeblock></exercise>
@@ -422,37 +428,13 @@ data cleaning and transformation.
 
 For a reference while you work, you can use the `dplyr` cheatsheet here: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
 
-For the `biopics` data, `filter()` the data so that we only cover movies from 2000 to 2014. Then 
-use `mutate()` to code a new variable, `box_office_per_subject`. 
+### Instructions
 
-<codeblock id="03_19">
-</codeblock></exercise>
-
-<exercise id="19" title="Putting it all together: Challenge 1">
-
-Now here comes the fun part. Chaining `dplyr` verbs together to accomplish some
-data cleaning and transformation.
-
-For a reference while you work, you can use the `dplyr` cheatsheet here: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
-2
-Now `filter` to remove the NA values in`box_office_per_subject` and `group_by()` `country` and `summarize()` the mean `box_office_per_subject` by `country` as `bops_by_country`.
-
-
-
-<codeblock id="03_19">
-</codeblock></exercise>
-
-<exercise id="19" title="Putting it all together: Challenge 1">
-
-Now here comes the fun part. Chaining `dplyr` verbs together to accomplish some
-data cleaning and transformation.
-
-For a reference while you work, you can use the `dplyr` cheatsheet here: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
-3
-
-Finally, arrange `biopics_by_country` by your new `bops_by_country` variable.
-
-
++ For the `biopics` data, `filter()` the data so that we only cover movies from 2000 to 2014. (`year_release` is the variable you want.)
++ Filter out the NAs in `box_office`.
++ Then  use `mutate()` to code a new variable, `box_office_per_subject`. (The two variables you need here are `box_office` and `number_of_subjects`.)
++ Assign this statement to `biopics_new`
++ Run `summary()` on `biopics_new` to confirm that your statement worked.
 
 <codeblock id="03_19">
 </codeblock></exercise>
@@ -462,6 +444,8 @@ Finally, arrange `biopics_by_country` by your new `bops_by_country` variable.
 Answer the question: Do movies where we know the race is known (`race_known` == TRUE) make more 
 money than movies where the race is not known (`race_known`== FALSE) grouped by country? 
 Which `race_known`/`country` combination made the highest amount of money?
+
+### Instructions
 
 + You'll need to do a `filter` step first to remove `NA` values from `box_office` before you do  anything. 
 + Then think of what variables you need to `group_by`. 
@@ -496,13 +480,13 @@ in the data.
 
 Are you sick of `biopics` yet? I promise this is the last time we use this dataset.
 
+### Instructions
+
 + First, filter `biopics` to have `year_release` < 1990 and remove `NA` values. 
 + Then pipe that into a `ggplot()` statement that plots an x-y plot of `box_office` 
 (use `geom_point()`) where `x=year_release` and `y=log(box_office)`. 
 + Color the points by `person_of_color`. 
 + Assign the output to `bPlot` and print it to the screen using `print(bPlot)`.
-
-
 
 <codeblock id="03_21">
 </codeblock></exercise>
@@ -518,15 +502,8 @@ Are you sick of `biopics` yet? I promise this is the last time we use this datas
 - How to put it all together!
 - Chester's Mantra
 
-Please fill out our [feedback form](https://docs.google.com/forms/d/e/1FAIpQLSeWynGvUkqmE750I63mB0Y_VA6m7XVa16rJLBEviny3TwcJ5g/viewform?usp=sf_link)! We're trying to improve these workshops for future students.
-
-Just move on to the next chapter. (CTRL+K)  
-
 Good job for making it through this chapter! You're well on your way
 to becoming a `tidyverse` ninja!
 
-
-
-<codeblock id="03_22">
-</codeblock></exercise>
+</exercise>
 

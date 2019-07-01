@@ -1,6 +1,5 @@
-library(fivethirtyeight)
 library(dplyr)
+biopics <- readRDS("data/biopics.rds")
 
-data(biopics)
-options(tibble.width = Inf)
 biopics_sorted <- biopics %>%
+  arrange(------, ------)

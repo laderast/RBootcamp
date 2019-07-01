@@ -1,6 +1,7 @@
-library(fivethirtyeight)
 library(dplyr)
+biopics <- readRDS("data/biopics.rds")
 
-data(biopics)
-options(tibble.width = Inf)
-threeVarTable <- biopics %>% select(movieTitle=title, box_office, subject_sex)
+threeVarTable <- biopics %>% 
+  select(movieTitle=title, box_office, subject_sex)
+
+head(threeVarTable)
