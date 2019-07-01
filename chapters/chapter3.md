@@ -252,7 +252,8 @@ mutate(biopics, subject= paste(subject, year_release))
 <opt text="We are defining a brand-new variable with the same name in our dataset and keeping the old variable as well" correct="true">
 Great! Now you know you can also use `mutate()` to process variables in place.</opt>
 <opt text="We are processing the variable `subject` and saving it in place">
-Try it out. Did we add another variable?</opt></choice>
+Try it out. Did we add another variable?</opt>
+</choice>
 </exercise>
 
 <exercise id="12" title="The difference between `filter()` and `mutate()`">
