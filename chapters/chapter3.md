@@ -421,10 +421,9 @@ Welcome to the cult of `dplyr`! Your secret decoder ring is in the mail.
 </choice>
 </exercise>
 
-<exercise id="19" title="Putting it all together: Challenge 1">
+<exercise id="19" title="Challenge 1: Putting it all together">
 
-Now here comes the fun part. Chaining `dplyr` verbs together to accomplish some
-data cleaning and transformation.
+Now here comes the fun part. Chaining `dplyr` verbs together to accomplish some data cleaning and transformation.
 
 For a reference while you work, you can use the `dplyr` cheatsheet here: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
 
@@ -433,7 +432,7 @@ For a reference while you work, you can use the `dplyr` cheatsheet here: https:/
 + For the `biopics` data, `filter()` the data so that we only cover movies from 2000 to 2014. (`year_release` is the variable you want.)
 + Filter out the NAs in `box_office`.
 + Then  use `mutate()` to code a new variable, `box_office_per_subject`. (The two variables you need here are `box_office` and `number_of_subjects`.)
-+ Assign this statement to `biopics_new`
++ Assign this statement to `biopics_new`.
 + Run `summary()` on `biopics_new` to confirm that your statement worked.
 
 <codeblock id="03_19">
