@@ -12,6 +12,8 @@ Let's review the basics of `data.frame`s.
 
 A `data.frame` is basically a table-like format which has the following properties: 
 
+<img src="tidy-1.png">
+
 - Columns can each have a different type (`numeric`, `character`, `boolean`, `factor`)
 - Columns are called "variables"
 - Rows correspond to a single observation (ideally)

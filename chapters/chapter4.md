@@ -17,12 +17,9 @@ type: chapter
 
 After this chapter, you will be able to handle about 90% of your data visualization, data manipulation, and data cleaning problems. Hopefully you'll have gained enough confidence to start going beyond this Bootcamp and learn some more.
 
-Just move on to the next exercise. (CTRL+K)
+Just move on to the next exercise. 
 
-
-
-<codeblock id="04_01">
-</codeblock></exercise>
+</exercise>
 
 <exercise id="2" title="What is Tidy Data?">
 
@@ -32,7 +29,7 @@ Tidy data is defined as data that has the following properties:
 - each variable is a column
 - each type of observation is in a different table
 
-![Tidy Data](http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/tidy-1.png)
+<img src = "tidy-1.png">
 
 One thing to keep in mind is when columns are not separate variables. One clue is that the column names could be considered categories of a single variable. This means that the columns themselves could each correspond to a single observation.
 
