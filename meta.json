@@ -2,7 +2,7 @@
     "courseId": "RBootcamp",
     "title": "RBootcamp",
     "slogan": "A free online course about the basics of the tidyverse",
-    "description": "The R-Bootcamp is meant to be a gentle and gradual introduction to manipulating and visualizing data in R using the `tidyverse` suite of packages.",
+    "description": "The R-Bootcamp is a gentle and gradual introduction to manipulating and visualizing data in R using the `tidyverse` suite of packages. It is meant for incoming OHSU Bioinformatics and Comutational Biomedicine Majors but is appropriate for any beginners wanting to learn elementary data manipulation in R.",
     "bio": "Ted Laderas and Jessica Minnier",
     "siteUrl": "https://r-bootcamp.netlify.com",
     "twitter": "tladeras",
