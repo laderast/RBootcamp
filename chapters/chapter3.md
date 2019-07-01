@@ -39,7 +39,7 @@ If you want more information on a function such as `mutate()`, you can always as
 ?mutate
 ```
 
-Just move on to the next exercise!
+Move on to the next exercise!
 
 </exercise>
 
@@ -140,7 +140,7 @@ Three things to note:
 Which statement should be the larger subset? Try them out in the console if you're not sure.
 
 <choice>
-<opt text="`filter(biopics, year_release > 1980 & type_of_subject == "criminal")`">
+<opt text="`filter(biopics, year_release > 1980 & type_of_subject == "criminal")`" correct="true">
 Good Job! Let's move on.</opt>
 <opt text="`filter(biopics, year_release > 1980 | type_of_subject == "criminal")`">
 Nope. This should be the smaller subset (because you're applying both criteria)</opt></choice>
@@ -155,6 +155,8 @@ values together into a form that R can manipulate. Note that these values have t
 ```{r}
 biopicsUSUK <- biopics %>% filter(country %in% c("US", "UK"))
 ```
+
+### Instructions
 
 + Pick out the `Musician`, `Artist` and `Singer` movies from `type_of_subject`. 
 + Assign the output to `biopicsArt`.
@@ -177,6 +179,8 @@ Note the `!` in front of `is.na(box_office)`. This `!` is known as the NOT opera
 it switches the values in our `is.na` statement, making everything that was `TRUE` into `FALSE`, 
 and everything `FALSE` into `TRUE`. We want to keep everything that is not `NA`, so that's why 
 we use the `!`. 
+
+### Instructions
 
 + Filter `biopics` to remove the NAs, and assign the output to `filteredBiopics`. 
 + Compare the number of rows in `biopics` to `filteredBiopics`. 
@@ -201,16 +205,18 @@ What did we do here? First, we used the `mutate()` function to add a new column 
 `data.frame` called `normalized_box_office`. This new variable is calculated per row by dividing
 `box_office` by `number_of_subjects`.
 
+### Instructions
+
 + Try defining a new variable `race_and_gender` by pasting together `subject_race` and `subject_sex`
 into a new `data_frame` called `biopics2`. 
 + Show the first few rows using `head()` so you can confirm that you added this new variable correctly.
 
 Remember, you can use the `paste()` function to paste two strings together.
 
-
-
 <codeblock id="03_09">
-`paste(subject_race, subject_sex)`</codeblock></exercise>
+`paste(subject_race, subject_sex)`
+</codeblock>
+</exercise>
 
 <exercise id="10" title="You can use mutated variables right away!">
 
@@ -224,10 +230,10 @@ mutate(biopics, box_office_year = year_release * box_office, box_office_subject 
 Notice that we first defined `box_office_year` in the first part of the `mutate()` statement,
 and then used it right away to define a new variable, `box_office_subject`. 
 
+### Instructions
+
 + Define another variable called `box_office_y_s_num` in the same `mutate()` statement by taking  `box_office_year` and dividing it by `number_of_subjects`. 
 + Assign the output to `mutatedBiopics`.
-
-
 
 <codeblock id="03_10">
 Add `box_office_y_s_num=box_office_year/number_of_subjects` to the statement below.</codeblock></exercise>

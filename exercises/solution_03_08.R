@@ -1,9 +1,6 @@
-library(fivethirtyeight)
 library(dplyr)
+biopics <- readRDS("data/biopics.rds")
 
-data(biopics)
-biopics$country <- factor(biopics$country)
-options(tibble.width = Inf)
 filteredBiopics <- filter(biopics, !is.na(box_office))
 
 #show number of rows in biopics
