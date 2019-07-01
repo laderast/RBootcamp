@@ -353,9 +353,10 @@ biopics %>% group_by(type_of_subject) %>% summarize(count=n())
 
 <choice>
 <opt text="just shows the regular `biopics` `data.frame`">
-Now you know how to use `group_by()` and `summarize()` to count categories.</opt>
-<opt text="counts each `type_of_subject` and puts it in another table">
-Nope. Try it out and see what it does.</opt></choice>
+Nope. Try it out and see what it does.</opt>
+<opt text="counts each `type_of_subject` and puts it in another table" correct="true">Now you know how to use `group_by()` and `summarize()` to count categories.
+</opt>
+</choice>
 </exercise>
 
 <exercise id="16" title="arrange()">
@@ -369,6 +370,8 @@ biopics %>% arrange(country, year_release)
 
 This statement will sort the data by `country` first, and then within each `country` category, 
 it will sort by `year_release`.
+
+### Instructions
 
 Sort `biopics` by `year_release` then by `lead_actor_actress`. Assign the output to `biopics_sorted`.
 
@@ -402,12 +405,14 @@ Use `select` to extract the following variables: `title` (rename it `movieTitle`
 What is the difference between `select()` and `filter()?`
 
 <choice>
-<opt text="`select()` works on booleans, whereas `filter()` works on all data types">
-Welcome to the cult of `dplyr`! Your secret decoder ring is in the mail.</opt>
-<opt text="`select()` only works after `filter()`">
-Nope. Both of these verbs don't care what data type you use.</opt>
-<opt text="`select()` works on columns, `filter()` works on rows">
-Not true. You can use `filter()` and `select()` in any order!</opt></choice>
+<opt text="`select()` works on booleans, whereas `filter()` works on all data types">Nope. Both of these verbs don't care what data type you use.
+</opt>
+<opt text="`select()` only works after `filter()`">Not true. You can use `filter()` and `select()` in any order!
+</opt>
+<opt text="`select()` works on columns, `filter()` works on rows" correct = "true">
+Welcome to the cult of `dplyr`! Your secret decoder ring is in the mail.
+</opt>
+</choice>
 </exercise>
 
 <exercise id="19" title="Putting it all together: Challenge 1">
@@ -416,11 +421,9 @@ Now here comes the fun part. Chaining `dplyr` verbs together to accomplish some
 data cleaning and transformation.
 
 For a reference while you work, you can use the `dplyr` cheatsheet here: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
-1
+
 For the `biopics` data, `filter()` the data so that we only cover movies from 2000 to 2014. Then 
 use `mutate()` to code a new variable, `box_office_per_subject`. 
-
-
 
 <codeblock id="03_19">
 </codeblock></exercise>
