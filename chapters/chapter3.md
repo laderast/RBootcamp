@@ -236,7 +236,9 @@ and then used it right away to define a new variable, `box_office_subject`.
 + Assign the output to `mutatedBiopics`.
 
 <codeblock id="03_10">
-Add `box_office_y_s_num=box_office_year/number_of_subjects` to the statement below.</codeblock></exercise>
+Add `box_office_y_s_num=box_office_year/number_of_subjects` to the statement below.
+</codeblock>
+</exercise>
 
 <exercise id="11" title="Another Use for `mutate()`">
 
@@ -247,7 +249,7 @@ mutate(biopics, subject= paste(subject, year_release))
 ```
 
 <choice>
-<opt text="We are defining a brand-new variable with the same name in our dataset and keeping the old variable as well">
+<opt text="We are defining a brand-new variable with the same name in our dataset and keeping the old variable as well" correct="true">
 Great! Now you know you can also use `mutate()` to process variables in place.</opt>
 <opt text="We are processing the variable `subject` and saving it in place">
 Try it out. Did we add another variable?</opt></choice>
@@ -258,20 +260,28 @@ Try it out. Did we add another variable?</opt></choice>
 What is the difference between these two statements? Try them out in the console if you're not sure.
 
 ```{r}
-biopics %>% filter(year_release > 1998)
+biopics %>% 
+    filter(year_release > 1998) %>% 
+    head()
 ```
 
 ```{r}
-biopics %>% mutate(isNewer = year_release > 1998)
+biopics %>% 
+    mutate(isNewer = year_release > 1998) %>% 
+    head()
 ```
+<codeblock id = "03_11">
+
+</codeblock>
 
 <choice>
-<opt text="The first statement should have a larger number of rows than the second one">
+<opt text="The first statement should have a larger number of rows than the second one" correct="true">
 Yes! I'm glad you understand the difference.</opt>
 <opt text="The first statement filters the data, whereas the second statement defines a new boolean variable.">
 Not the case! Try comparing the number of rows.</opt>
 <opt text="The second statement is more confusing.">
-Yes, this is correct! We're identifying a new variable that we can use to flag the data.</opt></choice>
+Yes, this is correct! We're identifying a new variable that we can use to flag the data.</opt>
+</choice>
 </exercise>
 
 <exercise id="13" title="The Pipe Operator: %>%">
@@ -279,65 +289,29 @@ Yes, this is correct! We're identifying a new variable that we can use to flag t
 We're going to introduce another bit of `dplyr` syntax, the `%>%` operator. `%>%` is called a `pipe` operator. 
 You can think of it as being similar to the `+` in a `ggplot2` statement.
 
-What `%>%` does is that it takes the output of one statement and makes it the input of the next statement. When 
-I'm describing it, I think of it as a "THEN". For example, I read the following expression
+What `%>%` does is that it takes the output of one statement and makes it the input of the next statement. When I'm describing it, I think of it as a "THEN". For example, I read the following expression
 
 ```{r}
 biopics %>% filter(race_known == "Known") %>%
     mutate(poc_code = as.numeric(person_of_color))
 ```
 As: I took the `biopics` data, THEN 
-I filtered it down with the `race_known == "Known"` criteria and THEN 
+I `filter`ed it down with the `race_known == "Known"` criteria and THEN 
 I defined a new variable called `poc_code`.
 
 Note that `filter()` doesn't have a `data` argument, because the `data` is `piped` into `filter()`. Same thing for `mutate()`.
 
-`%>%` allows you to chain multiple verbs in the `tidyverse`. It's one of the most powerful things about the `tidyverse`. In fact,
-having a standardized chain of processing actions is called a **pipeline**. Making pipelines for a data
-format is great, because you can apply that pipeline to incoming data that has the same formatting and have it output in a `ggplot2` friendly format.
-1
+`%>%` allows you to chain multiple verbs in the `tidyverse`. It's one of the most powerful things about the `tidyverse`. 
+
+In fact, having a standardized chain of processing actions is called a **pipeline**. Making pipelines for a data format is great, because you can apply that pipeline to incoming data that has the same formatting and have it output in a `ggplot2` friendly format.
+
+### Instructions
+
 + Use `%>%` to chain `biopics` into a `filter` to select (`country=="US"`) 
 
-
-
 <codeblock id="03_13">
-</codeblock></exercise>
-
-<exercise id="13" title="The Pipe Operator: %>%">
-
-We're going to introduce another bit of `dplyr` syntax, the `%>%` operator. `%>%` is called a `pipe` operator. 
-You can think of it as being similar to the `+` in a `ggplot2` statement.
-
-What `%>%` does is that it takes the output of one statement and makes it the input of the next statement. When 
-I'm describing it, I think of it as a "THEN". For example, I read the following expression
-
-```{r}
-biopics %>% filter(race_known == "Known") %>%
-    mutate(poc_code = as.numeric(person_of_color))
-```
-As: I took the `biopics` data, THEN 
-I filtered it down with the `race_known == "Known"` criteria and THEN 
-I defined a new variable called `poc_code`.
-
-Note that `filter()` doesn't have a `data` argument, because the `data` is `piped` into `filter()`. Same thing for `mutate()`.
-
-`%>%` allows you to chain multiple verbs in the `tidyverse`. It's one of the most powerful things about the `tidyverse`. In fact,
-having a standardized chain of processing actions is called a **pipeline**. Making pipelines for a data
-format is great, because you can apply that pipeline to incoming data that has the same formatting and have it output in a `ggplot2` friendly format.
-2
-Let's put another verb into `filter`: `str_detect()` If you use this in a `filter` statement, you
-can use it to search for a string within a variable. 
-
-Add this to your dplyr statement (don't forget the `%>%`):
-
-```
-filter(str_detect(lead_actor_actress, "Richard"))
-```
-
-
-
-<codeblock id="03_13">
-</codeblock></exercise>
+</codeblock>
+</exercise>
 
 <exercise id="14" title="group_by()/summarize()">
 
@@ -356,6 +330,8 @@ any rows that have `NA` values in `box_office` that may confound our calculation
 
 Let's ask a tough question. Is there a difference between mean `box_office` 
 between the two `subject_sex` categories? 
+
+### Instructions
 
 First use `filter()` to remove the NA values. Then, use `group_by()` and `summarize()` to 
 calculate the mean `box_office` by `subject_sex`, naming the summary

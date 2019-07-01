@@ -1,7 +1,5 @@
-library(fivethirtyeight)
-library(tidyverse)
-library(stringr)
+library(dplyr)
+biopics <- readRDS("data/biopics.rds")
 
-data(biopics)
-options(tibble.width = Inf)
-
+biopics %>%
+  filter(-----)
