@@ -1,5 +1,5 @@
 library(ggplot2)
-pets <- readRDS("data/pets.rds")
+pets <- read.csv("data/pets.csv")
 
 ##show a barplot and count by name and fill by animal
 ##theme() allows us to angle the text labels so that we can read them

@@ -20,10 +20,7 @@ We'll manipulate our barplots and add more information using factors.
 Here's the simple dataset we'll use to investigate how to work with factors in `ggplot2`.
 
 + Using the console, look at the `pets` dataset. 
-+ Show the categories for `shotsCurrent` and `ageCategory` using `levels()`. 
-+ Remember, you'll need to use the `$` operator to access the variables in the `data.frame` (example: `pets$animal`).
-
-
++ Use the `glimpse()` function (it is part of the `dplyr` package, which we load for you) on `pets` to see the levels for the different categories.
 
 <codeblock id="02_01">
 </codeblock></exercise>
