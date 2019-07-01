@@ -35,11 +35,15 @@ One thing to keep in mind is when columns are not separate variables. One clue i
 
 Look at the `dem_score` dataset in the console by using either `head()` or `summary()` Would you consider this dataset tidy?
 
+<codeblock id="04_02">
+</codeblock>
+
 <choice>
 <opt text="Yes, we consider each row to be a separate observation">
 NA</opt>
 <opt text="No, each column is not a separate observation, but actually multiple observations">
-NA</opt></choice>
+NA</opt>
+</choice>
 </exercise>
 
 <exercise id="3" title="tidyr::gather()">
@@ -53,15 +57,15 @@ dem_score %>% gather(key=year, value=score, -country)
 The first argument, `key`, is the name of our 'gathered' variable. We're smushing all of the columns that have year names and 
 calling the column names, or the `key` the name of `year`. The second argument, `value`, is the actual observations. Finally, if we don't want a column to be gathered, we can leave it out with the `-` notation (here, `-country`).
 
+### Instructions
 
 + Try out the above `gather` statement. 
-+ Use a `mutate` expression to remove the `X` in front of `year`. (Look up the documentation for `str_replace` to see how to remove the `X` in the mutate statement). 
++ Use a `mutate` expression to remove the `X` in front of `year`.  
 + Assign the output to `gatheredData`.
 
-
-
 <codeblock id="04_03">
-The `mutate` expression to remove the `X` is `mutate(year=str_replace(year, "X", "")`.</codeblock></exercise>
+</codeblock>
+</exercise>
 
 <exercise id="4" title="tidyr::spread()">
 
@@ -78,15 +82,14 @@ We see that `spread()` takes two arguments: the first is the *key* column, which
 variable name that contains our column names of interest; the second is the *value* 
 column, which is the variable that contains the values we want to fill with.
 
+### Instructions
 
-+ Let's transform our `gatheredData` into a matrix again, but with each column having a 
-`country`. 
++ Let's transform our `gatheredData` into a matrix again, but with each column having a `country`. 
 + Assign the output to `spreadData`.
 
-
-
 <codeblock id="04_04">
-</codeblock></exercise>
+</codeblock>
+</exercise>
 
 <exercise id="5" title="dplyr::separate()">
 
@@ -104,19 +107,18 @@ health_code_separated <-
         separate(col=HealthCodeEncounterCode, 
         into=c("HealthCode", "EncounterCode"), sep="/")
 ```
-Here we specify the variable name with `col`, the names of the new columns with `into`, and 
-the delimiter, or separator in the variable to separate on, with `sep`. Note that `sep` can
+Here we specify the variable name with `col`, the names of the new columns with `into`, and the delimiter, or separator in the variable to separate on, with `sep`. Note that `sep` can
 be any string.
 
+### Instructions
 
 + Run the above code and `separate` `HealthCodeEncounterCode` into `HealthCode` and `EncounterCode` for  `health_code_example`, assigning the output to `health_code_separated`. 
 + Show those patients that had `HealthCode==410`, assigning them to `patients410`. 
-+ Show `patients410`.
-
-
++ Show the `head()` of `patients410`.
 
 <codeblock id="04_05">
-</codeblock></exercise>
+</codeblock>
+</exercise>
 
 <exercise id="6" title="Wide Versus Long Data">
 
@@ -131,16 +133,14 @@ plots when I have a lot of covariates. Let's look at what's possible because the
 Let's practice with another dataset in long format, called `fertilityTidy`. You can look at the 
 original data as `fertilityData`. We'll summarize it in two different ways.
 
+### Instructions
 
-+ Look at `fertilityTidy`. Show the average fertility by country to present day 
-by using `dplyr` verbs, calling this variable `meanCountryRate`. 
++ Look at `fertilityTidy`. Show the average fertility by country to present day by using `dplyr` verbs, calling this variable `meanCountryRate`. 
 + Assign the summarized data to `fertilityMeanByCountry`. 
 + Show `fertilityMeanByCountry`.
 + Next, show average fertility by `Year`, using `group_by/summarize()` assigning the
 summarized data to `fertilityMeanByYear`. 
 + Show `fertilityMeanByYear`.
-
-
 
 <codeblock id="04_06">
 You'll have to first use a `filter()` statement, and then a `group_by/summarize` statement.</codeblock></exercise>
@@ -149,6 +149,7 @@ You'll have to first use a `filter()` statement, and then a `group_by/summarize`
 
 Let's put everything we've learned together on a new data.frame called `MouseBalanceTimeSeries`.
 
+### Instructions
 
 + Look at the `MouseBalanceTimeSeries` `data.frame`. This is a wide `data.frame` where 
 each column corresponds to the time (in seconds) a mouse stayed on
@@ -158,8 +159,6 @@ a balance beam pre and post treatment.
 + Remove any observations that are `NA`. Assign the output to `gatheredMouse`. 
 + Finally, make a boxplot of `gatheredMouse`, plotting `time` versus `intervention` using `geom_boxplot`.
 
-
-
 <codeblock id="04_07">
 </codeblock></exercise>
 
@@ -167,11 +166,15 @@ a balance beam pre and post treatment.
 
 Was there a difference in mean time spent on the balance beam pre and post treatment?
 
+<img src="mouse_time.png">
+
 <choice>
 <opt text="No, the times were too close to tell.">
-NA</opt>
-<opt text="Yes, the intervals overlapped, but the means were clearly different">
-NA</opt></choice>
+Go back and look at the graph.
+</opt>
+<opt text="Yes, the intervals overlapped, but the means were clearly different" correct="true">
+Yes, there is a difference in medians, although the intervals overlapped.</opt>
+</choice>
 </exercise>
 
 

@@ -1,6 +1,10 @@
-dem_score <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/dem_score.csv")
 library(dplyr)
 library(tidyr)
 library(stringr)
+dem_score <- read.csv("data/dem_score.csv")
 
-gatheredData <- 
+gatheredData <- dem_score %>% 
+  gather(key=----, value=-----, -country) %>%
+  mutate(year=str_replace(year, "X",""))
+
+head(gatheredData)
