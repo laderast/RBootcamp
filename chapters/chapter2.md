@@ -63,13 +63,16 @@ ggplot(pets, aes(x=animal, fill=shotsCurrent)) +
   geom_bar(color="black")
 ```
 
+<img src = "pet_black.png">
+
 <choice>
 <opt text="Makes the default bar fill color black">
 Great! That's one tip for improving the appearance of your bar graph.</opt>
 <opt text="Specifies the text in the graph to be black">
 Not quite. Look at the graph. What is being mapped to `black`?</opt>
-<opt text="Outlines the bars in black">
-Good! Yes, we are outlining the bars in `black`.</opt></choice>
+<opt text="Outlines the bars in black" correct="true">
+Good! Yes, we are outlining the bars in `black`.</opt>
+</choice>
 </exercise>
 
 <exercise id="5" title="Proportional Barchart">
@@ -81,9 +84,9 @@ we can show proportions rather than counts.
 Change the `position` argument in `geom_bar()` to `"fill"`. What percent of dogs did not receive shots?
 
 
-
 <codeblock id="02_05">
-</codeblock></exercise>
+</codeblock>
+</exercise>
 
 <exercise id="6" title="Dodge those bars!">
 
@@ -91,10 +94,9 @@ Instead of stacking, we can also dodge the bars (move the bars so they're beside
 
 Change the `position` argument in `geom_bar()` to `"dodge"`.
 
-
-
 <codeblock id="02_06">
-</codeblock></exercise>
+</codeblock>
+</exercise>
 
 <exercise id="7" title="Faceting a graph">
 
@@ -113,10 +115,9 @@ You might notice that there are blank spots for the categories in each facet. We
 
 Add `free_x` to the scale argument. How many animals named "Morris" did not receive shots? 
 
-
-
 <codeblock id="02_07">
-</codeblock></exercise>
+</codeblock>
+</exercise>
 
 <exercise id="8" title="Super Quick Review">
 
@@ -131,10 +132,11 @@ ggplot(pets, aes(x=name)) + geom_bar() +
 <choice>
 <opt text="plot points as pretty gems">
 Not that kind of facet!</opt>
-<opt text="stratify our graph by another category">
+<opt text="stratify our graph by another category" correct="true">
 Yes! Faceting is a way of visualizing information by stratifying on an additional variable.</opt>
 <opt text="add another set of categories to the x-axis">
-Not right.</opt></choice>
+Not right.</opt>
+</choice>
 </exercise>
 
 <exercise id="9" title="Your Task: Bar Charts">
@@ -147,8 +149,6 @@ Given the `pets` `data.frame`:
 
 Is the proportion of animals receiving shots the same across each age category?
 
-
-
 <codeblock id="02_09">
 Think about what to map to `x`, and what to map to `fill`, and what `position` argument 
 you need for `geom_bar()`. Finally, think about how to facet the variable. </codeblock></exercise>
@@ -157,19 +157,21 @@ you need for `geom_bar()`. Finally, think about how to facet the variable. </cod
 
 Boxplots allow us to assess distributions of a continuous variable (`weight`) conditioned on categorical variables (`shotsCurrent`).
 
+<img src="pet_shot.png">
+
 What does this tell us? Is there a difference in weight between those animals who recieved shots or not?
 
 <choice>
-<opt text="there is a small difference in means, but the difference doesn't look significant">
+<opt text="there is a small difference in means, but the difference doesn't look significant" correct="true">
 Yes, this appears to be the case. The interquartile ranges are overlapping, so it's probably not significant.</opt>
 <opt text="there is no difference in means">
 This is a judgement call, but there is a small difference in means between the groups</opt>
 <opt text="there is a large difference in means and the difference is probably statistically significant">
-Probably not true. The interquartile ranges are overlapping, so it's probably not a significant difference in means.</opt></choice>
+Probably not true. The interquartile ranges are overlapping, so it's probably not a significant difference in means.</opt>
+</choice>
 </exercise>
 
 <exercise id="11" title="Try out geom_boxplot() yourself">
-
 
 Plot a boxplot of `weight` conditioned on `animal`. Is there a difference in weight between animal types?
 
@@ -191,8 +193,15 @@ Violin plots are another useful way to visualize the data. They provide a more n
 <codeblock id="02_12">
 </codeblock></exercise>
 
+<exercise id="13" title = "Your final task: How heavy are our pets?">
 
-</codeblock></exercise>
++ Visualize `weight` by `animal` type. 
++ Plot both boxplots and a violin plot on the same graph.
++ What do you conclude? Which kind of animal weighs more on average than the other? 
+
+<codeblock id = "02_13">
+</codeblock>
+</exercise>
 
 <exercise id="14" title="What you learned in this chapter">
 
@@ -203,9 +212,7 @@ Violin plots are another useful way to visualize the data. They provide a more n
 - How to stratify your graphs using `facet_wrap()`
 - More about how to put together a ggplot
 
-Just move on to the next chapter! (CTRL+K)
-
-
+Just move on to the next chapter! 
 
 <codeblock id="02_14">
 </codeblock></exercise>
