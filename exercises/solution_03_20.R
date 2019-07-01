@@ -7,4 +7,4 @@ race_country_box_office <- biopics %>%
     summarize(mean_box_office=mean(box_office)) %>%
     arrange(desc(mean_box_office))
 
-summary(race_country_box_office)
+race_country_box_office

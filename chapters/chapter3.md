@@ -452,7 +452,7 @@ Which `race_known`/`country` combination made the highest amount of money?
 + Finally, figure out what do you need to `summarize` (assign the value to `mean_box_office`) 
 and `arrange` on (don't forget to use `desc`!)? 
 + Assign the output to `race_country_box_office`.
-+ Run summary on `race_country_box_office`.
++ Show `race_country_box_office`.
 
 
 
