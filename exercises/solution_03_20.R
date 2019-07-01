@@ -6,3 +6,5 @@ race_country_box_office <- biopics %>%
     group_by(race_known, country) %>%
     summarize(mean_box_office=mean(box_office)) %>%
     arrange(desc(mean_box_office))
+
+summary(race_country_box_office)
