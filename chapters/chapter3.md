@@ -65,6 +65,8 @@ sumOfThreeNumbers <- sumOfTwoNumbers + 3
 This is the bare basics of assignment. We'll use it in the next exercises to evaluate the output
 of our `dplyr` cleaning.
 
+### Instructions
+
 + Assign `newValue` the value of `10`. 
 + Then use `newValue` to calculate the value of `multValue` by calculating `newValue * 5`. 
 + Show `multValue`.
@@ -76,6 +78,8 @@ of our `dplyr` cleaning.
 <exercise id="3" title="Let's look at some data and ways to manipulate it.">
 
 We're going to use the `biopics` dataset in the `fivethirtyeight` package to do learn `dplyr`. This is a dataset of 761 different biopic movies. 
+
+## Instructions
 
 + Run a `summary` on the `biopics` dataset. It's already loaded up for you. 
 + How many categories are in the `country` variable?
@@ -143,17 +147,15 @@ Three things to note:
 Which statement should be the larger subset? Try them out in the console if you're not sure.
 
 <choice>
-<opt text="filter(biopics, year_release > 1980 & type_of_subject == 'criminal')" correct="true">
-Good Job! Let's move on.</opt>
-<opt text="filter(biopics, year_release > 1980 | type_of_subject == 'criminal')">
-Nope. This should be the smaller subset (because you're applying both criteria)</opt></choice>
+<opt text="filter(biopics, year_release > 1980 & type_of_subject == 'criminal')">Nope. This should be the smaller subset (because you're applying both criteria)
+</opt>
+<opt text="filter(biopics, year_release > 1980 | type_of_subject == 'criminal')" correct="true">Good Job! Yes, when you use an OR (|), it results in a larger subset. Let's move on.
+</opt></choice>
 </exercise>
 
 <exercise id="7" title="The %in% operator">
 
-What if you wanted to select for multiple values? You can use the `%in%` operator. Here we
-put the values into a `vector` with the `c()` function, which concatentates the
-values together into a form that R can manipulate. Note that these values have to be exact.
+What if you wanted to select for multiple values? You can use the `%in%` operator. Here we put the values into a `vector` with the `c()` function, which concatentates the values together into a form that R can manipulate. Note that these values have to be exact and the case has to be the same (that is, "UK", not "Uk" or "uk") for the matching to work.
 
 ```{r}
 biopicsUSUK <- biopics %>% filter(country %in% c("US", "UK"))
@@ -227,7 +229,9 @@ The nifty thing about `mutate()` is that once you define the variables in the st
 you can use them right away, in the same `mutate` statement. For example, look at this code:
 
 ```{r}
-mutate(biopics, box_office_year = year_release * box_office, box_office_subject = paste0(box_office_year, subject))
+mutate(biopics, 
+    box_office_year = year_release * box_office, 
+    box_office_subject = paste0(box_office_year, subject))
 ```
 
 Notice that we first defined `box_office_year` in the first part of the `mutate()` statement,

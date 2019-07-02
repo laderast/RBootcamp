@@ -110,7 +110,19 @@ be any string.
 
 ### Instructions
 
-+ Run the above code and `separate` `HealthCodeEncounterCode` into `HealthCode` and `EncounterCode` for  `health_code_example`, assigning the output to `health_code_separated`. 
++ `separate` `HealthCodeEncounterCode` into `HealthCode` and `EncounterCode` for  `health_code_example`, assigning the output to `health_code_separated`. Here is an excerpt of the first few rows of `health_code_separated`.:
+
+```
+# A tibble: 5 x 3
+  PatientID HealthCodeEncounterCode timeElapsed
+  <chr>     <chr>                         <dbl>
+1 P1        410/22                           20
+2 P2        410/20                           15
+3 P3        511/22                           16
+4 P4        511/20                           17
+5 P5        511/20                           30
+```
+
 + Show those patients that had `HealthCode==410`, assigning them to `patients410`. 
 + Show the `head()` of `patients410`.
 
@@ -133,7 +145,18 @@ original data as `fertilityData`. We'll summarize it in two different ways.
 
 ### Instructions
 
-+ Look at `fertilityTidy`. Show the average fertility by country to present day by using `dplyr` verbs, calling this variable `meanCountryRate`. 
++ Look at `fertilityTidy`. Show the average fertility by country to present day by using `dplyr` verbs, calling this variable `meanCountryRate`. Here are the first few rows of `fertilityTidy`:
+
+```
+              Country Year fertilityRate
+1         Afghanistan 1800          7.00
+2             Albania 1800          4.60
+3             Algeria 1800          6.99
+4              Angola 1800          6.93
+5 Antigua and Barbuda 1800          5.00
+6           Argentina 1800          6.80
+```
+
 + Assign the summarized data to `fertilityMeanByCountry`. 
 + Show `fertilityMeanByCountry`.
 + Next, show average fertility by `Year`, using `group_by/summarize()` assigning the
@@ -149,9 +172,17 @@ Let's put everything we've learned together on a new data.frame called `MouseBal
 
 ### Instructions
 
-+ Look at the `MouseBalanceTimeSeries` `data.frame`. This is a wide `data.frame` where 
-each column corresponds to the time (in seconds) a mouse stayed on
-a balance beam pre and post treatment. 
++ Look at the `MouseBalanceTimeSeries` `data.frame`. This is a wide `data.frame` where each column corresponds to the time (in seconds) a mouse stayed on a balance beam pre and post treatment. Here are the first few rows of the dataset:
+
+```
+mouseID PreTreat1 PreTreat2 PreTreat3 PostTreat1 PostTreat2 PostTreat3
+1      M1       2.1       1.9       1.6        4.4        3.5        5.1
+2      M2       1.8       2.6       1.7        5.2        4.9        4.2
+3      M3       1.9       1.1       1.8        2.1        2.2        1.8
+4      M4       2.4       0.8       2.2        3.1        3.3        3.4
+5      M5        NA        NA        NA         NA         NA         NA
+6      M6       4.5       4.3       3.8        3.7        4.2        5.6
+```
 + `gather()` the measurements into a single column called `time` with a key called `interventionStatus`. 
 + Use `separate()` to make `measurementStatus` into  two columns (`intervention` and `replicate`) by specifying `sep="Treat"`. 
 + Remove any observations that are `NA`. Assign the output to `gatheredMouse`. 
