@@ -12,8 +12,6 @@ type: chapter
 + How to make messy data tidy using `tidyr`
 + Long vs. Wide data
 + The tidy manifesto
-+ Loading Data
-+ Joining tables on a common identifier
 
 After this chapter, you will be able to handle about 90% of your data visualization, data manipulation, and data cleaning problems. Hopefully you'll have gained enough confidence to start going beyond this Bootcamp and learn some more.
 
@@ -180,3 +178,11 @@ Yes, there is a difference in medians, although the intervals overlapped.</opt>
 
 </codeblock></exercise>
 
+<exercise id="9" title="What you learned in this lesson">
+
++ How to identify tidy data
++ How to make messy data tidy using `tidyr`
++ Long vs. Wide data
++ The tidy manifesto
+
+</exercise>
