@@ -137,12 +137,15 @@ Three things to note:
 
 <exercise id="6" title="Quick Quiz about Chaining Comparisons">
 
+<codeblock id = "03_06">
+</codeblock>
+
 Which statement should be the larger subset? Try them out in the console if you're not sure.
 
 <choice>
-<opt text="`filter(biopics, year_release > 1980 & type_of_subject == "criminal")`" correct="true">
+<opt text="filter(biopics, year_release > 1980 & type_of_subject == 'criminal')" correct="true">
 Good Job! Let's move on.</opt>
-<opt text="`filter(biopics, year_release > 1980 | type_of_subject == "criminal")`">
+<opt text="filter(biopics, year_release > 1980 | type_of_subject == 'criminal')">
 Nope. This should be the smaller subset (because you're applying both criteria)</opt></choice>
 </exercise>
 
