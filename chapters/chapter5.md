@@ -29,7 +29,7 @@ Now use `table()` as part of a pipe to look at the cross-table of `fisherman` an
 <codeblock id="05_01">
 </codeblock></exercise>
 
-<exercise id="3" title="Visualize Mean of Total Mercury by Fisherman Status">
+<exercise id="2" title="Visualize Mean of Total Mercury by Fisherman Status">
 
 Let's visualize mean `total_mercury` (total mercury) by `fisherman` status to 
 see whether there is a difference between them.
@@ -42,10 +42,10 @@ We can add the mean as a point using `stat_summary` to see how the mean differs 
 
 
 
-<codeblock id="05_03">
+<codeblock id="05_02">
 </codeblock></exercise>
 
-<exercise id="4" title="Compute Means with group_by">
+<exercise id="3" title="Compute Means with group_by">
 
 We can also use `group_by` and `summarize` to explicitly compute the means and standard deviations for each `fisherman` group.
 
@@ -54,10 +54,10 @@ Use `group_by` in the `dplyr` package to group the data frame by `fisherman` sta
 
 
 
-<codeblock id="05_04">
+<codeblock id="05_03">
 </codeblock></exercise>
 
-<exercise id="5" title="Is there a difference?">
+<exercise id="4" title="Is there a difference?">
 
 Is there a difference between the two groups: fishermen and non-fishermen?
 
@@ -71,7 +71,7 @@ Correct! That's right, fisherman seem to have higher total mercury
 </choice>
 </exercise>
 
-<exercise id="6" title="T-test of means for fisherman status">
+<exercise id="5" title="T-test of means for fisherman status">
 
 A common and very useful test used to compare two means for Normally distributed data is the Student's T Test. The null hypothesis is that two means from two independent groups are identical, and the alternative hypothesis is that the two means are not identical (two-sided test).
 
@@ -82,10 +82,10 @@ Use the function `t.test` to compare the mean `total_mercury` in fishermen and n
 
 
 
-<codeblock id="05_06">
+<codeblock id="05_05">
 </codeblock></exercise>
 
-<exercise id="7" title="Sweep up that output with Broom">
+<exercise id="6" title="Sweep up that output with Broom">
 
 That output was pretty ugly, wasn't it? There's an extremely handy package called `broom` that can help us clean it up into a tidy data table. Funnily enough, the handy function is called `tidy`.
 
@@ -94,10 +94,10 @@ Use `tidy()` to save the output of the t.test to a data.frame called `tidyTtest`
 
 
 
-<codeblock id="05_07">
+<codeblock id="05_06">
 </codeblock></exercise>
 
-<exercise id="8" title="Let's delve deeper into the data">
+<exercise id="7" title="Let's delve deeper into the data">
 
 We have other covariates in our data. We want to see whether we can use these covariates to
 predict the level of Mercury Exposure. Could another covariate be confounding the relationship between fisherman and total mercury?
@@ -109,10 +109,10 @@ Use `geom_point` to make scatterplots of the two variables.
 
 
 
-<codeblock id="05_08">
+<codeblock id="05_07">
 </codeblock></exercise>
 
-<exercise id="9" title="Linear Regression">
+<exercise id="8" title="Linear Regression">
 
 It looks like both `weight` and number of fish meals per week (`fishmlweek`) are associated with `total_mercury`. They also appear to be associated with `fisherman` status. We saw earlier from our cross-table output that fisherman tend to eat more fish (surprised?).
 
@@ -125,13 +125,17 @@ Fit a linear regression with `fisherman` as the independent variable and `total_
 
 
 
+<codeblock id="05_08">
+</codeblock></exercise>
+
+<exercise id="9" title="Add something here">
+
+
+
 <codeblock id="05_09">
 </codeblock></exercise>
 
-
-</codeblock></exercise>
-
-<exercise id="11" title="Broom with linear regression: glance">
+<exercise id="10" title="Broom with linear regression: glance">
 
 Now let's do something similar with the $R^2 $ summary measure which is a measure of model fit in that it quantifies the amount of variance explained in the outcome (total mercury) explained by the predictors. Using broom, we get model summary level information from the function `glance()`. While `tidy()` returned a tibble/data_frame of covariate information with one row for each model term, `glance()` will return a tibble with just one row with all the pertinent single value model information.
 
@@ -140,10 +144,10 @@ Use the output from `summary` to obtain an $R^2 $ for fisherman from `fit_multip
 
 
 
-<codeblock id="05_11">
+<codeblock id="05_10">
 </codeblock></exercise>
 
-<exercise id="12" title="Compare our models">
+<exercise id="11" title="Compare our models">
 
 We've built two models: `fit_univariate` and `fit_multiple`. The first only contains `fisherman` as a predictor, and the second contains `fisherman` as well as `weight` and number of `fishmealwk`.
 
@@ -154,10 +158,10 @@ Extract the covariate information using `tidy` from the two models and bind them
 
 
 
-<codeblock id="05_12">
+<codeblock id="05_11">
 </codeblock></exercise>
 
-<exercise id="13" title="Prediction of mercury">
+<exercise id="12" title="Prediction of mercury">
 
 How confident are you that being a fisherman is associated with higher levels of mercury?
 
@@ -170,7 +174,7 @@ That's right, total fish intake seems to be more associated with mercury levels,
 </choice>
 </exercise>
 
-<exercise id="14" title="Challenge 1: augment + ggplot2">
+<exercise id="13" title="Challenge 1: augment + ggplot2">
 
 We have some models and with models comes predictions, or fitted values. That is, we've fit a linear regression to predict our "y" which is `total_mercury`, and we can obtain fitted values based on the model. We can compare these fitted values to the true value of `total_mercury`.
 
@@ -183,12 +187,7 @@ For both models, use `augment` to obtain fitted values of `total_mercury` and sa
 
 
 
-<codeblock id="05_14">
+<codeblock id="05_13">
 </codeblock></exercise>
 
-
-</codeblock></exercise>
-
-
-</codeblock></exercise>
 
