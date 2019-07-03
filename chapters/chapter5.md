@@ -14,7 +14,7 @@ type: chapter
 We are going to explore a dataset called the fishermen mercury dataset, which consists of factors 
 related to mercury exposure among two groups: fishermen and non-fishermen, who are our control group. 
 
-Take a look at the readme for this dataset first: [README](http://s3.amazonaws.com/assets.datacamp.com/production/course_3864/datasets/fishermen_mercury_README.txt)
+Take a look at the readme for this dataset first: [README](data/fishermen_mercury_README.txt)
 
 Then use `glimpse` to take a look at the structure of the data and try `table()` on 
 `fisherman`. What are the different categories of `fishpart` and `fisherman`?
@@ -36,9 +36,7 @@ see whether there is a difference between them.
 
 
 Use `geom_boxplot()` to visualize the median of `total_mercury` conditioned on
-`fisherman` status (if you can't remember, 
-[here's the exercise](https://campus.datacamp.com/courses/rbootcamp/ggplot2-and-categorical-data?ex=11)). 
-Make sure to cast `fisherman` as a factor.
+`fisherman` status. Make sure to cast `fisherman` as a factor.
 
 We can add the mean as a point using `stat_summary` to see how the mean differs from the median.
 
@@ -65,9 +63,12 @@ Is there a difference between the two groups: fishermen and non-fishermen?
 
 <choice>
 <opt text="No, there isn't. The means are too close.">
-That's right, fisherman seem to have higher total mercury</opt>
-<opt text="Yes, there is. The intervals overlap but there is a clear difference in means">
-NA</opt></choice>
+Look closer.
+</opt>
+<opt text="Yes, there is. The intervals overlap but there is a clear difference in means"  correct = "true">
+Correct! That's right, fisherman seem to have higher total mercury
+</opt>
+</choice>
 </exercise>
 
 <exercise id="6" title="T-test of means for fisherman status">
@@ -162,9 +163,11 @@ How confident are you that being a fisherman is associated with higher levels of
 
 <choice>
 <opt text="So confident, I don't want to be a fisherman!">
-That's right, total fish intake seems to be more associated with mercury levels, and after adjusting for this in the multiple regression, fisherman status is no longer significantly associated with total mercury.</opt>
-<opt text="Not confident, there are other confounding factors at play here, maybe they should just eat less fish?">
-NA</opt></choice>
+Are you sure?</opt>
+<opt text="Not confident, there are other confounding factors at play here, maybe they should just eat less fish?" correct = "true">
+That's right, total fish intake seems to be more associated with mercury levels, and after adjusting for this in the multiple regression, fisherman status is no longer significantly associated with total mercury.
+</opt>
+</choice>
 </exercise>
 
 <exercise id="14" title="Challenge 1: augment + ggplot2">
