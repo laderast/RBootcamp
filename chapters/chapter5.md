@@ -9,7 +9,7 @@ type: chapter
 
 </codeblock></exercise>
 
-<exercise id="2" title="Let's explore the fishermen mercury dataset">
+<exercise id="1" title="Let's explore the fishermen mercury dataset">
 
 We are going to explore a dataset called the fishermen mercury dataset, which consists of factors 
 related to mercury exposure among two groups: fishermen and non-fishermen, who are our control group. 
@@ -26,7 +26,7 @@ Now use `table()` as part of a pipe to look at the cross-table of `fisherman` an
 
 
 
-<codeblock id="05_02">
+<codeblock id="05_01">
 </codeblock></exercise>
 
 <exercise id="3" title="Visualize Mean of Total Mercury by Fisherman Status">
