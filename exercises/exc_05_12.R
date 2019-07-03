@@ -4,28 +4,21 @@ library(broom)
 fishdata <- read_csv("data/fisherman_mercury_modified.csv")
 fishdata$fisherman <- factor(fishdata$fisherman)
 
-# Here are our two models
-fit_univariate <- lm(total_mercury ~ fisherman, data = fishdata)
-fit_multiple <-
-  lm(total_mercury ~ fisherman + weight + fishmlwk, data = fishdata)
+# Here are our models again
+fit_univariate <- lm(total_mercury~fisherman,data=fishdata)
+fit_multiple <- lm(total_mercury~fisherman+weight+fishmlwk,data=fishdata)
 
-# Tidy 'em up
-fit_univariate_tidy <-
-  fit_multiple_tidy <-
-  
-  # Bind them
-  both_tidy <- bind_rows("univariate" = ___,
-                         "multiple" = ___,
-                         .id = "model")
-both_tidy
+# save augmented data here
+fit_multiple_augment <- 
+fit_univariate_augment <- 
 
-# Same with glance (we can try doing this in one line)
-both_glance <- bind_rows(
-  "univariate" = glance(___),
-  "multiple" = glance(___),
-  .id = "model"
-)
-both_glance
+# bind rows
+augmented_data <- bind_rows("univariate" = ,
+                              "multiple" = ,
+                              .id = "model")
 
-# Show just fisherman's covariate information
-both_tidy %>% ___(term == "fisherman1")
+# scatterplot of total mercury (x-axis) vs fitted values (y-axis), color fishmlwk and shape fisherman
+ggplot(augmented_data, aes()) +
+  geom_point() +
+  geom_abline() +
+  facet_wrap()
