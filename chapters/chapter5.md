@@ -65,9 +65,12 @@ Is there a difference between the two groups: fishermen and non-fishermen?
 
 <choice>
 <opt text="No, there isn't. The means are too close.">
-That's right, fisherman seem to have higher total mercury</opt>
-<opt text="Yes, there is. The intervals overlap but there is a clear difference in means">
-NA</opt></choice>
+Look closer.
+</opt>
+<opt text="Yes, there is. The intervals overlap but there is a clear difference in means"  correct = "true">
+Correct! That's right, fisherman seem to have higher total mercury
+</opt>
+</choice>
 </exercise>
 
 <exercise id="6" title="T-test of means for fisherman status">
@@ -162,9 +165,11 @@ How confident are you that being a fisherman is associated with higher levels of
 
 <choice>
 <opt text="So confident, I don't want to be a fisherman!">
-That's right, total fish intake seems to be more associated with mercury levels, and after adjusting for this in the multiple regression, fisherman status is no longer significantly associated with total mercury.</opt>
-<opt text="Not confident, there are other confounding factors at play here, maybe they should just eat less fish?">
-NA</opt></choice>
+Are you sure?</opt>
+<opt text="Not confident, there are other confounding factors at play here, maybe they should just eat less fish?" correct = "true">
+That's right, total fish intake seems to be more associated with mercury levels, and after adjusting for this in the multiple regression, fisherman status is no longer significantly associated with total mercury.
+</opt>
+</choice>
 </exercise>
 
 <exercise id="14" title="Challenge 1: augment + ggplot2">
