@@ -19,7 +19,7 @@
     "footerLinks": [
         { "text": "Source", "url": "https://github.com/laderast/RBootcamp" },
         { "text": "Built with ♥", "url": "https://github.com/ines/course-starter-r" },
-        { "text": "Please report any bugs you find as an issue (click me to add an issue)","url":"https://github.com/laderast/RBootcamp/issues/new"}
+        { "text": "Please report any bugs you find as an issue (click me to add an issue)","url":"https://github.com/laderast/RBootcamp/issues/new?assignees=&labels=&template=bug_report.md&title=Data+Exercise+Bug%2FError"}
     ],
     "theme": "#de7878"
 }
