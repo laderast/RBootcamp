@@ -1,8 +1,7 @@
-library(tidyverse)
-library(broom)
+library(dplyr)
 
-fishdata <- read_csv("data/fisherman_mercury_modified.csv")
-fishdata$fisherman <- factor(fishdata$fisherman)
+fishdata <- read.csv("data/fisherman_mercury_modified.csv") %>%
+  mutate(fisherman = factor(fisherman))
 
 # fit the univariate model
 fit_univariate <- lm(total_mercury ~ fisherman, data = fishdata)
