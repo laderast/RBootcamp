@@ -10,11 +10,12 @@ fit_multiple <-
   lm(total_mercury ~ fisherman + weight + fishmlwk, data = fishdata)
 
 # Tidy 'em up
-fit_univariate_tidy <-
-  fit_multiple_tidy <-
+fit_univariate_tidy <- ____
   
-  # Bind them
-  both_tidy <- bind_rows("univariate" = ___,
+fit_multiple_tidy <- ____
+  
+# Bind them
+both_tidy <- bind_rows("univariate" = ___,
                          "multiple" = ___,
                          .id = "model")
 both_tidy
@@ -28,4 +29,4 @@ both_glance <- bind_rows(
 both_glance
 
 # Show just fisherman's covariate information
-both_tidy %>% ___(term == "fisherman1")
+both_tidy %>% ___(term == ___)

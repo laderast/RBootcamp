@@ -11,6 +11,7 @@ fit_multiple <-
 
 # Tidy 'em up
 fit_univariate_tidy <- tidy(fit_univariate)
+
 fit_multiple_tidy <- tidy(fit_multiple)
 
 # Bind them
