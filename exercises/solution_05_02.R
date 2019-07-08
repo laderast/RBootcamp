@@ -1,7 +1,10 @@
-library(tidyverse)
-library(broom)
+library(dplyr)
+library(ggplot2)
 
-fishdata <- read_csv("data/fisherman_mercury_modified.csv")
-fishdata$fisherman <- factor(fishdata$fisherman)
-ggplot(fishdata, aes(x=fisherman, y=total_mercury)) + geom_boxplot() +
+fishdata <- read.csv("data/fisherman_mercury_modified.csv") %>%
+  mutate(fisherman = factor(fisherman))
+
+# plot total_mercury
+ggplot(fishdata, aes(x=fisherman, y=total_mercury)) + 
+  geom_boxplot() +
   stat_summary(fun.y="mean",geom="point",pch=3,color="red")
