@@ -1,16 +1,14 @@
-library(tidyverse)
-library(broom)
+library(dplyr)
+library(ggplot2)
 
-fishdata <- read_csv("data/fisherman_mercury_modified.csv")
-fishdata$fisherman <- factor(fishdata$fisherman)
-fishTtest <- t.test(total_mercury~fisherman,data=fishdata)
+fishdata <- read.csv("data/fisherman_mercury_modified.csv") %>%
+  mutate(fisherman = factor(fisherman))
 
-# use tidy here
-tidyTtest <- tidy()
+# draw a scatterplot of weight (x-axis) vs total_mercury (y axis) 
+# and color by fisherman category
+ggplot(fishdata,aes(___,___,color=___))+___
 
-# glimpse your output
-glimpse(___)
-
-# extract a p-value
-tidyTtest$___
+# draw a scatterplot of fishmlwk (x-axis) vs total_mercury (y axis) 
+# and color by fisherman category
+ggplot(fishdata,aes(___,___,color=___))+___
 

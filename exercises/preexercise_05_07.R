@@ -1,5 +1,5 @@
-library(tidyverse)
-library(broom)
+library(dplyr)
+library(ggplot2)
 
-fishdata <- read_csv("data/fisherman_mercury_modified.csv")
-fishdata$fisherman <- factor(fishdata$fisherman)
+fishdata <- read.csv("data/fisherman_mercury_modified.csv") %>%
+  mutate(fisherman = factor(fisherman))

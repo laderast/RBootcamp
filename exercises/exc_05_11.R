@@ -1,22 +1,32 @@
-library(tidyverse)
+library(dplyr)
 library(broom)
 
-fishdata <- read_csv("data/fisherman_mercury_modified.csv")
-fishdata$fisherman <- factor(fishdata$fisherman)
+fishdata <- read.csv("data/fisherman_mercury_modified.csv") %>%
+  mutate(fisherman = factor(fisherman))
 
-# here is our model
+# Here are our two models
+fit_univariate <- lm(total_mercury ~ fisherman, data = fishdata)
 fit_multiple <-
   lm(total_mercury ~ fisherman + weight + fishmlwk, data = fishdata)
 
-# ok where is that R^2? look at the names of the summary list again
-names(summary(fit_multiple))
+# Tidy 'em up
+fit_univariate_tidy <- ____
+  
+fit_multiple_tidy <- ____
+  
+# Bind them
+both_tidy <- bind_rows("univariate" = ___,
+                         "multiple" = ___,
+                         .id = "model")
+both_tidy
 
-# call the name we need
-___$___
+# Same with glance (we can try doing this in one line)
+both_glance <- bind_rows(
+  "univariate" = glance(___),
+  "multiple" = glance(___),
+  .id = "model"
+)
+both_glance
 
-# or we can use glance
-glance(___)
-
-# and select that R^2
-glance(___) %>% select(___)
-
+# Show just fisherman's covariate information
+both_tidy %>% ___(term == ___)

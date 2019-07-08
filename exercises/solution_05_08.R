@@ -1,11 +1,15 @@
-library(tidyverse)
-library(broom)
+library(dplyr)
 
-fishdata <- read_csv("data/fisherman_mercury_modified.csv")
-fishdata$fisherman <- factor(fishdata$fisherman)
+fishdata <- read.csv("data/fisherman_mercury_modified.csv") %>%
+  mutate(fisherman = factor(fisherman))
 
-# draw a scatterplot of weight (x-axis) vs total_mercury (y axis) and color by fisherman category
-ggplot(fishdata,aes(x=weight,y=total_mercury,color=fisherman))+geom_point()
+# fit the univariate model
+fit_univariate <- lm(total_mercury ~ fisherman, data = fishdata)
 
-# draw a scatterplot of fishmlwk (x-axis) vs total_mercury (y axis) and color by fisherman category
-ggplot(fishdata,aes(x=fishmlwk,y=total_mercury,color=fisherman))+geom_point()
+# fit the multiple predictor model with fisherman, weight, fishmlwk
+fit_multiple <-
+  lm(total_mercury ~ fisherman + weight + fishmlwk, data = fishdata)
+
+# let's look at the output
+summary(fit_univariate)
+summary(fit_multiple)
