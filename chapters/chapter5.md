@@ -128,9 +128,21 @@ Fit a linear regression with `fisherman` as the independent variable and `total_
 <codeblock id="05_08">
 </codeblock></exercise>
 
-<exercise id="9" title="Add something here">
+<exercise id="9" title="Interpreting coefficients">
 
+What does the coefficient (column "Estimate"") of fish meals per week in the multiple regression output mean?
 
+<choice>
+<opt text="For every fish meal you eat, you are 1.02 times more likely to have higher mercury.">
+No, the effect is not multiplicative.
+</opt>
+<opt text="Each additional fish meal per week is expected to increase mercury levels by 0.106mg/g, when comparing people with the same weight and comparing people who are either both fisherman or both non-fisherman."  correct = "true">
+Correct! That's right, adjusting for weight and fisherman status, fish meals per week is modeled as an additive effect.
+</opt>
+<opt text="Fisherman who eat one more fish meal per week are expected to have higher mercury levels of 0.106mg/g."
+Not quite, this expected increase applies for fisherman as well as non-fisherman.
+</choice>
+</exercise>
 
 <codeblock id="05_09">
 </codeblock></exercise>
