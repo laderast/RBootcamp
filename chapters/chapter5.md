@@ -144,9 +144,6 @@ Not quite, this expected increase applies for fisherman as well as non-fisherman
 </choice>
 </exercise>
 
-<codeblock id="05_09">
-</codeblock></exercise>
-
 <exercise id="10" title="Broom with linear regression: glance">
 
 Now let's do something similar with the $R^2 $ summary measure which is a measure of model fit in that it quantifies the amount of variance explained in the outcome (total mercury) explained by the predictors. Using broom, we get model summary level information from the function `glance()`. While `tidy()` returned a tibble/data_frame of covariate information with one row for each model term, `glance()` will return a tibble with just one row with all the pertinent single value model information.
