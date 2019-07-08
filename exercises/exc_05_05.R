@@ -1,7 +1,8 @@
-library(tidyverse)
-library(broom)
+library(dplyr)
 
-fishdata <- read_csv("data/fisherman_mercury_modified.csv")
-fishdata$fisherman <- factor(fishdata$fisherman)
-# Use the formula input option, see ?t.test help page: a formula of the form lhs ~ rhs where lhs is a numeric variable giving the data values and rhs a factor with two levels giving the corresponding groups.
+fishdata <- read.csv("data/fisherman_mercury_modified.csv") %>%
+  mutate(fisherman = factor(fisherman))
+
+# Run a t-test comparing mean total mercury in fishermen and non-fishermen
+# Hint: Use the formula input option, see ?t.test help page
 t.test(~,data=fishdata)
