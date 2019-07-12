@@ -10,12 +10,12 @@ The R-Bootcamp is meant to be a gentle and gradual introduction to manipulating 
 
 It is currently available at http://r-bootcamp.netlify.com 
 
-Documentation for this course framework available at http://github.com/ines/course-starter-r
+Documentation for the course framework os available at http://github.com/ines/course-starter-r
 
 # Contributors
 
-Ted Laderas and Jessica Minner - creators and maintainers
+[Ted Laderas](http://laderast.github.io) and [Jessica Minner](http://jessicaminnier.com/) - creators and maintainers
 
-Contributions from: Chester Ismay, Eric Leung, Aurora Blucher, Tracy Edinger, Dian Chase, Gabrielle Choonoo, Clint Olson, Joshua Meyer, [amundhb](https://github.com/amundhb).
+Includes contributions from: Chester Ismay, Eric Leung, Aurora Blucher, Tracy Edinger, Dian Chase, Gabrielle Choonoo, Clint Olson, Joshua Meyer, [amundhb](https://github.com/amundhb).
 
 Portions of this Bootcamp were adapted from a workshop I gave with Chester Ismay: https://github.com/Cascadia-R/gRadual-intRoduction-tidyverse
