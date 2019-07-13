@@ -1,4 +1,5 @@
 dem_score <- read.csv("data/dem_score.csv")
+library(dplyr)
 library(tidyr)
 library(stringr)
 
