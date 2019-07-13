@@ -6,6 +6,7 @@ MouseBalanceTimeSeries <- read.csv("data/mouse.csv")
 gatheredMouse <- MouseBalanceTimeSeries %>% 
   gather(key=measurementStatus, value=time, -mouseID) %>%
   filter(!is.na(time)) %>% 
+  mutate(time = as.numeric(time)) %>%
   separate(measurementStatus, 
            c("intervention","replicate"), 
            sep="Treat")
