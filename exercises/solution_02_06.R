@@ -2,4 +2,4 @@ library(ggplot2)
 pets <- read.csv("data/pets.csv")
 
 ggplot(pets, aes(x=animal,fill=shotsCurrent)) + 
-	  geom_bar(position= -----, color="black")
+	  geom_bar(position= "dodge", color="black")
