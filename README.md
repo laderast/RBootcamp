@@ -16,6 +16,6 @@ Documentation for the course framework os available at http://github.com/ines/co
 
 [Ted Laderas](http://laderast.github.io) and [Jessica Minner](http://jessicaminnier.com/) - creators and maintainers
 
-Includes contributions from: Chester Ismay, Eric Leung, Aurora Blucher, Tracy Edinger, Dian Chase, Gabrielle Choonoo, Clint Olson, Joshua Meyer, [amundhb](https://github.com/amundhb).
+Includes contributions from: Chester Ismay, Eric Leung, Aurora Blucher, Tracy Edinger, Dian Chase, Gabrielle Choonoo, Clint Olson, Joshua Meyer, [amundhb](https://github.com/amundhb) and Ines Montani.
 
 Portions of this Bootcamp were adapted from a workshop I gave with Chester Ismay: https://github.com/Cascadia-R/gRadual-intRoduction-tidyverse
