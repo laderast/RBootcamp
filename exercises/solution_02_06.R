@@ -1,5 +1,5 @@
-library(dplyr)
-biopics <- readRDS("data/biopics.rds")
+library(ggplot2)
+pets <- read.csv("data/pets.csv")
 
-filter(biopics, year_release > 1980 & type_of_subject == 'criminal')
-filter(biopics, year_release > 1980 | type_of_subject == 'criminal')
+ggplot(pets, aes(x=animal,fill=shotsCurrent)) + 
+	  geom_bar(position= -----, color="black")
