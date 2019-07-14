@@ -386,7 +386,7 @@ it will sort by `year_release`.
 
 ### Instructions
 
-Sort `biopics` by `year_release` then by `box_office`. Assign the output to `biopics_sorted`.
+Sort `biopics` by `year_release` then by `country`. Assign the output to `biopics_sorted`.
 
 <codeblock id="03_16">
 </codeblock></exercise>
