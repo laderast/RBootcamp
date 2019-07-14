@@ -147,9 +147,9 @@ Three things to note:
 Which statement should be the larger subset? Try them out in the console if you're not sure.
 
 <choice>
-<opt text="filter(biopics, year_release > 1980 & type_of_subject == 'criminal')">Nope. This should be the smaller subset (because you're applying both criteria)
+<opt text="filter(biopics, year_release > 1980 & type_of_subject == 'Criminal')">Nope. This should be the smaller subset (because you're applying both criteria)
 </opt>
-<opt text="filter(biopics, year_release > 1980 | type_of_subject == 'criminal')" correct="true">Good Job! Yes, when you use an OR (|), it results in a larger subset. Let's move on.
+<opt text="filter(biopics, year_release > 1980 | type_of_subject == 'Criminal')" correct="true">Good Job! Yes, when you use an OR (|), it results in a larger subset. Let's move on.
 </opt></choice>
 </exercise>
 
