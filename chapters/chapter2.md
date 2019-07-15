@@ -64,7 +64,7 @@ ggplot(pets, aes(x=animal, fill=shotsCurrent)) +
 
 <choice>
 <opt text="Makes the default bar fill color black">
-Great! That's one tip for improving the appearance of your bar graph.</opt>
+Not quite. What in the graph is black?</opt>
 <opt text="Specifies the text in the graph to be black">
 Not quite. Look at the graph. What is being mapped to `black`?</opt>
 <opt text="Outlines the bars in black" correct="true">
