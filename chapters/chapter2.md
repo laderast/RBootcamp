@@ -209,7 +209,8 @@ Violin plots are another useful way to visualize the data. They provide a more n
 - How to stratify your graphs using `facet_wrap()`
 - More about how to put together a ggplot
 
-### More Resources:
+
+**More Resources**:
 
 - [R for Data Science: Factors](https://r4ds.had.co.nz/factors.html), for more about the wacky datatype that we call `factor`. Especially useful: [Modifying Factor Order](https://r4ds.had.co.nz/factors.html#modifying-factor-order) and [Modifying Factor Levels](https://r4ds.had.co.nz/factors.html#modifying-factor-levels)
 - [R4DS: Visualization: Facets](https://r4ds.had.co.nz/data-visualisation.html#facets)
