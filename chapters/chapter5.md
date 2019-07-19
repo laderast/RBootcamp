@@ -202,7 +202,7 @@ For both models, use `augment` to obtain fitted values of `total_mercury` and sa
 <exercise id="14" title= "Wow! Look at how far you've come!">
 The world of the `tidyverse` is now your oyster! We hope you've had fun learning about the `tidyverse` and we definitely hope you're excited to learn more.
 
-## More Resources
+### More Resources
 
 Definitely please start looking at [R for Data Science](https://r4ds.had.co.nz/) and [the R4DS community](https://www.rfordatasci.com/) to talk with other learners who are learning the tidyverse too. Seriously, it's an awesome group and hopefully they'll encourage you to learn more!
 </exercise>

@@ -512,7 +512,7 @@ Are you sick of `biopics` yet? I promise this is the last time we use this datas
 Good job for making it through this chapter! You're well on your way
 to becoming a `tidyverse` ninja!
 
-## More Resources
+### More Resources
 
 - The [Data Transformation](https://r4ds.had.co.nz/transform.html) chapter of R for Data Science is another great place to learn about the basics of `dplyr`.
 - The [Pipes](https://r4ds.had.co.nz/pipes.html) chapter of R for Data Science has a great discussion on why you should consider using pipes in your workflows.

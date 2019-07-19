@@ -216,7 +216,7 @@ Yes, there is a difference in medians, although the intervals overlapped.</opt>
 + Long vs. Wide data
 + The tidy manifesto
 
-## More Resources
+### More Resources
 
 - The [Tidy Data](https://r4ds.had.co.nz/tidy-data.html) Chapter of R for Data Science is ground zero for understanding why Tidy data is such a useful format.
 - The sections on [Spreading and Gathering](https://r4ds.had.co.nz/tidy-data.html#spreading-and-gathering) and [Separating and uniting](https://r4ds.had.co.nz/tidy-data.html#separating-and-uniting) are especially helpful.
