@@ -147,9 +147,9 @@ Three things to note:
 Which statement should be the larger subset? Try them out in the console if you're not sure.
 
 <choice>
-<opt text="filter(biopics, year_release > 1980 & type_of_subject == 'criminal')">Nope. This should be the smaller subset (because you're applying both criteria)
+<opt text="filter(biopics, year_release > 1980 & type_of_subject == 'Criminal')">Nope. This should be the smaller subset (because you're applying both criteria)
 </opt>
-<opt text="filter(biopics, year_release > 1980 | type_of_subject == 'criminal')" correct="true">Good Job! Yes, when you use an OR (|), it results in a larger subset. Let's move on.
+<opt text="filter(biopics, year_release > 1980 | type_of_subject == 'Criminal')" correct="true">Good Job! Yes, when you use an OR (|), it results in a larger subset. Let's move on.
 </opt></choice>
 </exercise>
 
@@ -305,9 +305,10 @@ What `%>%` does is that it takes the output of one statement and makes it the in
 biopics %>% filter(race_known == "Known") %>%
     mutate(poc_code = as.numeric(person_of_color))
 ```
-As: I took the `biopics` data, 
-THEN  I `filter`ed it down with the `race_known == "Known"` criteria and 
-THEN I defined a new variable called `poc_code`.
+As: 
+- I took the `biopics` data, 
+- THEN  I `filter`ed it down with the `race_known == "Known"` criteria and 
+- THEN I defined a new variable called `poc_code` with `mutate()`.
 
 Note that `filter()` doesn't have a `data` argument, because the `data` is `piped` into `filter()`. Same thing for `mutate()`.
 
@@ -385,7 +386,7 @@ it will sort by `year_release`.
 
 ### Instructions
 
-Sort `biopics` by `year_release` then by `lead_actor_actress`. Assign the output to `biopics_sorted`.
+Sort `biopics` by `year_release` then by `country`. Assign the output to `biopics_sorted`.
 
 <codeblock id="03_16">
 </codeblock></exercise>
