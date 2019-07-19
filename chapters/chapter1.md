@@ -170,7 +170,10 @@ Your final challenge is to completely recreate this graph using the `gap1992` da
 - That `ggplot2` can make some pretty cool graphs
 - That you can do this!
 
-Just move on to the next chapter!
+## More Resources
+
+- [R For Data Science: Visualization](https://r4ds.had.co.nz/data-visualisation.html). The visualization chapter of R for Data Science. Especially useful are the [Aesthetic Mapping](https://r4ds.had.co.nz/data-visualisation.html#aesthetic-mappings) and the [common problems](https://r4ds.had.co.nz/data-visualisation.html#common-problems) sections.
+- There's a lot more to `ggplot2`! Take a look at [The Layered Grammar of Graphics](https://r4ds.had.co.nz/data-visualisation.html#the-layered-grammar-of-graphics) to see the other ways we can modify plots, such as scales and coordinates.
 
 <codeblock id="01_09">
 </codeblock></exercise>
