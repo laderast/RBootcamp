@@ -199,7 +199,7 @@ For both models, use `augment` to obtain fitted values of `total_mercury` and sa
 <codeblock id="05_13">
 </codeblock></exercise>
 
-<exercise title= "Wow! Look at how far you've come!">
+<exercise id="14" title= "Wow! Look at how far you've come!">
 The world of the `tidyverse` is now your oyster! We hope you've had fun learning about the `tidyverse` and we definitely hope you're excited to learn more.
 
 ## More Resources
