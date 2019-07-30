@@ -283,14 +283,13 @@ biopics %>%
 ```
 <codeblock id = "03_12">
 </codeblock>
-
+ 
 <choice>
-<opt text="The first statement should have a larger number of rows than the second one" correct="true">
-Yes! I'm glad you understand the difference.</opt>
-<opt text="The first statement filters the data, whereas the second statement defines a new boolean variable.">
-Not the case! Try comparing the number of rows.</opt>
+<opt text="The first statement filters the data, whereas the second statement defines a new boolean variable." correct="true">Yes, this is correct! We're identifying a new variable that we can use to flag the data.
+</opt>
 <opt text="The second statement is more confusing.">
-Yes, this is correct! We're identifying a new variable that we can use to flag the data.</opt>
+    Not the case! Try comparing the number of rows.
+</opt>
 </choice>
 </exercise>
 
