@@ -1,5 +1,7 @@
 # RBootcamp
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/dd2ce668-cae7-454a-92ea-977bc2461f5a/deploy-status)](https://app.netlify.com/sites/r-bootcamp/deploys) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/laderast/RBootcamp/binder)
+
 The R-Bootcamp is meant to be a gentle and gradual introduction to manipulating and visualizing data in R using the tidyverse suite of packages. Topics covered include:
 
 1. The magic of ggplot2.
