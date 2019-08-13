@@ -20,4 +20,6 @@ The binder container responsible for executing code can be viewed here:  [![Bind
 
 Includes contributions from: Chester Ismay, Eric Leung, Aurora Blucher, Tracy Edinger, Dian Chase, Gabrielle Choonoo, Clint Olson, Joshua Meyer, [amundhb](https://github.com/amundhb) and Ines Montani.
 
+We utilize datasets from the [`gapminder`](https://cran.r-project.org/web/packages/gapminder/index.html) and [`fivethirtyeight`](https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html) packages.
+
 Portions of this Bootcamp were adapted from a workshop I gave with Chester Ismay: https://github.com/Cascadia-R/gRadual-intRoduction-tidyverse
