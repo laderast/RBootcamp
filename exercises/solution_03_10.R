@@ -1,4 +1,5 @@
-
+library(dplyr)
+biopics <- readRDS("data/biopics.rds")
 
 mutatedBiopics <- mutate(biopics, 
                          box_office_year = year_release * box_office, 
