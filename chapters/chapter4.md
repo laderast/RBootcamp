@@ -39,7 +39,7 @@ Look at the `dem_score` dataset in the console by using either `head()` or `summ
 <choice>
 <opt text="Yes, we consider each row to be a separate observation">
 NA</opt>
-<opt text="No, each column is not a separate observation, but actually multiple observations">
+<opt text="No, each column is not a separate observation, but actually multiple observations" correct="true">
 NA</opt>
 </choice>
 </exercise>
