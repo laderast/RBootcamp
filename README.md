@@ -20,7 +20,7 @@ The binder container responsible for executing code can be viewed here:  [![Bind
 
 [Ted Laderas](http://laderast.github.io) and [Jessica Minner](http://jessicaminnier.com/) - creators and maintainers
 
-Includes contributions from: Chester Ismay, Eric Leung, Aurora Blucher, Tracy Edinger, Dian Chase, Gabrielle Choonoo, Clint Olson, Michael Kolesnikov, Joshua Meyer, [amundhb](https://github.com/amundhb) and Ines Montani.
+Includes contributions from: Chester Ismay, Eric Leung, Aurora Blucher, Tracy Edinger, Dian Chase, Gabrielle Choonoo, Clint Olson, Michael Kolesnikov, Joshua Meyer, [amundhb](https://github.com/amundhb), [cfiller123](https://github.com/cfiller123), and Ines Montani.
 
 We utilize datasets from the [`gapminder`](https://cran.r-project.org/web/packages/gapminder/index.html) and [`fivethirtyeight`](https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html) packages.
 
