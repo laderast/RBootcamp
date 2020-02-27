@@ -14,7 +14,7 @@ It is currently available at http://r-bootcamp.netlify.com
 
 Documentation for the course framework os available at http://github.com/ines/course-starter-r
 
-The binder container responsible for executing code can be viewed here:  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/laderast/RBootcamp/binder)
+The binder container responsible for executing code can be viewed here:  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/laderast/RBootcamp/binder?urlpath=rstudio)
 
 # Contributors
 
