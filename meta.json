@@ -4,7 +4,7 @@
     "slogan": "A free online course about the basics of the tidyverse",
     "description": "The R-Bootcamp is a gentle and gradual introduction to manipulating and visualizing data in R using the `tidyverse` suite of packages. It is meant for incoming OHSU Bioinformatics and Computational Biomedicine Majors but is appropriate for any beginners wanting to learn elementary data manipulation in R.",
     "bio": "Ted Laderas and Jessica Minnier",
-    "siteUrl": "https://r-bootcamp.netlify.com",
+    "siteUrl": "https://r-bootcamp.netlify.app",
     "twitter": "tladeras",
     "fonts": "IBM+Plex+Mono:500|IBM+Plex+Sans:700|Lato:400,400i,700,700i",
     "testTemplate": "success <- function(text) {\n    cat(paste(\"\\033[32m\", text, \"\\033[0m\", sep = \"\"))\n}\n\n.solution <- \"${solutionEscaped}\"\n\n${solution}\n\n${test}\ntryCatch({\n    test()\n}, error = function(e) {\n    cat(paste(\"\\033[31m\", e[1], \"\\033[0m\", sep = \"\"))\n})",
