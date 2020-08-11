@@ -184,7 +184,7 @@ mouseID PreTreat1 PreTreat2 PreTreat3 PostTreat1 PostTreat2 PostTreat3
 5      M5        NA        NA        NA         NA         NA         NA
 6      M6       4.5       4.3       3.8        3.7        4.2        5.6
 ```
-+ `gather()` the measurements into a single column called `time` with a key called `interventionStatus`. 
++ `gather()` the measurements into a single column called `time` with a key called `measurmentStatus`. 
 + Use `separate()` to make `measurementStatus` into  two columns (`intervention` and `replicate`) by specifying `sep="Treat"`. 
 + Remove any observations that are `NA`. Assign the output to `gatheredMouse`. 
 + Finally, make a boxplot of `gatheredMouse`, plotting `time` versus `intervention` using `geom_boxplot`.
