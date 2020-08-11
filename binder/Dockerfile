@@ -1,4 +1,4 @@
-FROM rocker/binder:latest
+FROM rocker/tidyverse:latest
 
 ## Declares build arguments
 ARG NB_USER
