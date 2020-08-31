@@ -45,20 +45,30 @@ Good eye! Yes, each row and year/column should be considered as separate observa
 </choice>
 </exercise>
 
-<exercise id="3" title="tidyr::gather()">
+<exercise id="3" title="tidyr::pivot_longer()">
 
-`gather()` is a special function in the `tidyr` package that takes columns and combines them into a single column. 
-`gather()` has the following syntax:
+`pivot_longer()` is a special function in the `tidyr` package that takes columns and combines them into a single column. 
+`pivot_longer()` takes the following arguments:
 
-```{r}
-dem_score %>% gather(key=year, value=score, -country)
+- `cols` - the columns to collapse. Here we want to collapse everything into a single column *except* the `country` variable, hence, `-country` as our argument.
+
+We haven't talked about `tidyselect` verbs, but there are a few that let you select columns based on naming criteria. (For more info about `tidyselect`, you can go here: https://tladeras.shinyapps.io/learning_tidyselect)
+
+- `names_to` - the name of the column where the labels will be consolidated to
+
+- `values_to` - the name of the column where the values in the columns in the wide data will be consolidated to.
+
+
 ```
-The first argument, `key`, is the name of our 'gathered' variable. We're smushing all of the columns that have year names and 
-calling the column names, or the `key` the name of `year`. The second argument, `value`, is the actual observations. Finally, if we don't want a column to be gathered, we can leave it out with the `-` notation (here, `-country`).
+dem_score %>% 
+    pivot_wider(cols = -country,
+                names_to = "year",
+                values_to = "score")
+```
 
 ### Instructions
 
-+ Try out the above `gather` statement. 
++ Try out the above `pivot_wider` statement. 
 + Use a `mutate` expression to remove the `X` in front of `year`.  
 + Assign the output to `gatheredData`.
 
@@ -66,24 +76,28 @@ calling the column names, or the `key` the name of `year`. The second argument, 
 </codeblock>
 </exercise>
 
-<exercise id="4" title="tidyr::spread()">
 
-`spread()` does the opposite of `gather()`. It "unbundles" a column into multiple columns.
-This situation can happen because related measurements that consist of an observation are
-collected separately, or someone has `gather`ed the data a little too enthusiastically.
+<exercise id="4" title="tidyr::pivot_wider()">
 
-`spread()` has the following syntax:
+`pivot_wider()` does the opposite of `pivot_longer()`. It "unbundles" a column into multiple columns.
+
+This situation can happen because related measurements that consist of an observation are collected separately, or someone has `gather`ed the data a little too enthusiastically.
+
+`pivot_wider()` has the following arguments:
+
+- `names_from` - the column that has the names you want to make wider - these will be made into column names.
+- `values_from` - the column that has the values you want to make wider - these will be the actual values that are underneath the column names.
+
 
 ```{r}
-gatheredData %>% spread(key=country, value=score)
+spreadData <- gatheredData %>% 
+  pivot_wider(names_from = "year",
+              values_from = "score")
 ```
-We see that `spread()` takes two arguments: the first is the *key* column, which is the 
-variable name that contains our column names of interest; the second is the *value* 
-column, which is the variable that contains the values we want to fill with.
 
 ### Instructions
 
-+ Let's transform our `gatheredData` into a matrix again, but with each column having a `country`. 
++ Let's transform our `gatheredData` into a matrix again, but with each column having a `country`. (Hint: you'll need to use `country` as an argument)
 + Assign the output to `spreadData`.
 
 <codeblock id="04_04">

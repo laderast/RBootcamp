@@ -4,10 +4,13 @@ library(tidyr)
 library(stringr)
 
 gatheredData <- dem_score %>% 
-  gather(key=year, value=score, -country) %>%
+  pivot_longer(cols = -country, 
+               names_to = "year",
+               values_to = "score") %>%
   mutate(year=str_replace(year, "X",""))
 
-spreadData <- gatheredData %>%
-  spread(key = ----, value = ----)
+spreadData <- gatheredData %>% 
+  pivot_wider(names_from = "------",
+              values_from = "------")
 
 head(spreadData)
