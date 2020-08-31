@@ -4,6 +4,9 @@ library(stringr)
 dem_score <- read.csv("data/dem_score.csv")
 
 gatheredData <- dem_score %>% 
+  pivot_wider(id_cols =
+                )
+  
   gather(key=----, value=-----, -country) %>%
   mutate(year=str_replace(year, "X",""))
 
