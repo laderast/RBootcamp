@@ -152,7 +152,7 @@ because the format of the data has many more rows than columns, and we call data
 because it has more columns than rows. You have seen how to transform a *wide* dataset (`dem_score`) 
 into a *long* one with `gather()` and transform it into a different *wide* format with (`spread`).
 
-In general, I tend to work with long data because this format makes it easeir to aggregate the data for 
+In general, I tend to work with long data because this format makes it easier to aggregate the data for 
 plots when I have a lot of covariates. Let's look at what's possible because the data is in a long format.
 
 Let's practice with another dataset in long format, called `fertilityTidy`. You can look at the 
@@ -198,7 +198,7 @@ mouseID PreTreat1 PreTreat2 PreTreat3 PostTreat1 PostTreat2 PostTreat3
 5      M5        NA        NA        NA         NA         NA         NA
 6      M6       4.5       4.3       3.8        3.7        4.2        5.6
 ```
-+ `gather()` the measurements into a single column called `time` with a key called `measurmentStatus`. 
++ `gather()` the measurements into a single column called `time` with a key called `measurementStatus`. 
 + Use `separate()` to make `measurementStatus` into  two columns (`intervention` and `replicate`) by specifying `sep="Treat"`. 
 + Remove any observations that are `NA`. Assign the output to `gatheredMouse`. 
 + Finally, make a boxplot of `gatheredMouse`, plotting `time` versus `intervention` using `geom_boxplot`.
