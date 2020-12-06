@@ -152,7 +152,7 @@ because the format of the data has many more rows than columns, and we call data
 because it has more columns than rows. You have seen how to transform a *wide* dataset (`dem_score`) 
 into a *long* one with `gather()` and transform it into a different *wide* format with (`spread`).
 
-In general, I tend to work with long data because this format makes it easeir to aggregate the data for 
+In general, I tend to work with long data because this format makes it easier to aggregate the data for 
 plots when I have a lot of covariates. Let's look at what's possible because the data is in a long format.
 
 Let's practice with another dataset in long format, called `fertilityTidy`. You can look at the 
