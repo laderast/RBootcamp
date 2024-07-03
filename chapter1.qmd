@@ -174,8 +174,8 @@ and look at all the aesthetic mappings. For example:
 
 `geom_point()` understands the following aesthetics (required aesthetics are in bold):
 
-- `**x**`
-- `**y**`
+- **`x`**
+- **`y`**
 - `alpha`
 - `colour`
 - `fill`
@@ -187,12 +187,12 @@ and look at all the aesthetic mappings. For example:
 Which of the following is *not* a mappable aesthetic to `geom_point()`?
 
 ```{r}
-checkdown::check_question("linetype", options = c("x", "shape", "linetype"), type="radio")
+checkdown::check_question("linetype", options = c("`x`", "`shape`", "`linetype`"), type="radio", random_answer_order = TRUE)
 ```
 
 # Points versus lines
 
-The great thing about `ggplot2` is that it's easy to swap representations. 
+The great thing about `ggplot2` is that it's easy to swap geometric representations. 
 Instead of x-y points, we can plot the data as a line graph by swapping `geom_line()`
 for `geom_point()`.
 
