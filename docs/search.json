@@ -12,7 +12,7 @@
   {
     "objectID": "chapter1.html",
     "href": "chapter1.html",
-    "title": "2  The Magic of ggplot2",
+    "title": "2  The Magic of {ggplot2}",
     "section": "",
     "text": "2.1 data.frames and How to Use Them\nLet’s review the basics of data.frames.\nA data.frame is a table-like format which has the following properties:\nIndividual variables within a data.frame can be accessed with the $ operator (such as gap1992$pop). We won’t use this very often, as the tidyverse lets us access the variables without it, as you’ll see.",
     "crumbs": [
@@ -22,9 +22,9 @@
   {
     "objectID": "chapter1.html#data.frames-and-how-to-use-them",
     "href": "chapter1.html#data.frames-and-how-to-use-them",
-    "title": "2  The Magic of ggplot2",
+    "title": "2  The Magic of {ggplot2}",
     "section": "",
-    "text": "Columns can each have a different type (numeric, character, boolean, factor)\nColumns are called “variables”\nRows correspond to a single observation (ideally)\nCan be subset or filtered based on criteria\n\n\n\nRun colnames() and head() on the gap1992 data to see what’s in each column.\nThen see how many rows there are in the dataset using nrow(). Run these in console before you submit your answer.\n\n\n2.1.1 Exercise\n\n#| exercise: ex_1\n##run head on gap1992\nhead(----)\n##run colnames here on gap1992\ncolnames(----)\n##run nrow() on gap1992\nnrow(-----)\n\n\n\nSolution. \n\n\n\n\n\n\nSolution\n\n\n\n\n\n##run head on gap1992\nhead(gap1992)                 \n##run colnames here on gap1992\ncolnames(gap1992)               \n##run nrow() on gap1992\nnrow(gap1992)",
+    "text": "Columns can each have a different type (numeric, character, boolean, factor)\nColumns are called “variables”\nRows correspond to a single observation (ideally)\nCan be subset or filtered based on criteria\n\n\n\n2.1.1 Exercise\n\nRun colnames() and head() on the gap1992 data to see what’s in each column.\nThen see how many rows there are in the dataset using nrow(). Run these in console before you submit your answer.\n\n\n#| exercise: ex_1\n##run head on gap1992\nhead(----)\n##run colnames here on gap1992\ncolnames(----)\n##run nrow() on gap1992\nnrow(-----)\n\n\n\nSolution. \n\n\n\n\n\n\nSolution\n\n\n\n\n\n##run head on gap1992\nhead(gap1992)                 \n##run colnames here on gap1992\ncolnames(gap1992)               \n##run nrow() on gap1992\nnrow(gap1992)",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
     ]
@@ -32,7 +32,7 @@
   {
     "objectID": "chapter1.html#thinking-about-aesthetics",
     "href": "chapter1.html#thinking-about-aesthetics",
-    "title": "2  The Magic of ggplot2",
+    "title": "2  The Magic of {ggplot2}",
     "section": "2.2 Thinking about aesthetics",
     "text": "2.2 Thinking about aesthetics\nNow that we’ve learned a little about the data.frame, we can get to the fun part: making graphs.\nThe first thing we are going to is think about how we represent variables in a plot.\nHow do we visually represent a variable in our dataset? Take a look at this graph. What variable is mapped to y, and what is mapped to x, and what is mapped to color?\n\n\n\n\n\nx = gdpPercap, y = log(lifeExp), color = continent\n\n\nx = continent, y = year, color = pop\n\n\ny = lifeExp, x = log(gdpPercap), color = continent",
     "crumbs": [
@@ -42,7 +42,7 @@
   {
     "objectID": "chapter1.html#mapping-variables-to-produce-geometric-plots",
     "href": "chapter1.html#mapping-variables-to-produce-geometric-plots",
-    "title": "2  The Magic of ggplot2",
+    "title": "2  The Magic of {ggplot2}",
     "section": "2.3 Mapping variables to produce geometric plots",
     "text": "2.3 Mapping variables to produce geometric plots\nA statistical graphic consists of:\n\nA mapping of variables in data to\naes()thetic attributes of\ngeom_etric objects.\n\nIn code, this is translated as:\n\n#| edit: false\nggplot(data = gap1992, mapping = aes(x = log(gdpPercap), y=log(pop))) +\n  geom_point()\n\nLet’s take the above example code apart. A ggplot2 call always starts with the ggplot() function. In this function, we need two things:\n\ndata - in this case, gap1992.\nmapping - An aesthetic mapping, using the aes() function.\n\nIn order to map our variables to aesthetic properties, we will need to use aes(), which is our aes()thetic mapping function. In our example, we map x to log(gdpPercap) and y to log(pop).\nFinally, we can superimpose our geometry on the plot using geom_point().\n\n2.3.1 Exercise\nBased on the graph below, map the appropriate variables to the x, and y aesthetics. Run your plot. Remember, you can try plots out in the console before you submit your answer.\n\nHint: Look at the graph. If you need the variable names, they are listed below.\n\n#| edit: false\ncolnames(gap1992)\n\n#| exercise: ex_2\nggplot(data = gap1992, \n    mapping = aes(\n      x = ------, \n      y = ------ \n      )) + \ngeom_point()\n\nSolution. \n\n\n\n\n\n\nSolution\n\n\n\n\n\nggplot(data=gap1992, \n    mapping = aes(\n      x = log(gdpPercap), \n      y = lifeExp \n      )) + \ngeom_point()",
     "crumbs": [
@@ -52,7 +52,7 @@
   {
     "objectID": "chapter1.html#more-about-aes",
     "href": "chapter1.html#more-about-aes",
-    "title": "2  The Magic of ggplot2",
+    "title": "2  The Magic of {ggplot2}",
     "section": "2.4 More about aes()",
     "text": "2.4 More about aes()\nFor geom_point(), there are lots of other aesthetics. The important thing to know is that aesthetics are properties of the geom. If you need to know the aesthetics that you can map to a geom, you can always use help() (such as help(geom_point)).\nFor a list of aesthetics for geom_point(), look here: https://ggplot2.tidyverse.org/reference/geom_point.html#aesthetics and look at all the aesthetic mappings. For example:",
     "crumbs": [
@@ -62,7 +62,7 @@
   {
     "objectID": "chapter1.html#aesthetics",
     "href": "chapter1.html#aesthetics",
-    "title": "2  The Magic of ggplot2",
+    "title": "2  The Magic of {ggplot2}",
     "section": "2.5 Aesthetics",
     "text": "2.5 Aesthetics\ngeom_point() understands the following aesthetics (required aesthetics are in bold):\n\nx\ny\nalpha\ncolour\nfill\ngroup\nshape\nsize\nstroke",
     "crumbs": [
@@ -72,9 +72,9 @@
   {
     "objectID": "chapter1.html#quick-check",
     "href": "chapter1.html#quick-check",
-    "title": "2  The Magic of ggplot2",
+    "title": "2  The Magic of {ggplot2}",
     "section": "2.6 Quick Check",
-    "text": "2.6 Quick Check\nWhich of the following is not a mappable aesthetic to geom_point()?\n\n\n\n\n`linetype`\n\n\n`shape`\n\n\n`x`",
+    "text": "2.6 Quick Check\nWhich of the following is not a mappable aesthetic to geom_point()?\n\n\n\n\n`shape`\n\n\n`x`\n\n\n`linetype`",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
     ]
@@ -82,7 +82,7 @@
   {
     "objectID": "chapter1.html#points-versus-lines",
     "href": "chapter1.html#points-versus-lines",
-    "title": "2  The Magic of ggplot2",
+    "title": "2  The Magic of {ggplot2}",
     "section": "2.7 Points versus lines",
     "text": "2.7 Points versus lines\nThe great thing about ggplot2 is that it’s easy to swap geometric representations. Instead of x-y points, we can plot the data as a line graph by swapping geom_line() for geom_point().\n\n2.7.1 Exercise\nFirst run the code to see the plot with points. Change the geom_point() in the following graph to geom_line(). What happened?\nHow did the visual presentation of the data change?\n\n#| exercise: ex_3\nggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, color=continent)) +\n  geom_point() \n\n\nSolution. \n\n\n\n\n\n\nTip\n\n\n\n\n\nggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, color=continent)) +\n  geom_line()",
     "crumbs": [
@@ -92,7 +92,7 @@
   {
     "objectID": "chapter1.html#geoms-are-layers-on-a-ggplot",
     "href": "chapter1.html#geoms-are-layers-on-a-ggplot",
-    "title": "2  The Magic of ggplot2",
+    "title": "2  The Magic of {ggplot2}",
     "section": "2.8 Geoms are layers on a ggplot",
     "text": "2.8 Geoms are layers on a ggplot\nWe are not restricted to a single geom on a graph! You can think of geoms as layers on a graph. Thus, we can use the + symbol to add geoms to our base ggplot() statement.\n\n2.8.1 Exercise\nAdd both geom_line() and geom_point() to the following ggplot. Are the results what you expected?\n#| exercise: ex_4\nggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, color=continent)) +\n## add code here\n\n\nSolution. \n\n\n\n\n\n\nSolution\n\n\n\n\n\nggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, color=continent)) +\n## add code here\n  geom_line() + geom_point()",
     "crumbs": [
@@ -102,7 +102,7 @@
   {
     "objectID": "chapter1.html#quick-check-about-ggplot2",
     "href": "chapter1.html#quick-check-about-ggplot2",
-    "title": "2  The Magic of ggplot2",
+    "title": "2  The Magic of {ggplot2}",
     "section": "2.9 Quick Check about ggplot2",
     "text": "2.9 Quick Check about ggplot2\nWhat does the + in a ggplot statement do?\nFor example:\n\n\n\n\nallows you to chain data and geoms together into a single statistical graphic\n\n\nadds one `data.frame` to another `data.frame` \n\n\nallows you to add variables together in a `data.frame`",
     "crumbs": [
@@ -112,7 +112,7 @@
   {
     "objectID": "chapter1.html#final-challenge-recreate-this-gapminder-plot",
     "href": "chapter1.html#final-challenge-recreate-this-gapminder-plot",
-    "title": "2  The Magic of ggplot2",
+    "title": "2  The Magic of {ggplot2}",
     "section": "2.10 Final Challenge: Recreate this Gapminder Plot",
     "text": "2.10 Final Challenge: Recreate this Gapminder Plot\nYour final challenge is to completely recreate this graph using the gap1992 data.\n\n\nIf you need to remember variable names, you can always call head(gap1992) or colnames(gap1992) in the console.\nRecreate the above graphic by mapping the right variables to the right aesthetic elements. Remember, you can try plots out in the console before you submit your answer.\n\n\n2.10.1 Exercise\n\n#| exercise: ex_5\nggplot(gap1992, aes(x = ----, \n    y = ------, \n    color = ----,\n    size = -----\n    )) + ggtitle(\"Gapminder for 1992\") +\n\n\n\nSolution. \n\n\n\n\n\n\nTip\n\n\n\n\n\nggplot(gap1992, aes(x = log(gdpPercap), \n    y = lifeExp, \n    color = continent,\n    size = pop\n    )) + ggtitle(\"Gapminder for 1992\") + \n    geom_point()",
     "crumbs": [
@@ -122,7 +122,7 @@
   {
     "objectID": "chapter1.html#what-you-learned-in-this-chapter",
     "href": "chapter1.html#what-you-learned-in-this-chapter",
-    "title": "2  The Magic of ggplot2",
+    "title": "2  The Magic of {ggplot2}",
     "section": "2.11 What you learned in this chapter",
     "text": "2.11 What you learned in this chapter\n\nBasic ggplot2 syntax.\nPlotting x-y data using ggplot2 using both geom_point() and geom_bar().\nMapping variables in a dataset to visual properties using aes()\ngeoms correspond to layers in a graph.\nThat ggplot2 can make some pretty cool graphs\nThat you can do this!\n\nMore Resources\n\nR For Data Science: Visualization. The visualization chapter of R for Data Science. Especially useful are the Aesthetic Mapping and the common problems sections.\nThere’s a lot more to ggplot2! Take a look at The Layered Grammar of Graphics to see the other ways we can modify plots, such as scales and coordinates.",
     "crumbs": [

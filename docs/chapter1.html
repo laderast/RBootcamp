@@ -8,7 +8,7 @@
 
 <meta name="description" content="Learn to clean and visualize data">
 
-<title>2&nbsp; The Magic of ggplot2 – R Bootcamp</title>
+<title>2&nbsp; The Magic of {ggplot2} – R Bootcamp</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -215,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Magic of <code>ggplot2</code></span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Magic of <code>{ggplot2}</code></span></h1>
 </div>
 
 
@@ -268,12 +268,12 @@ gap1992 &lt;- gapminder %&gt;% filter(year == 1992)</code></pre>
 <li>Can be subset or filtered based on criteria</li>
 </ul>
 <p>Individual variables within a <code>data.frame</code> can be accessed with the <code>$</code> operator (such as <code>gap1992$pop</code>). We won’t use this very often, as the <code>tidyverse</code> lets us access the variables without it, as you’ll see.</p>
+<section id="exercise" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">2.1.1</span> Exercise</h3>
 <ul>
 <li>Run <code>colnames()</code> and <code>head()</code> on the <code>gap1992</code> data to see what’s in each column.</li>
 <li>Then see how many rows there are in the dataset using <code>nrow()</code>. Run these in console before you submit your answer.</li>
 </ul>
-<section id="exercise" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">2.1.1</span> Exercise</h3>
 <div class="cell" data-exercise="ex_1">
 <pre class="{webr}"><code>#| exercise: ex_1
 ##run head on gap1992
@@ -318,22 +318,22 @@ Solution
 <p><img src="static/gap1992.png" class="img-fluid"></p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_4437" onsubmit="return validate_form_4437()" method="post">
-<input type="radio" name="answer_4437" id="answer_4437_1" value="x = gdpPercap, y = log(lifeExp), color = continent">
+<form name="form_86603" onsubmit="return validate_form_86603()" method="post">
+<input type="radio" name="answer_86603" id="answer_86603_1" value="x = gdpPercap, y = log(lifeExp), color = continent">
 <label>x = gdpPercap, y = log(lifeExp), color = continent</label>
 <br>
-<input type="radio" name="answer_4437" id="answer_4437_2" value="x = continent, y = year, color = pop">
+<input type="radio" name="answer_86603" id="answer_86603_2" value="x = continent, y = year, color = pop">
 <label>x = continent, y = year, color = pop</label>
 <br>
-<input type="radio" name="answer_4437" id="answer_4437_3" value="y = lifeExp, x = log(gdpPercap), color = continent">
+<input type="radio" name="answer_86603" id="answer_86603_3" value="y = lifeExp, x = log(gdpPercap), color = continent">
 <label>y = lifeExp, x = log(gdpPercap), color = continent</label>
 <br>
 <input type="submit" value="check">
-<div id="result_4437"></div>
+<div id="result_86603"></div>
 </form>
-<script>function validate_form_4437() {var x, text; var x = document.forms['form_4437']['answer_4437'].value;if (x == 'y = lifeExp, x = log(gdpPercap), color = continent'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_4437').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_86603() {var x, text; var x = document.forms['form_86603']['answer_86603'].value;if (x == 'y = lifeExp, x = log(gdpPercap), color = continent'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_86603').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_4437').innerText == 'Correct';text = res1;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_86603').innerText == 'Correct';text = res1;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -427,22 +427,22 @@ Solution
 <p>Which of the following is <em>not</em> a mappable aesthetic to <code>geom_point()</code>?</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_90659" onsubmit="return validate_form_90659()" method="post">
-<input type="radio" name="answer_90659" id="answer_90659_1" value="`linetype`">
-<label>`linetype`</label>
-<br>
-<input type="radio" name="answer_90659" id="answer_90659_2" value="`shape`">
+<form name="form_46687" onsubmit="return validate_form_46687()" method="post">
+<input type="radio" name="answer_46687" id="answer_46687_1" value="`shape`">
 <label>`shape`</label>
 <br>
-<input type="radio" name="answer_90659" id="answer_90659_3" value="`x`">
+<input type="radio" name="answer_46687" id="answer_46687_2" value="`x`">
 <label>`x`</label>
 <br>
+<input type="radio" name="answer_46687" id="answer_46687_3" value="`linetype`">
+<label>`linetype`</label>
+<br>
 <input type="submit" value="check">
-<div id="result_90659"></div>
+<div id="result_46687"></div>
 </form>
-<script>function validate_form_90659() {var x, text; var x = document.forms['form_90659']['answer_90659'].value;if (x == 'linetype'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_90659').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_46687() {var x, text; var x = document.forms['form_46687']['answer_46687'].value;if (x == 'linetype'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_46687').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2;res1 = document.getElementById('result_4437').innerText == 'Correct'; res2 = document.getElementById('result_90659').innerText == 'Correct';text = res1 + res2;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2;res1 = document.getElementById('result_86603').innerText == 'Correct'; res2 = document.getElementById('result_46687').innerText == 'Correct';text = res1 + res2;element.innerHTML = text;
          return false;
          }}</script>
 </div>
@@ -521,22 +521,22 @@ Solution
 <p>For example:</p>
 <div class="cell">
 <div class="cell-output-display">
-<form name="form_52963" onsubmit="return validate_form_52963()" method="post">
-<input type="radio" name="answer_52963" id="answer_52963_1" value="allows you to chain data and geoms together into a single statistical graphic">
+<form name="form_38135" onsubmit="return validate_form_38135()" method="post">
+<input type="radio" name="answer_38135" id="answer_38135_1" value="allows you to chain data and geoms together into a single statistical graphic">
 <label>allows you to chain data and geoms together into a single statistical graphic</label>
 <br>
-<input type="radio" name="answer_52963" id="answer_52963_2" value="adds one `data.frame` to another `data.frame` ">
+<input type="radio" name="answer_38135" id="answer_38135_2" value="adds one `data.frame` to another `data.frame` ">
 <label>adds one `data.frame` to another `data.frame` </label>
 <br>
-<input type="radio" name="answer_52963" id="answer_52963_3" value="allows you to add variables together in a `data.frame`">
+<input type="radio" name="answer_38135" id="answer_38135_3" value="allows you to add variables together in a `data.frame`">
 <label>allows you to add variables together in a `data.frame`</label>
 <br>
 <input type="submit" value="check">
-<div id="result_52963"></div>
+<div id="result_38135"></div>
 </form>
-<script>function validate_form_52963() {var x, text; var x = document.forms['form_52963']['answer_52963'].value;if (x == 'allows you to chain data and geoms together into a single statistical graphic'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_52963').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_38135() {var x, text; var x = document.forms['form_38135']['answer_38135'].value;if (x == 'allows you to chain data and geoms together into a single statistical graphic'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_38135').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1, res2, res3;res1 = document.getElementById('result_4437').innerText == 'Correct'; res2 = document.getElementById('result_90659').innerText == 'Correct'; res3 = document.getElementById('result_52963').innerText == 'Correct';text = res1 + res2 + res3;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1, res2, res3;res1 = document.getElementById('result_86603').innerText == 'Correct'; res2 = document.getElementById('result_46687').innerText == 'Correct'; res3 = document.getElementById('result_38135').innerText == 'Correct';text = res1 + res2 + res3;element.innerHTML = text;
          return false;
          }}</script>
 </div>
