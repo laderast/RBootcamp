@@ -564,7 +564,7 @@
     "href": "chapter3b.html#the-pipe-operator",
     "title": "5  More {dplyr}",
     "section": "",
-    "text": "biopics %&gt;% \n    filter(race_known == \"Known\") %&gt;%\n    mutate(poc_code = as.numeric(person_of_color))\n\n\n\n\n\n\n\n\n\n\nWhat about |&gt;?\n\n\n\nYou might have seen mentions of the native pipe, which is specified as |&gt; instead of %&gt;%. This is because the pipe became so popular in the {tidyverse}, that the main R developers implemented their own version.\nKeep in mind that they are interchangable, for the most part.\n\n\n\n5.1.1 Instructions\n\nUse %&gt;% to chain biopics into a filter to filter (country==\"US\")\n\n\nExerciseSolution",
+    "text": "biopics %&gt;% \n    filter(race_known == \"Known\") %&gt;%\n    mutate(poc_code = as.numeric(person_of_color))\n\n\n\n\n\n\n\n\n\n\nWhat about |&gt;?\n\n\n\nYou might have seen mentions of the native pipe, which is specified as |&gt; instead of %&gt;%. This is because the pipe became so popular in the {tidyverse}, that the main R developers implemented their own version.\nKeep in mind that they are interchangable, for the most part.\n\n\n\n5.1.1 Exercise\n\nUse %&gt;% to chain biopics into a filter to filter (country==\"US\")\n\n\nExerciseSolution",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
     ]
@@ -644,7 +644,7 @@
     "href": "chapter3b.html#what-you-learned-in-this-chapter",
     "title": "5  More {dplyr}",
     "section": "5.9 What you learned in this chapter",
-    "text": "5.9 What you learned in this chapter\n\nHow to use %&gt;% (the pipe)\ndplyr::filter()\ndplyr::mutate()\ndplyr::group_by()/dplyr::summarize()\ndplyr::arrange()\ndplyr::select()\nHow to put it all together!\n\nGood job for making it through this chapter! You’re well on your way to becoming a tidyverse ninja!\nMore Resources\n\nThe Data Transformation chapter of R for Data Science is another great place to learn about the basics of dplyr.\nThe Pipes chapter of R for Data Science has a great discussion on why you should consider using pipes in your workflows.",
+    "text": "5.9 What you learned in this chapter\n\nHow to use %&gt;% (the pipe)\ndplyr::group_by()/dplyr::summarize()\ndplyr::arrange()\ndplyr::select()\nHow to put it all together!\n\nGood job for making it through this chapter! You’re well on your way to becoming a tidyverse ninja!\nMore Resources\n\nThe Data Transformation chapter of R for Data Science is another great place to learn about the basics of dplyr.\nThe Pipes chapter of R for Data Science has a great discussion on why you should consider using pipes in your workflows.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
     ]

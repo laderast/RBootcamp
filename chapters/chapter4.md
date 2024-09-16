@@ -1,12 +1,14 @@
 ---
-title: 'Chapter 4: The Whys and Hows of Tidy Data' 
 description: Why we need tidy data and using `tidyr` to make messy data tidy
 prev: /chapter3
 next: /chapter5
 id: 4
 type: chapter
 ---
-<exercise id="1" title="What you'll learn in this Chapter:">
+
+# The Whys and Hows of Tidy Data
+
+## What you'll learn in this Chapter
 
 + How to identify tidy data
 + How to make messy data tidy using `tidyr`
@@ -15,9 +17,6 @@ type: chapter
 
 After this chapter, you will be able to handle about 90% of your data visualization, data manipulation, and data cleaning problems. Hopefully you'll have gained enough confidence to start going beyond this Bootcamp and learn some more.
 
-Just move on to the next exercise. 
-
-</exercise>
 
 <exercise id="2" title="What is Tidy Data?">
 
@@ -35,6 +34,8 @@ Look at the `dem_score` dataset in the console by using either `head()` or `summ
 
 <codeblock id="04_02">
 </codeblock>
+
+
 
 <choice>
 <opt text="Yes, we consider each row to be a separate observation">
