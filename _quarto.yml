@@ -1,0 +1,32 @@
+project:
+  type: book
+  output-dir: docs
+  render: 
+    - "*.qmd"
+    - "!chapters/"
+
+execute: 
+  freeze: true
+
+
+book:
+  title: "R Bootcamp"
+  description: "Learn to clean and visualize data"
+  site-url: https://laderast.github.io/RBootcamp
+  chapters:
+    - index.qmd
+    - chapter1.qmd
+    - chapter2.qmd
+    - chapter3.qmd
+    - chapter3b.qmd
+
+engine: knitr
+webr:
+  packages:
+    - ggplot2
+    - gapminder
+    - checkdown
+    - dplyr
+format: 
+  html:
+    echo: false

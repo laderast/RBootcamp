@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: dd2ce668-cae7-454a-92ea-977bc2461f5a
+      url: 'https://r-bootcamp.netlify.app'
