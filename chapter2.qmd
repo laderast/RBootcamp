@@ -88,8 +88,6 @@ glimpse(pets)
 
 There are 4 variables that are categorical in this dataset: `name`, `animal`, `shotsCurrent`, and `ageCategory`
 
-:::
-
 ## A Basic Barplot using `geom_bar()`
 
 Now that we understand what categories exist in our dataset, we can begin to visualize them using barplots generated with the `geom_bar()` geom.

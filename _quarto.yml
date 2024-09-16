@@ -6,8 +6,7 @@ project:
     - "!chapters/"
 
 execute: 
-  freeze: true
-
+  freeze: false
 
 book:
   title: "R Bootcamp"
@@ -27,6 +26,8 @@ webr:
     - gapminder
     - checkdown
     - dplyr
+
 format: 
-  html:
+  live-html:
     echo: false
+    toc: true
