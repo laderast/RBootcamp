@@ -74,7 +74,7 @@
     "href": "chapter1.html#quick-check",
     "title": "2  The Magic of {ggplot2}",
     "section": "2.6 Quick Check",
-    "text": "2.6 Quick Check\nWhich of the following is not a mappable aesthetic to geom_point()?\n\n\n\n\n`linetype`\n\n\n`x`\n\n\n`shape`",
+    "text": "2.6 Quick Check\nWhich of the following is not a mappable aesthetic to geom_point()?\n\n\n\n\n`x`\n\n\n`linetype`\n\n\n`shape`",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
     ]
@@ -144,7 +144,7 @@
     "href": "chapter2.html#factor-variables",
     "title": "3  {ggplot2} and categorical data",
     "section": "",
-    "text": "factor - used for nominal data (“Ducks”,“Cats”,“Dogs”)\nordered- used for ordinal data (“10-30”,“31-40”,“41-60”)\n\n\n\n\n\n3.1.1 Exercise\n\nUse the glimpse() function (it is part of the dplyr package, which we load for you) on pets to see the levels for the different categories.\nWhich of the variables are categorical (indicated by &lt;fct&gt;, or &lt;ord&gt;?)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n##use glimpse here\nglimpse(pets)\n\n\n\n\nThere are 4 variables that are categorical in this dataset: name, animal, shotsCurrent, and ageCategory\n:::",
+    "text": "factor - used for nominal data (“Ducks”,“Cats”,“Dogs”)\nordered- used for ordinal data (“10-30”,“31-40”,“41-60”)\n\n\n\n\n\n3.1.1 Exercise\n\nUse the glimpse() function (it is part of the dplyr package, which we load for you) on pets to see the levels for the different categories.\nWhich of the variables are categorical (indicated by &lt;fct&gt;, or &lt;ord&gt;?)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n##use glimpse here\nglimpse(pets)\n\n\n\n\nThere are 4 variables that are categorical in this dataset: name, animal, shotsCurrent, and ageCategory",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
     ]
@@ -174,7 +174,7 @@
     "href": "chapter2.html#quick-quiz",
     "title": "3  {ggplot2} and categorical data",
     "section": "3.4 Quick Quiz",
-    "text": "3.4 Quick Quiz\nWhat does mapping color to \"black\" in geom_bar() do? For example:\nggplot(pets, aes(x=animal, fill=shotsCurrent)) + \n  geom_bar(color=\"black\")\n If you’re unsure, compare the graph above to the previous graph.\n\n\n\n\nMakes the default bar fill color black\n\n\nSpecifies the text in the graph to be black\n\n\nOutlines the bars in black",
+    "text": "3.4 Quick Quiz\nWhat does mapping color to \"black\" in geom_bar() do? For example:\nggplot(pets, aes(x=animal, fill=shotsCurrent)) + \n  geom_bar(color=\"black\")\n If you’re unsure, compare the graph above to the previous graph.\n\n\n\n\nOutlines the bars in black\n\n\nSpecifies the text in the graph to be black\n\n\nMakes the default bar fill color black",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
     ]
@@ -214,7 +214,7 @@
     "href": "chapter2.html#super-quick-review",
     "title": "3  {ggplot2} and categorical data",
     "section": "3.8 Super Quick Review",
-    "text": "3.8 Super Quick Review\nFaceting a graph allows us to:\n\n\n\n\n\n\n\n\n\n\n\n\nplot points as pretty gems\nstratify our graph by another category\nadd another set of categories to the x-axis",
+    "text": "3.8 Super Quick Review\nFaceting a graph allows us to:\n\n\n\n\n\n\n\n\n\n\n\n\nadd another set of categories to the x-axis\nstratify our graph by another category\nplot points as pretty gems",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
     ]
@@ -414,7 +414,7 @@
     "href": "chapter3b.html",
     "title": "5  More {dplyr}",
     "section": "",
-    "text": "5.1 The Pipe Operator: %&gt;%\nWe’re going to introduce another bit of dplyr syntax, the %&gt;% operator. %&gt;% is called a pipe operator.\nYou can think of it as being similar to the + in a ggplot2 statement.\nWhat %&gt;% does is that it takes the output of one statement and makes it the input of the next statement. When I’m describing it, I think of it as a “THEN”. For example, I read the following expression\nAs: - I took the biopics data, - THEN I filtered it down with the race_known == \"Known\" criteria and - THEN I defined a new variable called poc_code with mutate().\nNote that filter() doesn’t have a data argument, because the data is piped into filter(). Same thing for mutate().\n%&gt;% allows you to chain multiple verbs in the tidyverse. It’s one of the most powerful things about the tidyverse.\nIn fact, having a standardized chain of processing actions is called a pipeline. Making pipelines for a data format is great, because you can apply that pipeline to incoming data that has the same formatting and have it output in a ggplot2 friendly format.",
+    "text": "5.1 The Pipe Operator: %&gt;%\nWe’re going to introduce another bit of dplyr syntax, the %&gt;% operator. %&gt;% is called a pipe operator.\nYou can think of it as being similar to the + in a ggplot2 statement.\nWhat %&gt;% does is that it takes the output of one statement and makes it the input of the next statement. When I’m describing it, I think of it as a “THEN”. For example, I read the following expression\nNote that filter() doesn’t have a data argument, because the data is piped into filter(). Same thing for mutate(). This takes some getting used to, but the thing to remember is:\nIf our dplyr command outputs a data.frame, then we can chain it to other commands.\n%&gt;% allows you to chain multiple verbs in the tidyverse. It’s one of the most powerful things about the tidyverse.\nIn fact, having a standardized chain of processing actions is called a pipeline. Making pipelines for a data format is great, because you can apply that pipeline to incoming data that has the same formatting and have it output in a ggplot2 friendly format.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
     ]
@@ -424,7 +424,7 @@
     "href": "chapter3b.html#the-pipe-operator",
     "title": "5  More {dplyr}",
     "section": "",
-    "text": "biopics %&gt;% \n    filter(race_known == \"Known\") %&gt;%\n    mutate(poc_code = as.numeric(person_of_color))\n\n\n\n\n\n\n\n\n\n\nWhat about |&gt;?\n\n\n\nYou might have seen mentions of the native pipe, which is specified as |&gt; instead of %&gt;%. This is because the pipe became so popular in the {tidyverse}, that the main R developers implemented their own version.\nKeep in mind that they are interchangable, for the most part.\n\n\n\n5.1.1 Exercise\n\nUse %&gt;% to chain biopics into a filter to filter (country==\"US\")\n\n\nExerciseSolution",
+    "text": "1biopics %&gt;%\n2    filter(race_known == \"Known\") %&gt;%\n3    mutate(poc_code = as.numeric(person_of_color))\n\n1\n\nI took the biopics data, THEN\n\n2\n\nI filtered it down with the race_known == \"Known\" criteria and THEN\n\n3\n\nI defined a new variable called poc_code with mutate().\n\n\n\n\ndplyr commands expect data.frames as input, and returns a data.frame as output.\n\n\n\n\n\n\n\n\n\n\nWhat about |&gt;?\n\n\n\nYou might have seen mentions of the native pipe, which is specified as |&gt; instead of %&gt;%. This is because the pipe became so popular in the {tidyverse}, that the main R developers implemented their own version.\nKeep in mind that they are interchangable, for the most part.\n\n\n\n5.1.1 Exercise\n\nUse %&gt;% to chain biopics into a filter to filter (country==\"US\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
     ]
@@ -434,7 +434,7 @@
     "href": "chapter3b.html#group_bysummarize",
     "title": "5  More {dplyr}",
     "section": "5.2 group_by()/summarize()",
-    "text": "5.2 group_by()/summarize()\ngroup_by() doesn’t do anything by itself. But when combined with summarize(), you can calculate metrics (such as mean, max - the maximum, min, sd - the standard deviation) across groups. For example:\n\n\n\n\n\n\n\n\nHere we want to calculate the mean box_office by country. However, in order to do that, we first need to remove any rows that have NA values in box_office that may confound our calculation.\nLet’s ask a tough question. Is there a difference between mean box_office between the two subject_sex categories?\n\n5.2.1 Instructions\nFirst use filter() to remove the NA values. Then, use group_by() and summarize() to calculate the mean box_office by subject_sex, naming the summary variable as mean_bo_by_gender. Assign the output to gender_box_office.\n\nExerciseSolution",
+    "text": "5.2 group_by()/summarize()\ngroup_by() doesn’t do anything by itself. But when combined with summarize(), you can calculate metrics (such as mean, max - the maximum, min, sd - the standard deviation) across groups. For example:\n\n\n\n\n\n\n\n\nHere we want to calculate the mean box_office by country. However, in order to do that, we first need to remove any rows that have NA values in box_office that may confound our calculation.\nLet’s ask a tough question. Is there a difference between mean box_office between the two subject_sex categories?\n\n5.2.1 Exercise\nFirst use filter() to remove the NA values. Then, use group_by() and summarize() to calculate the mean box_office by subject_sex, naming the summary variable as mean_bo_by_gender. Assign the output to gender_box_office.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
     ]
@@ -444,7 +444,7 @@
     "href": "chapter3b.html#counting-stuff",
     "title": "5  More {dplyr}",
     "section": "5.3 Counting Stuff",
-    "text": "5.3 Counting Stuff\nWhat does the following code do? Try it out in the console!",
+    "text": "5.3 Counting Stuff\nWhat does the following code do? Try it out below!\n\n\n\n\n\n\n\n\n\n\n\n\njust shows the regular `biopics` `data.frame`\ncounts each `type_of_subject` and puts it in another table\n\n\n\n\n\n\n\n\n\n\n\n\n\ncount() is a handy verb\n\n\n\nThere are a lot of specialized verbs in the tidyverse, but count() comes in handy. You can do the above code with a single command:",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
     ]
@@ -454,7 +454,7 @@
     "href": "chapter3b.html#arrange",
     "title": "5  More {dplyr}",
     "section": "5.4 arrange()",
-    "text": "5.4 arrange()\narrange() lets you sort by a variable. If you provide multiple variables, the variables are arranged within each other. For example:\n\n\n\n\n\n\n\n\nThis statement will sort the data by country first, and then within each country category, it will sort by year_release.\n\n5.4.1 Instructions\nSort biopics by year_release then by country. Assign the output to biopics_sorted.\n\nExerciseSolution",
+    "text": "5.4 arrange()\narrange() lets you sort by a variable. If you provide multiple variables, the variables are arranged within each other. For example:\n\n\n\n\n\n\n\n\nThis statement will sort the data by country first, and then within each country category, it will sort by year_release.\n\n5.4.1 Exercise\nSort biopics by year_release then by country. Assign the output to biopics_sorted.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
     ]
@@ -464,7 +464,7 @@
     "href": "chapter3b.html#select",
     "title": "5  More {dplyr}",
     "section": "5.5 select()",
-    "text": "5.5 select()\nThe final verb we’ll learn is select(). select() allows you to:\n\nextract columns,\nreorder columns or\nremove columns from your data, as well as\nrename your data.\n\nFor example, look at the following code:\n\n\n\n\n\n\n\n\nHere, we’re just extracting two columns (title_of_movie, box_office). Notice we also renamed title to movieTitle.\n\n5.5.1 Instructions\nUse select to extract the following variables: title (rename it movieTitle), box_office and subject_sex and assign them to a new table called threeVarTable.\n\nExerciseSolution",
+    "text": "5.5 select()\nThe final verb we’ll learn is select(). select() allows you to:\n\nextract columns,\nreorder columns or\nremove columns from your data, as well as\nrename your data.\n\nFor example, look at the following code:\n\n\n\n\n\n\n\n\nHere, we’re just extracting two columns (title_of_movie, box_office). Notice we also renamed title to movieTitle.\n\n5.5.1 Exercise\nUse select to extract the following variables: title (rename it movieTitle), box_office and subject_sex and assign them to a new table called threeVarTable.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
     ]
@@ -474,7 +474,7 @@
     "href": "chapter3b.html#chester-ismays-mantra",
     "title": "5  More {dplyr}",
     "section": "5.6 Chester Ismay’s Mantra",
-    "text": "5.6 Chester Ismay’s Mantra\nWhat is the difference between select() and filter()?\n Nope. Both of these verbs don’t care what data type you use.  Not true. You can use filter() and select() in any order!   Welcome to the cult of dplyr! Your secret decoder ring is in the mail.   \n\nNow here comes the fun part. Chaining dplyr verbs together to accomplish some data cleaning and transformation.\nFor a reference while you work, you can use the dplyr cheatsheet here: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf\n\n5.6.1 Instructions\n\nFor the biopics data, filter() the data so that we only cover movies from 2000 to 2014. (year_release is the variable you want.)\nFilter out the NAs in box_office.\nThen use mutate() to code a new variable, box_office_per_subject. (The two variables you need here are box_office and number_of_subjects.)\nAssign this statement to biopics_new.\nRun summary() on biopics_new to confirm that your statement worked.\n\n\nExerciseSolution",
+    "text": "5.6 Chester Ismay’s Mantra\nWhat is the difference between select() and filter()?\n\n\n\n\n`select()` works on booleans, whereas `filter()` works on all data types\n`select()` only works after `filter()`\n`select()` works on columns, `filter()` works on rows",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
     ]
@@ -483,8 +483,8 @@
     "objectID": "chapter3b.html#challenge-2-show-your-stuff",
     "href": "chapter3b.html#challenge-2-show-your-stuff",
     "title": "5  More {dplyr}",
-    "section": "5.7 Challenge 2: Show your stuff",
-    "text": "5.7 Challenge 2: Show your stuff\nAnswer the question: Do movies where we know the race is known (race_known == TRUE) make more money than movies where the race is not known (race_known== FALSE) grouped by country? Which race_known/country combination made the highest amount of money?\n\n5.7.1 Instructions\n\nYou’ll need to do a filter step first to remove NA values from box_office before you do anything.\nThen think of what variables you need to group_by.\nFinally, figure out what do you need to summarize (assign the value to mean_box_office) and arrange on (don’t forget to use desc!)?\nAssign the output to race_country_box_office.\nShow race_country_box_office.\n\n\nExerciseSolution",
+    "section": "5.8 Challenge 2: Show your stuff",
+    "text": "5.8 Challenge 2: Show your stuff\nAnswer the question: Do movies where we know the race is known (race_known == TRUE) make more money than movies where the race is not known (race_known== FALSE) grouped by country? Which race_known/country combination made the highest amount of money?\n\n5.8.1 Exercise\n\nYou’ll need to do a filter step first to remove NA values from box_office before you do anything.\nThen think of what variables you need to group_by.\nFinally, figure out what do you need to summarize (assign the value to mean_box_office) and arrange on (don’t forget to use desc!)?\nAssign the output to race_country_box_office.\nShow race_country_box_office.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nrace_country_box_office &lt;- biopics %&gt;%\n    filter(!is.na(box_office)) %&gt;%\n    group_by(race_known, country) %&gt;%\n    summarize(mean_box_office=mean(box_office)) %&gt;%\n    arrange(desc(mean_box_office))\n\nrace_country_box_office",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
     ]
@@ -493,8 +493,8 @@
     "objectID": "chapter3b.html#challenge-3-putting-together-what-we-know-about-ggplot2-and-dplyr",
     "href": "chapter3b.html#challenge-3-putting-together-what-we-know-about-ggplot2-and-dplyr",
     "title": "5  More {dplyr}",
-    "section": "5.8 Challenge 3: Putting together what we know about {ggplot2} and {dplyr}",
-    "text": "5.8 Challenge 3: Putting together what we know about {ggplot2} and {dplyr}\nNow we’re cooking with fire. You can directly pipe the output of a dplyr pipeline into a ggplot2 statement. For example:\n\n\n\n\n\n\n\n\nNote that we use %&gt;% to pipe our statement into the ggplot() function. The tricky thing to remember is that everything after the ggplot() is connected with +, and not %&gt;%.\nAlso note: we don’t assign a data variable in the ggplot() statement. We are piping in the data.\nAre you sick of biopics yet? I promise this is the last time we use this dataset.\n\n5.8.1 Instructions\n\nFirst, filter biopics to have year_release &lt; 1990 and remove NA values.\nThen pipe that into a ggplot() statement that plots an x-y plot of box_office (use geom_point()) where x=year_release and y=log(box_office).\nColor the points by person_of_color.\nAssign the output to bPlot and print it to the screen using print(bPlot).\n\n\nExerciseSolution",
+    "section": "5.9 Challenge 3: Putting together what we know about {ggplot2} and {dplyr}",
+    "text": "5.9 Challenge 3: Putting together what we know about {ggplot2} and {dplyr}\nNow we’re cooking with fire. You can directly pipe the output of a dplyr pipeline into a ggplot2 statement. For example:\n\n\n\n\n\n\n\n\nNote that we use %&gt;% to pipe our statement into the ggplot() function. The tricky thing to remember is that everything after the ggplot() is connected with +, and not %&gt;%.\nAlso note: we don’t assign a data variable in the ggplot() statement. We are piping in the data.\nAre you sick of biopics yet? I promise this is the last time we use this dataset.\n\n5.9.1 Exercise\n\nFirst, filter biopics to have year_release &lt; 1990 and remove NA values.\nThen pipe that into a ggplot() statement that plots an x-y plot of box_office (use geom_point()) where x=year_release and y=log(box_office).\nColor the points by person_of_color.\nAssign the output to bPlot and print it to the screen using print(bPlot).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nbPlot &lt;- biopics %&gt;% \n  filter(year_release &lt; 1990) %&gt;% \n  filter(!is.na(box_office)) %&gt;%\n    ggplot(aes(x=year_release, y=log(box_office), \n               color=person_of_color)) +\n    geom_point()\n    \nprint(bPlot)",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
     ]
@@ -503,8 +503,18 @@
     "objectID": "chapter3b.html#what-you-learned-in-this-chapter",
     "href": "chapter3b.html#what-you-learned-in-this-chapter",
     "title": "5  More {dplyr}",
-    "section": "5.9 What you learned in this chapter",
-    "text": "5.9 What you learned in this chapter\n\nHow to use %&gt;% (the pipe)\ndplyr::group_by()/dplyr::summarize()\ndplyr::arrange()\ndplyr::select()\nHow to put it all together!\n\nGood job for making it through this chapter! You’re well on your way to becoming a tidyverse ninja!\nMore Resources\n\nThe Data Transformation chapter of R for Data Science is another great place to learn about the basics of dplyr.\nThe Pipes chapter of R for Data Science has a great discussion on why you should consider using pipes in your workflows.",
+    "section": "5.10 What you learned in this chapter",
+    "text": "5.10 What you learned in this chapter\n\nHow to use %&gt;% (the pipe)\ndplyr::group_by()/dplyr::summarize()\ndplyr::arrange()\ndplyr::select()\nHow to put it all together!\n\nGood job for making it through this chapter! You’re well on your way to becoming a tidyverse ninja!\nMore Resources\n\nThe Data Transformation chapter of R for Data Science is another great place to learn about the basics of dplyr.\nThe Pipes chapter of R for Data Science has a great discussion on why you should consider using pipes in your workflows.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3b.html#putting-it-all-together",
+    "href": "chapter3b.html#putting-it-all-together",
+    "title": "5  More {dplyr}",
+    "section": "5.7 Putting it all together",
+    "text": "5.7 Putting it all together\nNow here comes the fun part. Chaining dplyr verbs together to accomplish some data cleaning and transformation.\nFor a reference while you work, you can use the dplyr cheatsheet here: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf\n\n5.7.1 Exercise\n\nFor the biopics data, filter() the data so that we only cover movies from 2000 to 2014. (year_release is the variable you want.)\nFilter out the NAs in box_office.\nThen use mutate() to code a new variable, box_office_per_subject. (The two variables you need here are box_office and number_of_subjects.)\nAssign this statement to biopics_new.\nRun summary() on biopics_new to confirm that your statement worked.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
     ]
