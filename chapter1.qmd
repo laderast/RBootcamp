@@ -15,8 +15,6 @@ webr:
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
-# The Magic of `ggplot2`
-
 ```{webr}
 #| setup: true
 #| echo: false
