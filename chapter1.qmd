@@ -1,36 +1,50 @@
 ---
-title: 'Chapter 1: The Magic of ggplot2' 
-description: Learn how ggplot2 turns variables into statistical graphics
+title: "The Magic of `{ggplot2}`"
 format: 
-  html:
+  live-html:
     echo: false
+    toc: true
 engine: knitr
-filters: 
-  - webr
 webr:
   packages:
     - ggplot2
     - gapminder
     - checkdown
     - dplyr
-prev: null
-next: /chapter2
-id: 1
-type: chapter
 ---
 
-```{webr-r}
-#| context: setup
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+# The Magic of `ggplot2`
+
+```{webr}
+#| setup: true
+#| echo: false
+#| exercise:
+#|   - ex_1
+#|   - ex-2
+#|   - ex_3
+#|   - ex_4
+#|   - ex_5
 options(warn = -1, show.error.messages = FALSE)
 library(dplyr)
 library(ggplot2)
 library(gapminder)
 gap1992 <- gapminder %>% filter(year == 1992)
+```
 
+```{webr}
+#| echo: false
+#| edit: false
+options(warn = -1, show.error.messages = FALSE)
+library(dplyr)
+library(ggplot2)
+library(gapminder)
+gap1992 <- gapminder %>% filter(year == 1992)
 ```
 
 
-# `data.frame`s and How to Use Them
+## `data.frame`s and How to Use Them
 
 Let's review the basics of `data.frame`s.
 
@@ -45,14 +59,13 @@ A `data.frame` is a table-like format which has the following properties:
 
 Individual variables within a `data.frame` can be accessed with the `$` operator (such as `gap1992$pop`). We won't use this very often, as the `tidyverse` lets us access the variables without it, as you'll see.
 
+### Exercise
+
 - Run `colnames()` and `head()` on the `gap1992` data to see what's in each column. 
 - Then see how many rows there are in the dataset using `nrow()`. Run these in console before you submit your answer.
 
-
-::: {.panel-tabset}
-## Exercise
-
-```{webr-r}
+```{webr}
+#| exercise: ex_1
 ##run head on gap1992
 head(----)
 ##run colnames here on gap1992
@@ -62,20 +75,22 @@ nrow(-----)
 
 ```
 
+::: { .solution exercise="ex_1"}
+::: { .callout-tip collapse=false}
+
 ## Solution
 
-```{webr-r}
+```r
 ##run head on gap1992
-head(gap1992)
+head(gap1992)                 
 ##run colnames here on gap1992
-colnames(gap1992)
+colnames(gap1992)               
 ##run nrow() on gap1992
 nrow(gap1992)
-
 ```
 
 :::
-
+:::
 
 ## Thinking about aesthetics
 
@@ -97,7 +112,7 @@ checkdown::check_question("y = lifeExp, x = log(gdpPercap), color = continent",
 
 ```
 
-# Mapping variables to produce geometric plots
+## Mapping variables to produce geometric plots
 
 A statistical graphic consists of:
 
@@ -107,9 +122,8 @@ A statistical graphic consists of:
 
 In code, this is translated as:
 
-```{r}
-#| eval: false
-#| echo: true
+```{webr}
+#| edit: false
 ggplot(data = gap1992, mapping = aes(x = log(gdpPercap), y=log(pop))) +
   geom_point()
 ```
@@ -123,22 +137,21 @@ In order to map our variables to aesthetic properties, we will need to use `aes(
 
 Finally, we can superimpose our geometry on the plot using `geom_point()`.
 
+### Exercise
+
 Based on the graph below, map the appropriate variables to the `x`, and `y` aesthetics. Run your plot. Remember, you can try plots out in the console before you submit your answer.
 
 ![](static/gap1992.png)
 
 Hint: Look at the graph. If you need the variable names, they are listed below.
 
-```{webr-r}
-#| context: output
+```{webr}
+#| edit: false
 colnames(gap1992)
 ```
 
-
-::: {.panel-tabset}
-## Exercise
-
 ```{webr-r}
+#| exercise: ex_2
 ggplot(data = gap1992, 
     mapping = aes(
       x = ------, 
@@ -147,10 +160,12 @@ ggplot(data = gap1992,
 geom_point()
 ```
 
+::: { .solution exercise="ex_2"}
+::: { .callout-tip collapse=false}
 
 ## Solution
 
-```{webr-r}
+```r
 ggplot(data=gap1992, 
     mapping = aes(
       x = log(gdpPercap), 
@@ -160,15 +175,15 @@ geom_point()
 
 ```
 :::
+:::
 
-# More about `aes()`
+## More about `aes()`
 
 For `geom_point()`, there are lots of other aesthetics. The important thing to know is that
 aesthetics are properties of the `geom`. If you need to know the aesthetics that you can 
 map to a `geom`, you can always use `help()` (such as `help(geom_point)`).
 
-For a list of aesthetics for `geom_point()`, look here: [http://ggplot.yhathq.com/docs/geom_point.html](http://ggplot.yhathq.com/docs/geom_point.html)
-and look at all the aesthetic mappings. For example:
+For a list of aesthetics for `geom_point()`, look here: <https://ggplot2.tidyverse.org/reference/geom_point.html#aesthetics> and look at all the aesthetic mappings. For example:
 
 ## Aesthetics
 
@@ -184,70 +199,75 @@ and look at all the aesthetic mappings. For example:
 - `size`
 - `stroke`
 
+## Quick Check
+
 Which of the following is *not* a mappable aesthetic to `geom_point()`?
 
 ```{r}
 checkdown::check_question("linetype", options = c("`x`", "`shape`", "`linetype`"), type="radio", random_answer_order = TRUE)
 ```
 
-# Points versus lines
+## Points versus lines
 
 The great thing about `ggplot2` is that it's easy to swap geometric representations. 
 Instead of x-y points, we can plot the data as a line graph by swapping `geom_line()`
 for `geom_point()`.
 
+### Exercise
+
 First run the code to see the plot with points. Change the `geom_point()` in the following graph to `geom_line()`. What happened?
+
 How did the visual presentation of the data change?
 
-:::{.panel-tabset}
-
-## Exercise
-
-```{webr-r}
+```{webr}
+#| exercise: ex_3
 ggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, color=continent)) +
   geom_point() 
 ```
 
-## Solution
+::: { .solution exercise="ex_3"}
+::: { .callout-tip collapse=false}
 
-```{webr-r}
+```r
 ggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, color=continent)) +
   geom_line() 
 ```
 
 :::
+:::
 
-# Geoms are layers on a ggplot
+## Geoms are layers on a ggplot
 
 We are not restricted to a single geom on a graph! You can think of geoms
 as layers on a graph. Thus, we can use the `+` symbol to add geoms to our
 base `ggplot()` statement. 
 
+### Exercise
+
 Add both `geom_line()` and `geom_point()` to the following ggplot. Are the results what you expected?
 
-::: {.panel-tabset}
-
-## Exercise
-
 ```{webr-r}
+#| exercise: ex_4
 ggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, color=continent)) +
 ## add code here
 
 ```
 
+::: { .solution exercise="ex_4"}
+::: { .callout-tip collapse=false}
 
 ## Solution
 
-```{webr-r}
+```r
 ggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, color=continent)) +
 ## add code here
   geom_line() + geom_point()
 ```
 
 :::
+:::
 
-
-# Quick review about `ggplot2`
+## Quick Check about `ggplot2`
 
 What does the `+` in a `ggplot` statement do? 
 
@@ -261,11 +281,10 @@ ggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, color=continent)) +
 
 ```{r}
 checkdown::check_question("allows you to chain data and geoms together into a single statistical graphic", options = c("allows you to chain data and geoms together into a single statistical graphic", "adds one `data.frame` to another `data.frame` ","allows you to add variables together in a `data.frame`"), type="radio")
-
 ```
 
 
-# Final Challenge: Recreate this Gapminder Plot
+## Final Challenge: Recreate this Gapminder Plot
 
 Your final challenge is to completely recreate this graph using the `gap1992` data.
 
@@ -274,22 +293,22 @@ Your final challenge is to completely recreate this graph using the `gap1992` da
 - If you need to remember variable names, you can always call `head(gap1992)` or `colnames(gap1992)` in the console.
 - Recreate the above graphic by mapping the right variables to the right aesthetic elements. Remember, you can try plots out in the console before you submit your answer.
 
-::: {.panel-tabset}
+### Exercise
 
-## Exercise
-
-```{webr-r}
-ggplot(gap1992, aes(x = , 
-    y = , 
-    color = ,
-    size =
+```{webr}
+#| exercise: ex_5
+ggplot(gap1992, aes(x = ----, 
+    y = ------, 
+    color = ----,
+    size = -----
     )) + ggtitle("Gapminder for 1992") +
 
 ```
 
-## Solution
+::: { .solution exercise="ex_5"}
+::: { .callout-tip collapse=false}
 
-```{webr-r}
+```r
 ggplot(gap1992, aes(x = log(gdpPercap), 
     y = lifeExp, 
     color = continent,
@@ -299,8 +318,10 @@ ggplot(gap1992, aes(x = log(gdpPercap),
 ```
 
 :::
+:::
 
-# What you learned in this chapter
+
+## What you learned in this chapter
 
 - Basic `ggplot2` syntax.
 - Plotting x-y data using `ggplot2` using both `geom_point()` and `geom_bar()`.

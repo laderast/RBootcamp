@@ -1,0 +1,412 @@
+---
+title: "More `{dplyr}`"
+format: 
+  live-html:
+    toc: true
+engine: knitr
+webr:
+  packages:
+    - ggplot2
+    - checkdown
+    - dplyr
+    - fivethirtyeight
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{webr}
+#| setup: true
+#| echo: false
+#| exercise:
+#|   - ex_1
+#|   - ex_2
+#|   - ex_3
+#|   - ex_4
+#|   - ex_5
+#|   - ex_6
+library(dplyr)
+library(fivethirtyeight)
+data(biopics)
+```
+
+```{webr}
+#| edit: false
+#| echo: false
+library(dplyr)
+library(fivethirtyeight)
+data(biopics)
+```
+
+
+## The Pipe Operator: `%>%`
+
+We're going to introduce another bit of `dplyr` syntax, the `%>%` operator. `%>%` is called a `pipe` operator. 
+
+You can think of it as being similar to the `+` in a `ggplot2` statement.
+
+What `%>%` does is that it takes the output of one statement and makes it the input of the next statement. When I'm describing it, I think of it as a "THEN". For example, I read the following expression
+
+```r
+biopics %>% 
+    filter(race_known == "Known") %>%
+    mutate(poc_code = as.numeric(person_of_color))
+```
+
+As: 
+- I took the `biopics` data, 
+- THEN  I `filter`ed it down with the `race_known == "Known"` criteria and 
+- THEN I defined a new variable called `poc_code` with `mutate()`.
+
+Note that `filter()` doesn't have a `data` argument, because the `data` is `piped` into `filter()`. Same thing for `mutate()`.
+
+`%>%` allows you to chain multiple verbs in the `tidyverse`. It's one of the most powerful things about the `tidyverse`. 
+
+In fact, having a standardized chain of processing actions is called a **pipeline**. Making pipelines for a data format is great, because you can apply that pipeline to incoming data that has the same formatting and have it output in a `ggplot2` friendly format.
+
+:::{.callout-note}
+## What about `|>`?
+
+You might have seen mentions of the native pipe, which is specified as `|>` instead of `%>%`. This is because the pipe became so popular in the `{tidyverse}`, that the main R developers implemented their own version.
+
+Keep in mind that they are interchangable, for the most part.
+:::
+
+
+### Exercise
+
++ Use `%>%` to chain `biopics` into a `filter` to filter (`country=="US"`) 
+
+:::{.panel-tabset}
+## Exercise
+
+```{webr}
+biopics %>%
+  filter(-----)
+```
+
+## Solution
+
+```{webr}
+biopics %>%
+  filter(country == "US")
+```
+:::
+
+## `group_by()`/`summarize()`
+
+`group_by()` doesn't do anything by itself. But when combined with `summarize()`, you can 
+calculate metrics (such as `mean`, `max` - the maximum, `min`, `sd` - the standard deviation) across groups. For example:
+
+```{webr}
+#| context: output
+#| echo: true
+countryMeans <- biopics %>% 
+                    filter(!is.na(box_office)) %>% 
+                    group_by(country) %>% 
+                    summarize(mean_box_office = mean(box_office))
+```
+
+Here we want to calculate the mean `box_office` by `country`. However, in order to do that, we first need to remove any rows that have `NA` values in `box_office` that may confound our calculation.
+
+Let's ask a tough question. Is there a difference between mean `box_office` 
+between the two `subject_sex` categories? 
+
+### Instructions
+
+First use `filter()` to remove the NA values. Then, use `group_by()` and `summarize()` to 
+calculate the mean `box_office` by `subject_sex`, naming the summary
+variable as `mean_bo_by_gender`.  Assign the output to `gender_box_office`. 
+
+
+:::{.panel-tabset}
+## Exercise
+
+```{webr}
+gender_box_office <- biopics %>% 
+    filter() %>%
+    group_by() %>% 
+    summarize(mean_bo_by_gender= mean(--------))
+    
+##show head of gender_box_office
+head(gender_box_office)
+```
+
+## Solution
+
+```{webr}
+gender_box_office <- biopics %>% 
+    filter(!is.na(box_office)) %>%
+    group_by(subject_sex) %>% 
+    summarize(mean_bo_by_gender=mean(box_office))
+
+##show head of gender_box_office
+head(gender_box_office)
+```
+:::
+
+
+## Counting Stuff
+
+What does the following code do? Try it out in the console!
+
+```{webr}
+biopics %>% group_by(type_of_subject) %>% summarize(count=n())
+```
+
+
+```{webr}
+checkdown::check_question("counts each `type_of_subject` and puts it in another table",
+                          options=c("just shows the regular `biopics` `data.frame`",
+                                    "counts each `type_of_subject` and puts it in another table"
+                                    ))
+
+```
+
+
+## `arrange()`
+
+`arrange()` lets you sort by a variable. If you provide multiple variables, the variables are 
+arranged within each other. For example:
+
+```{webr}
+#| echo: true
+#| context: output
+biopics %>% arrange(country, year_release)
+```
+
+This statement will sort the data by `country` first, and then within each `country` category, 
+it will sort by `year_release`.
+
+### Instructions
+
+Sort `biopics` by `year_release` then by `country`. Assign the output to `biopics_sorted`.
+
+
+:::{.panel-tabset}
+## Exercise
+
+```{webr}
+biopics_sorted <- biopics %>%
+  arrange(------, ------)
+
+head(biopics_sorted)
+```
+
+## Solution
+
+```{webr}
+biopics_sorted <- biopics %>% 
+  arrange(year_release, country)
+
+head(biopics_sorted)
+```
+:::
+
+
+## `select()`
+
+The final verb we'll learn is `select()`. `select()` allows you to: 
+
+1) extract columns, 
+2) reorder columns or 
+3) remove columns from your data, as well as 
+4) rename your data. 
+
+For example, look at the following code:
+
+```{webr}
+#| echo: true
+#| context: output
+biopics %>% select(movieTitle=title, box_office)
+```
+Here, we're just extracting two columns (`title_of_movie`, `box_office`). Notice we also renamed `title` to `movieTitle`.
+
+### Instructions
+
+Use `select` to extract the following variables: `title` (rename it `movieTitle`), `box_office` and `subject_sex` and assign them to a new table called `threeVarTable`.
+
+:::{.panel-tabset}
+## Exercise
+
+```{webr}
+threeVarTable <- biopics %>% 
+  select(----, ----, ----)
+
+head(threeVarTable)
+```
+
+## Solution
+
+```{webr}
+threeVarTable <- biopics %>% 
+  select(movieTitle=title, box_office, subject_sex)
+
+head(threeVarTable)
+```
+:::
+
+## Chester Ismay's Mantra
+
+What is the difference between `select()` and `filter()?`
+
+<choice>
+<opt text="`select()` works on booleans, whereas `filter()` works on all data types">Nope. Both of these verbs don't care what data type you use.
+</opt>
+<opt text="`select()` only works after `filter()`">Not true. You can use `filter()` and `select()` in any order!
+</opt>
+<opt text="`select()` works on columns, `filter()` works on rows" correct = "true">
+Welcome to the cult of `dplyr`! Your secret decoder ring is in the mail.
+</opt>
+</choice>
+</exercise>
+
+<exercise id="19" title="Challenge 1: Putting it all together">
+
+Now here comes the fun part. Chaining `dplyr` verbs together to accomplish some data cleaning and transformation.
+
+For a reference while you work, you can use the `dplyr` cheatsheet here: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
+
+### Instructions
+
++ For the `biopics` data, `filter()` the data so that we only cover movies from 2000 to 2014. (`year_release` is the variable you want.)
++ Filter out the NAs in `box_office`.
++ Then  use `mutate()` to code a new variable, `box_office_per_subject`. (The two variables you need here are `box_office` and `number_of_subjects`.)
++ Assign this statement to `biopics_new`.
++ Run `summary()` on `biopics_new` to confirm that your statement worked.
+
+:::{.panel-tabset}
+## Exercise
+
+```{webr}
+biopics_by_country <- biopics %>%
+  filter(year_release ----- & year_release -----) %>%
+  filter(!is.na(box_office)) %>%
+  mutate(box_office_per_subject = ------)
+
+summary(biopics_by_country)
+```
+
+## Solution
+
+```{webr}
+biopics_by_country <- biopics %>%
+  filter(year_release <= 2014 & year_release >= 2000) %>%
+  filter(!is.na(box_office)) %>%
+  mutate(box_office_per_subject = box_office / number_of_subjects)
+
+summary(biopics_by_country)
+```
+:::
+
+
+## Challenge 2: Show your stuff
+
+Answer the question: Do movies where we know the race is known (`race_known` == TRUE) make more 
+money than movies where the race is not known (`race_known`== FALSE) grouped by country? 
+Which `race_known`/`country` combination made the highest amount of money?
+
+### Instructions
+
++ You'll need to do a `filter` step first to remove `NA` values from `box_office` before you do  anything. 
++ Then think of what variables you need to `group_by`. 
++ Finally, figure out what do you need to `summarize` (assign the value to `mean_box_office`) 
+and `arrange` on (don't forget to use `desc`!)? 
++ Assign the output to `race_country_box_office`.
++ Show `race_country_box_office`.
+
+:::{.panel-tabset}
+## Exercise
+
+```{webr}
+race_country_box_office <- biopics %>%
+        
+
+race_country_box_office
+```
+
+## Solution
+
+```{webr}
+race_country_box_office <- biopics %>%
+    filter(!is.na(box_office)) %>%
+    group_by(race_known, country) %>%
+    summarize(mean_box_office=mean(box_office)) %>%
+    arrange(desc(mean_box_office))
+
+race_country_box_office
+```
+:::
+
+## Challenge 3: Putting together what we know about `{ggplot2}` and `{dplyr}`
+
+Now we're cooking with fire. You can directly pipe the output of a `dplyr` pipeline
+into a `ggplot2` statement. For example:
+
+```{webr}
+#| echo: true
+#| context: output
+biopics %>%
+    filter(year_release >= 2000 & year_release <= 2014) %>%
+    mutate(box_office_per_subject = box_office / number_of_subjects) %>%
+    ggplot(aes(x = year_release, y=box_office_per_subject)) +
+    geom_point()
+```
+
+Note that we use `%>%` to pipe our statement into the `ggplot()` function. The
+tricky thing to remember is that everything after the `ggplot()` is connected with
+`+`, and not `%>%`. 
+
+Also note: we don't assign a `data` variable in the `ggplot()` statement. We are piping
+in the data. 
+
+Are you sick of `biopics` yet? I promise this is the last time we use this dataset.
+
+### Instructions
+
++ First, filter `biopics` to have `year_release` < 1990 and remove `NA` values. 
++ Then pipe that into a `ggplot()` statement that plots an x-y plot of `box_office` 
+(use `geom_point()`) where `x=year_release` and `y=log(box_office)`. 
++ Color the points by `person_of_color`. 
++ Assign the output to `bPlot` and print it to the screen using `print(bPlot)`.
+
+
+:::{.panel-tabset}
+## Exercise
+
+```{webr}
+bPlot <- biopics %>%
+
+print(bPlot)
+```
+
+## Solution
+
+```{webr}
+bPlot <- biopics %>% 
+  filter(year_release < 1990) %>% 
+  filter(!is.na(box_office)) %>%
+    ggplot(aes(x=year_release, y=log(box_office), 
+               color=person_of_color)) +
+    geom_point()
+    
+print(bPlot)
+```
+:::
+
+
+## What you learned in this chapter
+
+- How to use `%>%` (the pipe)
+- `dplyr::group_by()/dplyr::summarize()`
+- `dplyr::arrange()`
+- `dplyr::select()`
+- How to put it all together!
+
+Good job for making it through this chapter! You're well on your way
+to becoming a `tidyverse` ninja!
+
+**More Resources**
+
+- The [Data Transformation](https://r4ds.had.co.nz/transform.html) chapter of R for Data Science is another great place to learn about the basics of `dplyr`.
+- The [Pipes](https://r4ds.had.co.nz/pipes.html) chapter of R for Data Science has a great discussion on why you should consider using pipes in your workflows.
+

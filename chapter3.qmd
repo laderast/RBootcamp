@@ -1,0 +1,487 @@
+---
+title: "Introduction to `{dplyr}`"
+format: 
+  live-html:
+    toc: true
+engine: knitr
+webr:
+  packages:
+    - ggplot2
+    - checkdown
+    - dplyr
+    - fivethirtyeight
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{webr}
+#| setup: true
+#| echo: false
+#| exercise:
+#|   - ex_1
+#|   - ex_2
+#|   - ex_3
+#|   - ex_4
+#|   - ex_5
+#|   - ex_6
+#|   - ex_7
+#|   - ex_8
+library(dplyr)
+library(fivethirtyeight)
+data(biopics)
+```
+
+
+```{webr}
+#| edit: false
+#| echo: false
+library(dplyr)
+library(fivethirtyeight)
+data(biopics)
+```
+
+We've been looking at datasets that fit the `ggplot2` paradigm nicely; however, most data we encounter 
+is really messy (missing values), or is a completely different format. 
+
+In this chapter, we'll look 
+at one of the most powerful tools in the `tidyverse`: `dplyr`, which lets you manipulate data frames. 
+
+There is a function/action for most of the annoying tasks you have to use in data cleaning, which
+makes it super useful.
+
+In particular, we're going to look at six fundamental verbs/actions in `dplyr` over both of these chapters:
+
+- `filter()`
+- `mutate()`
+- `group_by()`/`summarize()`
+- `arrange()`
+- `select()`
+
+Along the way, we'll do some data manipulation challenges. You'll be a `dplyr` expert in no time!
+
+You will want to keep this `dplyr` cheat sheet open in a separate window to remind you about the syntax:
+[dplyr cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+
+Also, remember: if you need to know the variables in a `data.frame` called `biopics` you can always use 
+
+```{webr}
+#| edit: false
+colnames(biopics)
+```
+
+If you want more information on a function such as `mutate()`, you can always ask for help:
+
+```{webr}
+?mutate
+```
+
+Move on to the next exercise!
+
+## Learning about assignment
+
+In order to do the following exercises, we need to learn a little bit about how to assign 
+the output of a function to a variable.
+
+For example, we can assign the output of the operation `1 + 2` to a variable called `sumOfTwoNumbers`
+using the `<-` operator. This is called the `assignment` operator.
+
+You can also use `=` to assign a value to a variable, but I find it makes my code a bit confusing, because
+there is also `==`, which tests for equality.
+
+```r
+sumOfTwoNumbers <- 1 + 2
+```
+Once we have something assigned to a variable, we can use it in other expressions:
+
+```r
+sumOfThreeNumbers <- sumOfTwoNumbers + 3
+```
+
+This is the bare basics of assignment. We'll use it in the next exercises to evaluate the output of our `dplyr` cleaning.
+
+### Exercise
+
++ Assign `newValue` the value of `10`. 
++ Then use `newValue` to calculate the value of `multValue` by calculating `newValue * 5`. 
++ Show `multValue`.
+
+```{webr}
+#| exercise: ex_1
+##assign newValue
+newValue <- ______
+## use newValue to calculate multValue
+multValue <- _______ * 5
+##show multValue
+multValue
+```
+
+::: { .solution exercise="ex_1"}
+::: { .callout-tip collapse=false}
+```r
+##assign newValue
+newValue <- 10
+## use newValue to calculate multValue
+multValue <- newValue * 5
+##show multValue
+multValue
+```
+:::
+:::
+
+
+## Let's look at some data and ways to manipulate it.
+
+We're going to use the `biopics` dataset in the `fivethirtyeight` package to do learn `dplyr`. This is a dataset of 761 different biopic movies. 
+
+### Exercise
+
++ Run a `summary` on the `biopics` dataset. It's already loaded up for you. 
++ How many categories are in the `country` variable? 
++ Use the `levels()` function to count the categories.
+
+```{webr}
+#| exercise: ex_2
+##run summary() here on biopics
+summary(-----)
+##show length of country categories here
+length(levels(biopics$------))
+```
+
+::: { .solution exercise="ex_2"}
+::: { .callout-tip collapse=false}
+
+
+```r
+##run summary here
+summary(biopics)
+##show length of country categories here
+length(levels(biopics$country))
+```
+:::
+:::
+
+## `dplyr::filter()`
+
+`filter()` is a very useful `dplyr` command. It allows you to subset a `data.frame` based on variable criteria.
+
+For example, if we wanted to subset `biopics` to those movies that were made in the `UK` we'd use the following statement:
+
+```{webr}
+#| edit: false
+#| echo: true
+#subset the data using filter
+biopicsUK <- filter(biopics, country=="UK")
+#confirm that we have subsetted correctly
+biopicsUK
+```
+
+Three things to note here: 
+
++ The first argument to `filter()` is the dataset. We'll see another variation of this in a second.
++ For those who are used to accessing `data.frame` variables by `$`, notice we don't have to use `biopics$country`. Instead, we can just use the variable name `country`.
++ Our filter statement uses `==`. Remember that `==` is an equality test, and `=` is to assign something. (confusing the two will happen to you from time to time.)
+
+### Exercise
+
++ Filter `biopics` so that it only shows `Criminal` movies (you'll have to use the `type_of_subject` variable in `biopics`. 
++ Show how many rows are left using `nrow(crimeMovies)`.
+
+```{webr}
+#| exercise: ex_3
+#add your filter statement here
+crimeMovies <- filter(------)
+
+#show number of crime movies
+nrow(------)
+```
+
+::: { .solution exercise="ex_3"}
+::: { .callout-tip collapse=false}
+
+```r
+#add your filter statement here
+crimeMovies <- filter(biopics, type_of_subject == "Criminal")
+#show number of crime movies
+nrow(crimeMovies)
+```
+:::
+:::
+
+## Comparison operators and chaining comparisons
+
+Let's look at the following `filter()` statement:
+
+```{webr}
+#| edit: false
+filter(biopics, year_release > 1980 & 
+    type_of_subject == "Criminal")
+```
+
+Three things to note:
+
++ We used the comparison operator `>`. The basic comparisons you'll use are `>` (greater than), `<` (less than), `==` (equals to) and `!=` (not equal to) 
++ We also chained on another expression, `type_of_subject == "Criminal"` using `&` (and). The other chaining operator that you'll use is `|`, which corresponds to OR. 
++ Chaining expressions is where `filter()` becomes super powerful. However, it's also the source of headaches, so you will need to carefully test your chain of expressions.
+
+### Exercise
+
++ Add another comparison to the chain using `&`. Use `person_of_color == FALSE`. 
++ Show how many rows are left from your `filter()` statement.
+
+```{webr}
+#| exercise: ex_4
+#add your comparison to the end of this filter statement
+crimeFilms <- filter(biopics, year_release > 1980 & 
+                     type_of_subject == "Criminal" &
+                     ------ == ------
+                     )
+    
+#show number of rows in crimeFilms
+nrow(------)
+```
+
+::: { .solution exercise="ex_4"}
+::: { .callout-tip collapse=false}
+
+```{webr}
+#add your comparison to the end of this filter statement
+crimeFilms <- filter(biopics, year_release > 1980 & 
+                     type_of_subject == "Criminal" & 
+                     person_of_color == FALSE
+                     )
+
+#show number of rows in crimeFilms
+nrow(crimeFilms)
+```
+:::
+:::
+
+## Quick Quiz about Chaining Comparisons
+
+Which statement should be the larger subset? Try them out in the console if you're not sure.
+
+```{webr}
+nrow(filter(biopics, year_release > 1980 | type_of_subject == 'Criminal'))
+
+nrow(filter(biopics, year_release > 1980 & type_of_subject == 'Criminal'))
+```
+
+```{r}
+#| edit: false
+checkdown::check_question("filter(biopics, year_release > 1980 | type_of_subject == 'Criminal')", 
+                          options=c("filter(biopics, year_release > 1980 & type_of_subject == 'Criminal')", "filter(biopics, year_release > 1980 | type_of_subject == 'Criminal')"))
+```
+
+## The %in% operator 
+
+What if you wanted to select for multiple values? You can use the `%in%` operator. Here we put the values into a `vector` with the `c()` function, which concatentates the values together into a form that R can manipulate. Note that these values have to be exact and the case has to be the same (that is, "UK", not "Uk" or "uk") for the matching to work.
+
+```{webr}
+#| edit: false
+biopicsUSUK <- biopics %>% filter(country %in% c("US", "UK"))
+```
+
+### Exercise
+
++ Pick out the `Musician`, `Artist` and `Singer` movies from `type_of_subject`. 
++ Assign the output to `biopicsArt`.
+
+
+```{webr}
+#| exercise: ex_5
+biopicsArt <- biopics %>%
+  filter(---- %in% ------)
+
+head(biopicsArt)
+```
+
+::: { .solution exercise="ex_5"}
+::: { .callout-tip collapse=false}
+
+```r
+biopicsArt <- biopics %>% 
+  filter(type_of_subject %in% c("Musician", "Artist", "Singer"))
+
+head(biopicsArt)
+
+```
+:::
+:::
+
+## Removing Missing Values
+
+One trick you can use `filter()` for is to remove missing values. Usually missing values are
+coded as `NA` in data. You can remove rows that contain `NAs` by using `is.na()`. For example:
+
+```{webr}
+#| edit: false
+#| echo: true
+filter(biopics, !is.na(box_office))
+```
+
+Note the `!` in front of `is.na(box_office)`. This `!` is known as the NOT operator. Basically,
+it switches the values in our `is.na` statement, making everything that was `TRUE` into `FALSE`, 
+and everything `FALSE` into `TRUE`. We want to keep everything that is not `NA`, so that's why 
+we use the `!`. 
+
+### Exercise
+
++ Filter `biopics` to remove the NAs, and assign the output to `filteredBiopics`. 
++ Compare the number of rows in `biopics` to `filteredBiopics`. 
++ How many missing values did we remove?
+
+```{webr}
+#| exercise: ex_6
+filteredBiopics <- filter(--------, -------)
+#show number of rows in biopics
+nrow(biopics)
+#show number of rows in filteredBiopics
+nrow(filteredBiopics)
+```
+
+::: { .solution exercise="ex_6"}
+::: { .callout-tip collapse=false}
+
+```{webr}
+filteredBiopics <- filter(biopics, !is.na(box_office))
+#show number of rows in biopics
+nrow(biopics)
+#show number of rows in filteredBiopics
+nrow(filteredBiopics)
+```
+:::
+:::
+
+## `dplyr::mutate()`
+
+`mutate()` is one of the most useful `dplyr` commands. You can use it to transform data 
+(variables in your `data.frame`) and  add it as a new variable into the `data.frame`. 
+For example, let's calculate the total `box_office` divided by the `number_of_subjects` 
+to normalize our comparison as `normalized_box_office`: 
+
+```{webr}
+#| edit: false
+#| echo: true
+biopics2 <- mutate(biopics, normalized_box_office = box_office/number_of_subjects)
+biopics2
+```
+What did we do here? First, we used the `mutate()` function to add a new column into our 
+`data.frame` called `normalized_box_office`. This new variable is calculated per row by dividing
+`box_office` by `number_of_subjects`.
+
+### Exercise
+
++ Try defining a new variable `race_and_gender` by pasting together `subject_race` and `subject_sex`
+into a new `data_frame` called `biopics2`. 
++ Show the first few rows using `head()` so you can confirm that you added this new variable correctly.
+
+Remember, you can use the `paste()` function to paste two strings together.
+
+```{webr}
+#| exercise: ex_7
+#assign new variable race_and_gender here using mutate()
+biopics2 <- mutate()
+
+#show first rows of biopics2 using head()
+head(biopics2)
+```
+
+::: { .solution exercise="ex_2"}
+::: { .callout-tip collapse=false}
+
+```r
+#assign new variable race_and_gender here using mutate()
+biopics2 <- mutate(biopics, race_and_gender = paste(subject_race, subject_sex))
+#show first rows of biopics2 using head()
+head(biopics2)
+```
+:::
+:::
+
+## You can use mutated variables right away!
+
+The nifty thing about `mutate()` is that once you define the variables in the statement,
+you can use them right away, in the same `mutate` statement. For example, look at this code:
+
+```{webr}
+#| edit: false
+mutate(biopics, 
+    box_office_year = year_release * box_office, 
+    box_office_subject = paste0(box_office_year, subject))
+```
+
+Notice that we first defined `box_office_year` in the first part of the `mutate()` statement,
+and then used it right away to define a new variable, `box_office_subject`. 
+
+### Exercise
+
++ Define another variable called `box_office_y_s_num` in the same `mutate()` statement by taking  `box_office_year` and dividing it by `number_of_subjects`. 
++ Assign the output to `mutatedBiopics`.
++ Hint: Add `box_office_y_s_num=box_office_year/number_of_subjects` to the statement below.
+
+```{webr}
+#| exercise: ex_8
+mutatedBiopics <- mutate(biopics, 
+                         box_office_year = year_release * box_office, 
+                         box_office_subject = paste0(box_office_year, subject),
+                         box_office_y_s_num= ------)
+
+mutatedBiopics
+```
+
+::: { .solution exercise="ex_8"}
+::: { .callout-tip collapse=false}
+
+```r
+mutatedBiopics <- mutate(biopics, 
+                         box_office_year = year_release * box_office, 
+                         box_office_subject = paste0(box_office_year, subject), 
+                         box_office_y_s_num = box_office_year/number_of_subjects)
+
+mutatedBiopics
+```
+:::
+:::
+
+## Another Use for `mutate()`
+
+What is this statement doing? Try it out in the console if you're not sure.
+
+```{webr}
+mutate(biopics, subject= paste(subject, year_release))
+```
+
+```{r}
+#| edit: false
+checkdown::check_question("We are defining a brand-new variable with the same name in our dataset and keeping the old variable as well", options = c(
+  "We are defining a brand-new variable with the same name in our dataset and keeping the old variable as well", "We are processing the variable `subject` and saving it in place"
+))
+```
+
+## The difference between `filter()` and `mutate()`
+
+What is the difference between these two statements? Try them out in the console if you're not sure.
+
+```{webr}
+biopics %>% 
+    filter(year_release > 1998) %>% 
+    head()
+```
+
+```{webr}
+biopics %>% 
+    mutate(isNewer = year_release > 1998) %>% 
+    head()
+```
+
+```{r}
+#| echo: false
+checkdown::check_question("The first statement filters the data, whereas the second statement defines a new boolean variable.", options = c(
+  "The first statement filters the data, whereas the second statement defines a new boolean variable.", "The second statement is more confusing."
+))
+```
+
+## What you learned in this chapter
+
+- `dplyr::filter()`
+- `dplyr::mutate()`

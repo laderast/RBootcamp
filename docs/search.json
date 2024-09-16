@@ -1,0 +1,652 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R Bootcamp",
+    "section": "",
+    "text": "1 Welcome to the RBootcamp!\nNo browser needed!",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Welcome to the RBootcamp!</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html",
+    "href": "chapter1.html",
+    "title": "2  The Magic of ggplot2",
+    "section": "",
+    "text": "2.1 data.frames and How to Use Them\nLet’s review the basics of data.frames.\nA data.frame is a table-like format which has the following properties:\nIndividual variables within a data.frame can be accessed with the $ operator (such as gap1992$pop). We won’t use this very often, as the tidyverse lets us access the variables without it, as you’ll see.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#thinking-about-aesthetics",
+    "href": "chapter1.html#thinking-about-aesthetics",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.2 Thinking about aesthetics",
+    "text": "2.2 Thinking about aesthetics\nNow that we’ve learned a little about the data.frame, we can get to the fun part: making graphs.\nThe first thing we are going to is think about how we represent variables in a plot.\nHow do we visually represent a variable in our dataset? Take a look at this graph. What variable is mapped to y, and what is mapped to x, and what is mapped to color?\n\n\n\n\n\nx = gdpPercap, y = log(lifeExp), color = continent\n\n\nx = continent, y = year, color = pop\n\n\ny = lifeExp, x = log(gdpPercap), color = continent",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#aesthetics",
+    "href": "chapter1.html#aesthetics",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.5 Aesthetics",
+    "text": "2.5 Aesthetics\ngeom_point() understands the following aesthetics (required aesthetics are in bold):\n\nx\ny\nalpha\ncolour\nfill\ngroup\nshape\nsize\nstroke",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html",
+    "href": "chapter2.html",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "",
+    "text": "3.1 factor variables\nFactors are how R represents categorical data.\nThere are two kinds of factors:\nWe’ll manipulate our barplots and add more information using factors.\nHere’s the dataset we’ll use to investigate how to work with factors in ggplot2.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#more-resources",
+    "href": "chapter2.html#more-resources",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "3.14 More Resources:",
+    "text": "3.14 More Resources:\n\nR for Data Science: Factors, for more about the wacky datatype that we call factor. Especially useful: Modifying Factor Order and Modifying Factor Levels\nR4DS: Visualization: Facets",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#data.frames-and-how-to-use-them",
+    "href": "chapter1.html#data.frames-and-how-to-use-them",
+    "title": "2  The Magic of ggplot2",
+    "section": "",
+    "text": "Columns can each have a different type (numeric, character, boolean, factor)\nColumns are called “variables”\nRows correspond to a single observation (ideally)\nCan be subset or filtered based on criteria\n\n\n\nRun colnames() and head() on the gap1992 data to see what’s in each column.\nThen see how many rows there are in the dataset using nrow(). Run these in console before you submit your answer.\n\n\n2.1.1 Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n##run head on gap1992\nhead(gap1992)                 \n##run colnames here on gap1992\ncolnames(gap1992)               \n##run nrow() on gap1992\nnrow(gap1992)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#exercise",
+    "href": "chapter1.html#exercise",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.2 Exercise",
+    "text": "2.2 Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n##run head on gap1992\nhead(gap1992)                 \n##run colnames here on gap1992\ncolnames(gap1992)               \n##run nrow() on gap1992\nnrow(gap1992)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `ggplot2`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#mapping-variables-to-produce-geometric-plots",
+    "href": "chapter1.html#mapping-variables-to-produce-geometric-plots",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.3 Mapping variables to produce geometric plots",
+    "text": "2.3 Mapping variables to produce geometric plots\nA statistical graphic consists of:\n\nA mapping of variables in data to\naes()thetic attributes of\ngeom_etric objects.\n\nIn code, this is translated as:\n\n\n\n\n\n\n\n\nLet’s take the above example code apart. A ggplot2 call always starts with the ggplot() function. In this function, we need two things:\n\ndata - in this case, gap1992.\nmapping - An aesthetic mapping, using the aes() function.\n\nIn order to map our variables to aesthetic properties, we will need to use aes(), which is our aes()thetic mapping function. In our example, we map x to log(gdpPercap) and y to log(pop).\nFinally, we can superimpose our geometry on the plot using geom_point().\n\n2.3.1 Exercise\nBased on the graph below, map the appropriate variables to the x, and y aesthetics. Run your plot. Remember, you can try plots out in the console before you submit your answer.\n\nHint: Look at the graph. If you need the variable names, they are listed below.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nggplot(data=gap1992, \n    mapping = aes(\n      x = log(gdpPercap), \n      y = lifeExp \n      )) + \ngeom_point()",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#exercise-1",
+    "href": "chapter1.html#exercise-1",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.5 Exercise",
+    "text": "2.5 Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nggplot(data=gap1992, \n    mapping = aes(\n      x = log(gdpPercap), \n      y = lifeExp \n      )) + \ngeom_point()",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `ggplot2`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#more-about-aes",
+    "href": "chapter1.html#more-about-aes",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.4 More about aes()",
+    "text": "2.4 More about aes()\nFor geom_point(), there are lots of other aesthetics. The important thing to know is that aesthetics are properties of the geom. If you need to know the aesthetics that you can map to a geom, you can always use help() (such as help(geom_point)).\nFor a list of aesthetics for geom_point(), look here: https://ggplot2.tidyverse.org/reference/geom_point.html#aesthetics and look at all the aesthetic mappings. For example:",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#points-versus-lines",
+    "href": "chapter1.html#points-versus-lines",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.7 Points versus lines",
+    "text": "2.7 Points versus lines\nThe great thing about ggplot2 is that it’s easy to swap geometric representations. Instead of x-y points, we can plot the data as a line graph by swapping geom_line() for geom_point().\n\n2.7.1 Exercise\nFirst run the code to see the plot with points. Change the geom_point() in the following graph to geom_line(). What happened?\nHow did the visual presentation of the data change?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, color=continent)) +\n  geom_line()",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#exercise-2",
+    "href": "chapter1.html#exercise-2",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.9 Exercise",
+    "text": "2.9 Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `ggplot2`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#geoms-are-layers-on-a-ggplot",
+    "href": "chapter1.html#geoms-are-layers-on-a-ggplot",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.8 Geoms are layers on a ggplot",
+    "text": "2.8 Geoms are layers on a ggplot\nWe are not restricted to a single geom on a graph! You can think of geoms as layers on a graph. Thus, we can use the + symbol to add geoms to our base ggplot() statement.\n\n2.8.1 Exercise\nAdd both geom_line() and geom_point() to the following ggplot. Are the results what you expected?\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, color=continent)) +\n## add code here\n  geom_line() + geom_point()",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#exercise-3",
+    "href": "chapter1.html#exercise-3",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.11 Exercise",
+    "text": "2.11 Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolution",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `ggplot2`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#quick-review-about-ggplot2",
+    "href": "chapter1.html#quick-review-about-ggplot2",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.12 Quick review about ggplot2",
+    "text": "2.12 Quick review about ggplot2\nWhat does the + in a ggplot statement do?\nFor example:\n\n\n\n\nallows you to chain data and geoms together into a single statistical graphic\n\n\nadds one `data.frame` to another `data.frame` \n\n\nallows you to add variables together in a `data.frame`",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `ggplot2`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#final-challenge-recreate-this-gapminder-plot",
+    "href": "chapter1.html#final-challenge-recreate-this-gapminder-plot",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.10 Final Challenge: Recreate this Gapminder Plot",
+    "text": "2.10 Final Challenge: Recreate this Gapminder Plot\nYour final challenge is to completely recreate this graph using the gap1992 data.\n\n\nIf you need to remember variable names, you can always call head(gap1992) or colnames(gap1992) in the console.\nRecreate the above graphic by mapping the right variables to the right aesthetic elements. Remember, you can try plots out in the console before you submit your answer.\n\n\n2.10.1 Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nggplot(gap1992, aes(x = log(gdpPercap), \n    y = lifeExp, \n    color = continent,\n    size = pop\n    )) + ggtitle(\"Gapminder for 1992\") + \n    geom_point()",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#exercise-4",
+    "href": "chapter1.html#exercise-4",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.14 Exercise",
+    "text": "2.14 Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `ggplot2`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#what-you-learned-in-this-chapter",
+    "href": "chapter1.html#what-you-learned-in-this-chapter",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.11 What you learned in this chapter",
+    "text": "2.11 What you learned in this chapter\n\nBasic ggplot2 syntax.\nPlotting x-y data using ggplot2 using both geom_point() and geom_bar().\nMapping variables in a dataset to visual properties using aes()\ngeoms correspond to layers in a graph.\nThat ggplot2 can make some pretty cool graphs\nThat you can do this!\n\nMore Resources\n\nR For Data Science: Visualization. The visualization chapter of R for Data Science. Especially useful are the Aesthetic Mapping and the common problems sections.\nThere’s a lot more to ggplot2! Take a look at The Layered Grammar of Graphics to see the other ways we can modify plots, such as scales and coordinates.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#quick-check",
+    "href": "chapter1.html#quick-check",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.6 Quick Check",
+    "text": "2.6 Quick Check\nWhich of the following is not a mappable aesthetic to geom_point()?\n\n\n\n\n`linetype`\n\n\n`shape`\n\n\n`x`",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#quick-check-about-ggplot2",
+    "href": "chapter1.html#quick-check-about-ggplot2",
+    "title": "2  The Magic of ggplot2",
+    "section": "2.9 Quick Check about ggplot2",
+    "text": "2.9 Quick Check about ggplot2\nWhat does the + in a ggplot statement do?\nFor example:\n\n\n\n\nallows you to chain data and geoms together into a single statistical graphic\n\n\nadds one `data.frame` to another `data.frame` \n\n\nallows you to add variables together in a `data.frame`",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#factor-variables",
+    "href": "chapter2.html#factor-variables",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "",
+    "text": "factor - used for nominal data (“Ducks”,“Cats”,“Dogs”)\nordered- used for ordinal data (“10-30”,“31-40”,“41-60”)\n\n\n\n\n\n3.1.1 Exercise\n\nUse the glimpse() function (it is part of the dplyr package, which we load for you) on pets to see the levels for the different categories.\nWhich of the variables are categorical (indicated by &lt;fct&gt;, or &lt;ord&gt;?)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n##use glimpse here\nglimpse(pets)\n\n\n\n\nThere are 4 variables that are categorical in this dataset: name, animal, shotsCurrent, and ageCategory\n:::",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#a-basic-barplot-using-geom_bar",
+    "href": "chapter2.html#a-basic-barplot-using-geom_bar",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "3.2 A Basic Barplot using geom_bar()",
+    "text": "3.2 A Basic Barplot using geom_bar()\nNow that we understand what categories exist in our dataset, we can begin to visualize them using barplots generated with the geom_bar() geom.\nThe geom_bar() default is to count the number of values with each factor level. Note that you don’t map to a y-aesthetic here, because the y values are the counts.\nGiven this dataset, we might want to ask how many pets have the same name.\nMap the name variable to x in the ggplot statement. What is the most popular name?\n\n3.2.1 Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n##show a barplot and count by name and fill by animal\n##theme() allows us to angle the text labels so that we can read them\nggplot(pets, aes(x=name)) + geom_bar() + \n    ##we make the x axis text angled \n    ##for better legibility\n    theme(axis.text.x = element_text(angle=45))",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#stacked-bars",
+    "href": "chapter2.html#stacked-bars",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "3.3 Stacked Bars",
+    "text": "3.3 Stacked Bars\nLet’s see how many of each animal got shots. We can do this by mapping shotsCurrent to fill.\nMap shotsCurrent to the fill aesthetic.\n\n3.3.1 Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n#map the right variable in pets to fill\nggplot(pets, aes(x=animal, fill=shotsCurrent)) + \n  geom_bar()",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#quick-quiz",
+    "href": "chapter2.html#quick-quiz",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "3.4 Quick Quiz",
+    "text": "3.4 Quick Quiz\nWhat does mapping color to \"black\" in geom_bar() do? For example:\nggplot(pets, aes(x=animal, fill=shotsCurrent)) + \n  geom_bar(color=\"black\")\n If you’re unsure, compare the graph above to the previous graph.\n\n\n\n\nSpecifies the text in the graph to be black\n\n\nMakes the default bar fill color black\n\n\nOutlines the bars in black",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#proportional-barchart",
+    "href": "chapter2.html#proportional-barchart",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "3.5 Proportional Barchart",
+    "text": "3.5 Proportional Barchart\nWe may only be interested in the relative proportions between the different categories. Visualizing this is useful for various 2 x 2 tests on proportions.\nBy mapping position = \"fill\", we can show proportions rather than counts.\nChange the position argument in geom_bar() to \"fill\". What percent of dogs did not receive shots?\n\n3.5.1 Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nggplot(pets, aes(x=animal,fill=shotsCurrent)) + \n  geom_bar(position= \"fill\", color=\"black\")",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#dodge-those-bars",
+    "href": "chapter2.html#dodge-those-bars",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "3.6 Dodge those bars!",
+    "text": "3.6 Dodge those bars!\nInstead of stacking, we can also dodge the bars (move the bars so they’re beside each other).\n\n3.6.1 Exercise\nChange the position argument in geom_bar() to \"dodge\".\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nggplot(pets, aes(x=animal,fill=shotsCurrent)) + \n      geom_bar(position= \"dodge\", color=\"black\")",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#faceting-a-graph",
+    "href": "chapter2.html#faceting-a-graph",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "3.7 Faceting a graph",
+    "text": "3.7 Faceting a graph\nSay you have another factor variable and you want to stratify the plots based on that. You can do that by supplying the name of that variable as a facet. Here, we facet our barplot by shotsCurrent.\n\n\n\n\n\n\n\n\nYou might notice that there are blank spots for the categories in each facet. We can remove these in each facet by using scale=\"free_x\" argument in facet_wrap().\n\n3.7.1 Exercise\nAdd free_x to the scale argument. How many animals named “Morris” did not receive shots?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nggplot(pets, aes(x=name)) + geom_bar() + \n  facet_wrap(facets=~shotsCurrent, scale= \"free_x\") +\n  theme(axis.text.x = element_text(angle=45))",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#super-quick-review",
+    "href": "chapter2.html#super-quick-review",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "3.8 Super Quick Review",
+    "text": "3.8 Super Quick Review\nFaceting a graph allows us to:\n\n\n\n\n\n\n\n\n\n\n\n\nstratify our graph by another category\nadd another set of categories to the x-axis\nplot points as pretty gems",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#your-task-bar-charts",
+    "href": "chapter2.html#your-task-bar-charts",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "3.9 Your Task: Bar Charts",
+    "text": "3.9 Your Task: Bar Charts\nNow you’ll put everything you’ve learned together into a single barplot.\nGiven the pets data.frame: + plot a stacked proportional barchart that shows the ageCategory counts by animal type. + Facet this plot by shotsCurrent.\nIs the proportion of animals receiving shots the same across each age category?\nThink about what to map to x, and what to map to fill, and what position argument you need for geom_bar(). Finally, think about how to facet the variable.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nggplot(pets, aes(x=ageCategory, fill=animal)) + \n  #what argument goes here?\n  geom_bar(position = \"fill\") +\n  facet_wrap(facets=~shotsCurrent, scale = \"free_x\")",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#boxplots",
+    "href": "chapter2.html#boxplots",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "3.10 Boxplots",
+    "text": "3.10 Boxplots\nBoxplots allow us to assess distributions of a continuous variable (weight) conditioned on categorical variables (shotsCurrent).\n\nWhat does this tell us? Is there a difference in weight between those animals who recieved shots or not?\n\n\n\n\nthere is a small difference in means, but the difference doesn't look significant\n\n\nthere is no difference in means\n\n\nthere is a large difference in means and the difference is probably statistically significant",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#exercise-try-out-geom_boxplot-yourself",
+    "href": "chapter2.html#exercise-try-out-geom_boxplot-yourself",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "3.11 Exercise: Try out geom_boxplot() yourself",
+    "text": "3.11 Exercise: Try out geom_boxplot() yourself\nPlot a boxplot of weight conditioned on animal. Is there a difference in weight between animal types?\nThink about what variables map to what aesthetics.\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nggplot(pets, aes(x= animal, y= weight)) + geom_boxplot()",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#your-final-task-how-heavy-are-our-pets",
+    "href": "chapter2.html#your-final-task-how-heavy-are-our-pets",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "3.12 Your final task: How heavy are our pets?",
+    "text": "3.12 Your final task: How heavy are our pets?\n\nVisualize weight by ageCategory status by using geom_boxplot()\nWhat do you conclude? Which age of animal weighs more on average than the other?\n\n\n3.12.1 Exercise\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nggplot(pets, aes(x= ageCategory, y= weight)) + geom_boxplot()",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#what-you-learned-in-this-chapter",
+    "href": "chapter2.html#what-you-learned-in-this-chapter",
+    "title": "3  {ggplot2} and categorical data",
+    "section": "3.13 What you learned in this chapter",
+    "text": "3.13 What you learned in this chapter\n\nHow to visualize categorical data\nTwo more types of plots: geom_bar() and geom_boxplot()\nAesthetics that can be mapped to these geoms (fill, x, y)\nOptions for geom_bar(): position = \"fill\" (proportional bars) and position = \"dodge\" (dodged bars)\nHow to stratify your graphs using facet_wrap()\nMore about how to put together a ggplot",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html",
+    "href": "chapter3.html",
+    "title": "4  Introduction to {dplyr}",
+    "section": "",
+    "text": "4.1 Learning about assignment\nIn order to do the following exercises, we need to learn a little bit about how to assign the output of a function to a variable.\nFor example, we can assign the output of the operation 1 + 2 to a variable called sumOfTwoNumbers using the &lt;- operator. This is called the assignment operator.\nYou can also use = to assign a value to a variable, but I find it makes my code a bit confusing, because there is also ==, which tests for equality.\nOnce we have something assigned to a variable, we can use it in other expressions:\nThis is the bare basics of assignment. We’ll use it in the next exercises to evaluate the output of our dplyr cleaning.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#learning-about-assignment",
+    "href": "chapter3.html#learning-about-assignment",
+    "title": "4  Introduction to {dplyr}",
+    "section": "",
+    "text": "sumOfTwoNumbers &lt;- 1 + 2\n\nsumOfThreeNumbers &lt;- sumOfTwoNumbers + 3\n\n\n4.1.1 Exercise\n\nAssign newValue the value of 10.\nThen use newValue to calculate the value of multValue by calculating newValue * 5.\nShow multValue.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n##assign newValue\nnewValue &lt;- 10\n## use newValue to calculate multValue\nmultValue &lt;- newValue * 5\n##show multValue\nmultValue",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#lets-look-at-some-data-and-ways-to-manipulate-it.",
+    "href": "chapter3.html#lets-look-at-some-data-and-ways-to-manipulate-it.",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.2 Let’s look at some data and ways to manipulate it.",
+    "text": "4.2 Let’s look at some data and ways to manipulate it.\nWe’re going to use the biopics dataset in the fivethirtyeight package to do learn dplyr. This is a dataset of 761 different biopic movies.\n\n4.2.1 Exercise\n\nRun a summary on the biopics dataset. It’s already loaded up for you.\nHow many categories are in the country variable?\nUse the levels() function to count the categories.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n##run summary here\nsummary(biopics)\n##show length of country categories here\nlength(levels(biopics$country))",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#dplyrfilter",
+    "href": "chapter3.html#dplyrfilter",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.3 dplyr::filter()",
+    "text": "4.3 dplyr::filter()\nfilter() is a very useful dplyr command. It allows you to subset a data.frame based on variable criteria.\nFor example, if we wanted to subset biopics to those movies that were made in the UK we’d use the following statement:\n\n\n\n\n\n\n\n\nThree things to note here:\n\nThe first argument to filter() is the dataset. We’ll see another variation of this in a second.\nFor those who are used to accessing data.frame variables by $, notice we don’t have to use biopics$country. Instead, we can just use the variable name country.\nOur filter statement uses ==. Remember that == is an equality test, and = is to assign something. (confusing the two will happen to you from time to time.)\n\n\n4.3.1 Exercise\n\nFilter biopics so that it only shows Criminal movies (you’ll have to use the type_of_subject variable in biopics.\nShow how many rows are left using nrow(crimeMovies).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n#add your filter statement here\ncrimeMovies &lt;- filter(biopics, type_of_subject == \"Criminal\")\n#show number of crime movies\nnrow(crimeMovies)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#comparison-operators-and-chaining-comparisons",
+    "href": "chapter3.html#comparison-operators-and-chaining-comparisons",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.4 Comparison operators and chaining comparisons",
+    "text": "4.4 Comparison operators and chaining comparisons\nLet’s look at the following filter() statement:\n\n\n\n\n\n\n\n\nThree things to note:\n\nWe used the comparison operator &gt;. The basic comparisons you’ll use are &gt; (greater than), &lt; (less than), == (equals to) and != (not equal to)\nWe also chained on another expression, type_of_subject == \"Criminal\" using & (and). The other chaining operator that you’ll use is |, which corresponds to OR.\nChaining expressions is where filter() becomes super powerful. However, it’s also the source of headaches, so you will need to carefully test your chain of expressions.\n\n\n4.4.1 Exercise\n\nAdd another comparison to the chain using &. Use person_of_color == FALSE.\nShow how many rows are left from your filter() statement.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#quick-quiz-about-chaining-comparisons",
+    "href": "chapter3.html#quick-quiz-about-chaining-comparisons",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.5 Quick Quiz about Chaining Comparisons",
+    "text": "4.5 Quick Quiz about Chaining Comparisons\nWhich statement should be the larger subset? Try them out in the console if you’re not sure.\n\n\n\n\n\n\n\n\n\ncheckdown::check_question(\"filter(biopics, year_release &gt; 1980 | type_of_subject == 'Criminal')\", \n                          options=c(\"filter(biopics, year_release &gt; 1980 & type_of_subject == 'Criminal')\", \"filter(biopics, year_release &gt; 1980 | type_of_subject == 'Criminal')\"))\n\n\n\nfilter(biopics, year_release &gt; 1980 & type_of_subject == 'Criminal')\nfilter(biopics, year_release &gt; 1980 | type_of_subject == 'Criminal')",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#the-in-operator",
+    "href": "chapter3.html#the-in-operator",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.6 The %in% operator",
+    "text": "4.6 The %in% operator\nWhat if you wanted to select for multiple values? You can use the %in% operator. Here we put the values into a vector with the c() function, which concatentates the values together into a form that R can manipulate. Note that these values have to be exact and the case has to be the same (that is, “UK”, not “Uk” or “uk”) for the matching to work.\n\n\n\n\n\n\n\n\n\n4.6.1 Exercise\n\nPick out the Musician, Artist and Singer movies from type_of_subject.\nAssign the output to biopicsArt.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nbiopicsArt &lt;- biopics %&gt;% \n  filter(type_of_subject %in% c(\"Musician\", \"Artist\", \"Singer\"))\n\nhead(biopicsArt)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#removing-missing-values",
+    "href": "chapter3.html#removing-missing-values",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.7 Removing Missing Values",
+    "text": "4.7 Removing Missing Values\nOne trick you can use filter() for is to remove missing values. Usually missing values are coded as NA in data. You can remove rows that contain NAs by using is.na(). For example:\n\n\n\n\n\n\n\n\nNote the ! in front of is.na(box_office). This ! is known as the NOT operator. Basically, it switches the values in our is.na statement, making everything that was TRUE into FALSE, and everything FALSE into TRUE. We want to keep everything that is not NA, so that’s why we use the !.\n\n4.7.1 Exercise\n\nFilter biopics to remove the NAs, and assign the output to filteredBiopics.\nCompare the number of rows in biopics to filteredBiopics.\nHow many missing values did we remove?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#dplyrmutate",
+    "href": "chapter3.html#dplyrmutate",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.8 dplyr::mutate()",
+    "text": "4.8 dplyr::mutate()\nmutate() is one of the most useful dplyr commands. You can use it to transform data (variables in your data.frame) and add it as a new variable into the data.frame. For example, let’s calculate the total box_office divided by the number_of_subjects to normalize our comparison as normalized_box_office:\n\n\n\n\n\n\n\n\nWhat did we do here? First, we used the mutate() function to add a new column into our data.frame called normalized_box_office. This new variable is calculated per row by dividing box_office by number_of_subjects.\n\n4.8.1 Exercise\n\nTry defining a new variable race_and_gender by pasting together subject_race and subject_sex into a new data_frame called biopics2.\nShow the first few rows using head() so you can confirm that you added this new variable correctly.\n\nRemember, you can use the paste() function to paste two strings together.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n#assign new variable race_and_gender here using mutate()\nbiopics2 &lt;- mutate(biopics, race_and_gender = paste(subject_race, subject_sex))\n#show first rows of biopics2 using head()\nhead(biopics2)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#you-can-use-mutated-variables-right-away",
+    "href": "chapter3.html#you-can-use-mutated-variables-right-away",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.9 You can use mutated variables right away!",
+    "text": "4.9 You can use mutated variables right away!\nThe nifty thing about mutate() is that once you define the variables in the statement, you can use them right away, in the same mutate statement. For example, look at this code:\n\n\n\n\n\n\n\n\nNotice that we first defined box_office_year in the first part of the mutate() statement, and then used it right away to define a new variable, box_office_subject.\n\n4.9.1 Exercise\n\nDefine another variable called box_office_y_s_num in the same mutate() statement by taking box_office_year and dividing it by number_of_subjects.\nAssign the output to mutatedBiopics.\nHint: Add box_office_y_s_num=box_office_year/number_of_subjects to the statement below.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nmutatedBiopics &lt;- mutate(biopics, \n                         box_office_year = year_release * box_office, \n                         box_office_subject = paste0(box_office_year, subject), \n                         box_office_y_s_num = box_office_year/number_of_subjects)\n\nmutatedBiopics",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#another-use-for-mutate",
+    "href": "chapter3.html#another-use-for-mutate",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.10 Another Use for mutate()",
+    "text": "4.10 Another Use for mutate()\nWhat is this statement doing? Try it out in the console if you’re not sure.\n\n\n\n\n\n\n\n\n\ncheckdown::check_question(\"We are defining a brand-new variable with the same name in our dataset and keeping the old variable as well\", options = c(\n  \"We are defining a brand-new variable with the same name in our dataset and keeping the old variable as well\", \"We are processing the variable `subject` and saving it in place\"\n))\n\n\n\nWe are defining a brand-new variable with the same name in our dataset and keeping the old variable as well\nWe are processing the variable `subject` and saving it in place",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#the-difference-between-filter-and-mutate",
+    "href": "chapter3.html#the-difference-between-filter-and-mutate",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.11 The difference between filter() and mutate()",
+    "text": "4.11 The difference between filter() and mutate()\nWhat is the difference between these two statements? Try them out in the console if you’re not sure.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe first statement filters the data, whereas the second statement defines a new boolean variable.\nThe second statement is more confusing.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#the-pipe-operator",
+    "href": "chapter3.html#the-pipe-operator",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.12 The Pipe Operator: %>%",
+    "text": "4.12 The Pipe Operator: %&gt;%\nWe’re going to introduce another bit of dplyr syntax, the %&gt;% operator. %&gt;% is called a pipe operator.\nYou can think of it as being similar to the + in a ggplot2 statement.\nWhat %&gt;% does is that it takes the output of one statement and makes it the input of the next statement. When I’m describing it, I think of it as a “THEN”. For example, I read the following expression\nbiopics %&gt;% \n    filter(race_known == \"Known\") %&gt;%\n    mutate(poc_code = as.numeric(person_of_color))\nAs: - I took the biopics data, - THEN I filtered it down with the race_known == \"Known\" criteria and - THEN I defined a new variable called poc_code with mutate().\nNote that filter() doesn’t have a data argument, because the data is piped into filter(). Same thing for mutate().\n%&gt;% allows you to chain multiple verbs in the tidyverse. It’s one of the most powerful things about the tidyverse.\nIn fact, having a standardized chain of processing actions is called a pipeline. Making pipelines for a data format is great, because you can apply that pipeline to incoming data that has the same formatting and have it output in a ggplot2 friendly format.\n\n\n\n\n\n\nWhat about |&gt;?\n\n\n\nYou might have seen mentions of the native pipe, which is specified as |&gt; instead of %&gt;%. This is because the pipe became so popular in the {tidyverse}, that the main R developers implemented their own version.\nKeep in mind that they are interchangable, for the most part.\n\n\n\n4.12.1 Instructions\n\nUse %&gt;% to chain biopics into a filter to filter (country==\"US\")\n\n\nExerciseSolution",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#group_bysummarize",
+    "href": "chapter3.html#group_bysummarize",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.13 group_by()/summarize()",
+    "text": "4.13 group_by()/summarize()\ngroup_by() doesn’t do anything by itself. But when combined with summarize(), you can calculate metrics (such as mean, max - the maximum, min, sd - the standard deviation) across groups. For example:\n\n\n\n\n\n\n\n\nHere we want to calculate the mean box_office by country. However, in order to do that, we first need to remove any rows that have NA values in box_office that may confound our calculation.\nLet’s ask a tough question. Is there a difference between mean box_office between the two subject_sex categories?\n\n4.13.1 Instructions\nFirst use filter() to remove the NA values. Then, use group_by() and summarize() to calculate the mean box_office by subject_sex, naming the summary variable as mean_bo_by_gender. Assign the output to gender_box_office.\n\nExerciseSolution",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#counting-stuff",
+    "href": "chapter3.html#counting-stuff",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.14 Counting Stuff",
+    "text": "4.14 Counting Stuff\nWhat does the following code do? Try it out in the console!",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#arrange",
+    "href": "chapter3.html#arrange",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.15 arrange()",
+    "text": "4.15 arrange()\narrange() lets you sort by a variable. If you provide multiple variables, the variables are arranged within each other. For example:\n\n\n\n\n\n\n\n\nThis statement will sort the data by country first, and then within each country category, it will sort by year_release.\n\n4.15.1 Instructions\nSort biopics by year_release then by country. Assign the output to biopics_sorted.\n\nExerciseSolution",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#select",
+    "href": "chapter3.html#select",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.16 select()",
+    "text": "4.16 select()\nThe final verb we’ll learn is select(). select() allows you to:\n\nextract columns,\nreorder columns or\nremove columns from your data, as well as\nrename your data.\n\nFor example, look at the following code:\n\n\n\n\n\n\n\n\nHere, we’re just extracting two columns (title_of_movie, box_office). Notice we also renamed title to movieTitle.\n\n4.16.1 Instructions\nUse select to extract the following variables: title (rename it movieTitle), box_office and subject_sex and assign them to a new table called threeVarTable.\n\nExerciseSolution",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#chester-ismays-mantra",
+    "href": "chapter3.html#chester-ismays-mantra",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.17 Chester Ismay’s Mantra",
+    "text": "4.17 Chester Ismay’s Mantra\nWhat is the difference between select() and filter()?\n Nope. Both of these verbs don’t care what data type you use.  Not true. You can use filter() and select() in any order!   Welcome to the cult of dplyr! Your secret decoder ring is in the mail.   \n\nNow here comes the fun part. Chaining dplyr verbs together to accomplish some data cleaning and transformation.\nFor a reference while you work, you can use the dplyr cheatsheet here: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf\n\n4.17.1 Instructions\n\nFor the biopics data, filter() the data so that we only cover movies from 2000 to 2014. (year_release is the variable you want.)\nFilter out the NAs in box_office.\nThen use mutate() to code a new variable, box_office_per_subject. (The two variables you need here are box_office and number_of_subjects.)\nAssign this statement to biopics_new.\nRun summary() on biopics_new to confirm that your statement worked.\n\n\nExerciseSolution",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#challenge-2-show-your-stuff",
+    "href": "chapter3.html#challenge-2-show-your-stuff",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.18 Challenge 2: Show your stuff",
+    "text": "4.18 Challenge 2: Show your stuff\nAnswer the question: Do movies where we know the race is known (race_known == TRUE) make more money than movies where the race is not known (race_known== FALSE) grouped by country? Which race_known/country combination made the highest amount of money?\n\n4.18.1 Instructions\n\nYou’ll need to do a filter step first to remove NA values from box_office before you do anything.\nThen think of what variables you need to group_by.\nFinally, figure out what do you need to summarize (assign the value to mean_box_office) and arrange on (don’t forget to use desc!)?\nAssign the output to race_country_box_office.\nShow race_country_box_office.\n\n\nExerciseSolution",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#challenge-3-putting-together-what-we-know-about-ggplot2-and-dplyr",
+    "href": "chapter3.html#challenge-3-putting-together-what-we-know-about-ggplot2-and-dplyr",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.19 Challenge 3: Putting together what we know about {ggplot2} and {dplyr}",
+    "text": "4.19 Challenge 3: Putting together what we know about {ggplot2} and {dplyr}\nNow we’re cooking with fire. You can directly pipe the output of a dplyr pipeline into a ggplot2 statement. For example:\n\n\n\n\n\n\n\n\nNote that we use %&gt;% to pipe our statement into the ggplot() function. The tricky thing to remember is that everything after the ggplot() is connected with +, and not %&gt;%.\nAlso note: we don’t assign a data variable in the ggplot() statement. We are piping in the data.\nAre you sick of biopics yet? I promise this is the last time we use this dataset.\n\n4.19.1 Instructions\n\nFirst, filter biopics to have year_release &lt; 1990 and remove NA values.\nThen pipe that into a ggplot() statement that plots an x-y plot of box_office (use geom_point()) where x=year_release and y=log(box_office).\nColor the points by person_of_color.\nAssign the output to bPlot and print it to the screen using print(bPlot).\n\n\nExerciseSolution",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#what-you-learned-in-this-chapter",
+    "href": "chapter3.html#what-you-learned-in-this-chapter",
+    "title": "4  Introduction to {dplyr}",
+    "section": "4.12 What you learned in this chapter",
+    "text": "4.12 What you learned in this chapter\n\ndplyr::filter()\ndplyr::mutate()",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introduction to `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3b.html",
+    "href": "chapter3b.html",
+    "title": "5  More {dplyr}",
+    "section": "",
+    "text": "5.1 The Pipe Operator: %&gt;%\nWe’re going to introduce another bit of dplyr syntax, the %&gt;% operator. %&gt;% is called a pipe operator.\nYou can think of it as being similar to the + in a ggplot2 statement.\nWhat %&gt;% does is that it takes the output of one statement and makes it the input of the next statement. When I’m describing it, I think of it as a “THEN”. For example, I read the following expression\nAs: - I took the biopics data, - THEN I filtered it down with the race_known == \"Known\" criteria and - THEN I defined a new variable called poc_code with mutate().\nNote that filter() doesn’t have a data argument, because the data is piped into filter(). Same thing for mutate().\n%&gt;% allows you to chain multiple verbs in the tidyverse. It’s one of the most powerful things about the tidyverse.\nIn fact, having a standardized chain of processing actions is called a pipeline. Making pipelines for a data format is great, because you can apply that pipeline to incoming data that has the same formatting and have it output in a ggplot2 friendly format.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3b.html#the-pipe-operator",
+    "href": "chapter3b.html#the-pipe-operator",
+    "title": "5  More {dplyr}",
+    "section": "",
+    "text": "biopics %&gt;% \n    filter(race_known == \"Known\") %&gt;%\n    mutate(poc_code = as.numeric(person_of_color))\n\n\n\n\n\n\n\n\n\n\nWhat about |&gt;?\n\n\n\nYou might have seen mentions of the native pipe, which is specified as |&gt; instead of %&gt;%. This is because the pipe became so popular in the {tidyverse}, that the main R developers implemented their own version.\nKeep in mind that they are interchangable, for the most part.\n\n\n\n5.1.1 Instructions\n\nUse %&gt;% to chain biopics into a filter to filter (country==\"US\")\n\n\nExerciseSolution",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3b.html#group_bysummarize",
+    "href": "chapter3b.html#group_bysummarize",
+    "title": "5  More {dplyr}",
+    "section": "5.2 group_by()/summarize()",
+    "text": "5.2 group_by()/summarize()\ngroup_by() doesn’t do anything by itself. But when combined with summarize(), you can calculate metrics (such as mean, max - the maximum, min, sd - the standard deviation) across groups. For example:\n\n\n\n\n\n\n\n\nHere we want to calculate the mean box_office by country. However, in order to do that, we first need to remove any rows that have NA values in box_office that may confound our calculation.\nLet’s ask a tough question. Is there a difference between mean box_office between the two subject_sex categories?\n\n5.2.1 Instructions\nFirst use filter() to remove the NA values. Then, use group_by() and summarize() to calculate the mean box_office by subject_sex, naming the summary variable as mean_bo_by_gender. Assign the output to gender_box_office.\n\nExerciseSolution",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3b.html#counting-stuff",
+    "href": "chapter3b.html#counting-stuff",
+    "title": "5  More {dplyr}",
+    "section": "5.3 Counting Stuff",
+    "text": "5.3 Counting Stuff\nWhat does the following code do? Try it out in the console!",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3b.html#arrange",
+    "href": "chapter3b.html#arrange",
+    "title": "5  More {dplyr}",
+    "section": "5.4 arrange()",
+    "text": "5.4 arrange()\narrange() lets you sort by a variable. If you provide multiple variables, the variables are arranged within each other. For example:\n\n\n\n\n\n\n\n\nThis statement will sort the data by country first, and then within each country category, it will sort by year_release.\n\n5.4.1 Instructions\nSort biopics by year_release then by country. Assign the output to biopics_sorted.\n\nExerciseSolution",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3b.html#select",
+    "href": "chapter3b.html#select",
+    "title": "5  More {dplyr}",
+    "section": "5.5 select()",
+    "text": "5.5 select()\nThe final verb we’ll learn is select(). select() allows you to:\n\nextract columns,\nreorder columns or\nremove columns from your data, as well as\nrename your data.\n\nFor example, look at the following code:\n\n\n\n\n\n\n\n\nHere, we’re just extracting two columns (title_of_movie, box_office). Notice we also renamed title to movieTitle.\n\n5.5.1 Instructions\nUse select to extract the following variables: title (rename it movieTitle), box_office and subject_sex and assign them to a new table called threeVarTable.\n\nExerciseSolution",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3b.html#chester-ismays-mantra",
+    "href": "chapter3b.html#chester-ismays-mantra",
+    "title": "5  More {dplyr}",
+    "section": "5.6 Chester Ismay’s Mantra",
+    "text": "5.6 Chester Ismay’s Mantra\nWhat is the difference between select() and filter()?\n Nope. Both of these verbs don’t care what data type you use.  Not true. You can use filter() and select() in any order!   Welcome to the cult of dplyr! Your secret decoder ring is in the mail.   \n\nNow here comes the fun part. Chaining dplyr verbs together to accomplish some data cleaning and transformation.\nFor a reference while you work, you can use the dplyr cheatsheet here: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf\n\n5.6.1 Instructions\n\nFor the biopics data, filter() the data so that we only cover movies from 2000 to 2014. (year_release is the variable you want.)\nFilter out the NAs in box_office.\nThen use mutate() to code a new variable, box_office_per_subject. (The two variables you need here are box_office and number_of_subjects.)\nAssign this statement to biopics_new.\nRun summary() on biopics_new to confirm that your statement worked.\n\n\nExerciseSolution",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3b.html#challenge-2-show-your-stuff",
+    "href": "chapter3b.html#challenge-2-show-your-stuff",
+    "title": "5  More {dplyr}",
+    "section": "5.7 Challenge 2: Show your stuff",
+    "text": "5.7 Challenge 2: Show your stuff\nAnswer the question: Do movies where we know the race is known (race_known == TRUE) make more money than movies where the race is not known (race_known== FALSE) grouped by country? Which race_known/country combination made the highest amount of money?\n\n5.7.1 Instructions\n\nYou’ll need to do a filter step first to remove NA values from box_office before you do anything.\nThen think of what variables you need to group_by.\nFinally, figure out what do you need to summarize (assign the value to mean_box_office) and arrange on (don’t forget to use desc!)?\nAssign the output to race_country_box_office.\nShow race_country_box_office.\n\n\nExerciseSolution",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3b.html#challenge-3-putting-together-what-we-know-about-ggplot2-and-dplyr",
+    "href": "chapter3b.html#challenge-3-putting-together-what-we-know-about-ggplot2-and-dplyr",
+    "title": "5  More {dplyr}",
+    "section": "5.8 Challenge 3: Putting together what we know about {ggplot2} and {dplyr}",
+    "text": "5.8 Challenge 3: Putting together what we know about {ggplot2} and {dplyr}\nNow we’re cooking with fire. You can directly pipe the output of a dplyr pipeline into a ggplot2 statement. For example:\n\n\n\n\n\n\n\n\nNote that we use %&gt;% to pipe our statement into the ggplot() function. The tricky thing to remember is that everything after the ggplot() is connected with +, and not %&gt;%.\nAlso note: we don’t assign a data variable in the ggplot() statement. We are piping in the data.\nAre you sick of biopics yet? I promise this is the last time we use this dataset.\n\n5.8.1 Instructions\n\nFirst, filter biopics to have year_release &lt; 1990 and remove NA values.\nThen pipe that into a ggplot() statement that plots an x-y plot of box_office (use geom_point()) where x=year_release and y=log(box_office).\nColor the points by person_of_color.\nAssign the output to bPlot and print it to the screen using print(bPlot).\n\n\nExerciseSolution",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3b.html#what-you-learned-in-this-chapter",
+    "href": "chapter3b.html#what-you-learned-in-this-chapter",
+    "title": "5  More {dplyr}",
+    "section": "5.9 What you learned in this chapter",
+    "text": "5.9 What you learned in this chapter\n\nHow to use %&gt;% (the pipe)\ndplyr::filter()\ndplyr::mutate()\ndplyr::group_by()/dplyr::summarize()\ndplyr::arrange()\ndplyr::select()\nHow to put it all together!\n\nGood job for making it through this chapter! You’re well on your way to becoming a tidyverse ninja!\nMore Resources\n\nThe Data Transformation chapter of R for Data Science is another great place to learn about the basics of dplyr.\nThe Pipes chapter of R for Data Science has a great discussion on why you should consider using pipes in your workflows.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>More `{dplyr}`</span>"
+    ]
+  }
+]
