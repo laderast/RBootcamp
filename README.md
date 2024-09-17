@@ -12,9 +12,7 @@ The R-Bootcamp is meant to be a gentle and gradual introduction to manipulating 
 
 It is currently available at http://r-bootcamp.netlify.com 
 
-Documentation for the course framework is available at http://github.com/ines/course-starter-r
-
-The binder container responsible for executing code can be viewed here:  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/laderast/RBootcamp/binder?urlpath=rstudio)
+Note: we have switched over to using WebR - the current version is in the gh-pages branch: https://github.com/laderast/RBootcamp/tree/gh-pages
 
 # Contributors
 
