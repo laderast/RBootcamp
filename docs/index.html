@@ -72,6 +72,8 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 </head>
@@ -85,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome to the RBootcamp!</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome to the R-Bootcamp!</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -113,31 +115,31 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome to the RBootcamp!</span></span></a>
+ <span class="menu-text">Welcome to the R-Bootcamp!</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Magic of <code>{ggplot2}</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Magic of <code>{ggplot2}</code></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><code>{ggplot2}</code> and categorical data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title"><code>{ggplot2}</code> and categorical data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to <code>{dplyr}</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to <code>{dplyr}</code></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter3b.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">More <code>{dplyr}</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">More <code>{dplyr}</code></span></span></a>
   </div>
 </li>
     </ul>
@@ -150,7 +152,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#welcome-to-the-rbootcamp" id="toc-welcome-to-the-rbootcamp" class="nav-link active" data-scroll-target="#welcome-to-the-rbootcamp"><span class="header-section-number">1</span> Welcome to the RBootcamp!</a></li>
+  <li><a href="#welcome-to-the-r-bootcamp" id="toc-welcome-to-the-r-bootcamp" class="nav-link active" data-scroll-target="#welcome-to-the-r-bootcamp">Welcome to the R-Bootcamp!</a>
+  <ul class="collapse">
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#licensing" id="toc-licensing" class="nav-link" data-scroll-target="#licensing">Licensing</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -181,9 +187,23 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome-to-the-rbootcamp" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Welcome to the RBootcamp!</h1>
-<p>No browser needed!</p>
+<section id="welcome-to-the-r-bootcamp" class="level1 unnumbered">
+<h1 class="unnumbered">Welcome to the R-Bootcamp!</h1>
+<p>This course leverages a technology called <code>webr</code> that lets you run R in your browser.</p>
+<p>Keep in mind that it can take a little time before you can run the exercises. Wait for the spinner to finish before you start working on exercises.</p>
+<section id="acknowledgements" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>The R-Bootcamp has gone through many revisions and technologies.</p>
+<p>It is authored by <a href="https://laderast.github.io">Ted Laderas</a> and <a href="http://jessicaminnier.com/">Jessica Minnier</a></p>
+<p>Includes contributions from: Chester Ismay, Eric Leung, Aurora Blucher, Tracy Edinger, Dian Chase, Gabrielle Choonoo, Clint Olson, Michael Kolesnikov, Joshua Meyer, amundhb, cfiller123, and Ines Montani.</p>
+<p>We utilize datasets from the gapminder and fivethirtyeight packages.</p>
+<p>Portions of this Bootcamp were adapted from a workshop I gave with Chester Ismay: <a href="https://github.com/Cascadia-R/gRadual-intRoduction-tidyverse" class="uri">https://github.com/Cascadia-R/gRadual-intRoduction-tidyverse</a></p>
+</section>
+<section id="licensing" class="level2">
+<h2 class="anchored" data-anchor-id="licensing">Licensing</h2>
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+<a property="dct:title" rel="cc:attributionURL" href="https://r-bootcamp.netlify.app">R Bootcamp</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://laderast.github.com">Ted Laderas and Jessica Minnier</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a>
+</p>
 
 
 <script type="ojs-module-contents">
@@ -200,6 +220,7 @@ eyJjb250ZW50cyI6W119
 <script type="vfs-file">
 W10=
 </script>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -639,7 +660,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./chapter1.html" class="pagination-link" aria-label="The Magic of `{ggplot2}`">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Magic of <code>{ggplot2}</code></span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Magic of <code>{ggplot2}</code></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

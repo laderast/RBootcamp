@@ -29,5 +29,6 @@ webr:
 
 format: 
   live-html:
+    df-print: paged
     echo: false
     toc: true

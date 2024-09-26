@@ -3,6 +3,7 @@ title: "`{ggplot2}` and categorical data"
 format: 
   live-html:
     echo: false
+    toc-location: left
 engine: knitr
 webr:
   packages:
@@ -10,6 +11,7 @@ webr:
     - gapminder
     - checkdown
     - dplyr
+    - rmarkdown
 ---
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
@@ -46,6 +48,15 @@ pets$ageCategory <- factor(pets$ageCategory, ordered = TRUE)
 pets$animal <- factor(pets$animal)
 pets$name <- factor(pets$name)
 pets$shotsCurrent <- factor(pets$shotsCurrent)
+
+library(knitr)
+
+knit_print.data.frame <- function (x, options, ...) {
+  rmarkdown::paged_table(x, options) |>
+    rmarkdown:::print.paged_df()
+}
+
+registerS3method("knit_print", "data.frame", knit_print.data.frame)
 ```
 
 Factors are how R represents categorical data.
@@ -280,7 +291,7 @@ checkdown::check_question("stratify our graph by another category" ,
                           options=c("stratify our graph by another category",
                                     "plot points as pretty gems",
                                     "add another set of categories to the x-axis"
-                                    ), random_answer_order = TRUE)
+                                    ), random_answer_order = TRUE, type="radio")
 ```
 
 
@@ -360,7 +371,7 @@ ggplot(pets, aes(x= animal, y= weight)) + geom_boxplot()
 ### Exercise
 
 ```{webr-r}
-#| exercise: ex_8
+#| exercise: ex_9
 ggplot(pets, aes(x= -----, y= -----)) + geom_boxplot()
 ```
 

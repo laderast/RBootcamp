@@ -4,6 +4,8 @@ format:
   live-html:
     echo: false
     toc: true
+    toc-location: left
+    df-print: kable
 engine: knitr
 webr:
   packages:
@@ -11,6 +13,7 @@ webr:
     - gapminder
     - checkdown
     - dplyr
+    - rmarkdown
 ---
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
@@ -29,6 +32,10 @@ library(dplyr)
 library(ggplot2)
 library(gapminder)
 gap1992 <- gapminder %>% filter(year == 1992)
+
+library(knitr)
+
+
 ```
 
 ```{webr}
@@ -39,6 +46,15 @@ library(dplyr)
 library(ggplot2)
 library(gapminder)
 gap1992 <- gapminder %>% filter(year == 1992)
+
+library(knitr)
+
+knit_print.data.frame <- function (x, options, ...) {
+  rmarkdown::paged_table(x, options) |>
+    rmarkdown:::print.paged_df()
+}
+
+registerS3method("knit_print", "data.frame", knit_print.data.frame)
 ```
 
 
@@ -55,17 +71,22 @@ A `data.frame` is a table-like format which has the following properties:
 - Rows correspond to a single observation (ideally)
 - Can be subset or filtered based on criteria
 
+Here's an example of a table:
+
+```{webr}
+#| edit: false
+gap1992
+```
+
 Individual variables within a `data.frame` can be accessed with the `$` operator (such as `gap1992$pop`). We won't use this very often, as the `tidyverse` lets us access the variables without it, as you'll see.
 
 ### Exercise
 
-- Run `colnames()` and `head()` on the `gap1992` data to see what's in each column. 
-- Then see how many rows there are in the dataset using `nrow()`. Run these in console before you submit your answer.
+- Run `colnames()` on the `gap1992` data to see what's in each column. 
+- Then see how many rows there are in the dataset using `nrow()`. 
 
 ```{webr}
 #| exercise: ex_1
-##run head on gap1992
-head(----)
 ##run colnames here on gap1992
 colnames(----)
 ##run nrow() on gap1992
@@ -79,8 +100,6 @@ nrow(-----)
 ## Solution
 
 ```r
-##run head on gap1992
-head(gap1992)                 
 ##run colnames here on gap1992
 colnames(gap1992)               
 ##run nrow() on gap1992
@@ -202,7 +221,7 @@ For a list of aesthetics for `geom_point()`, look here: <https://ggplot2.tidyver
 Which of the following is *not* a mappable aesthetic to `geom_point()`?
 
 ```{r}
-checkdown::check_question("linetype", options = c("`x`", "`shape`", "`linetype`"), type="radio", random_answer_order = TRUE)
+checkdown::check_question("`linetype`", options = c("`x`", "`shape`", "`linetype`"), type="radio", random_answer_order = TRUE)
 ```
 
 ## Points versus lines

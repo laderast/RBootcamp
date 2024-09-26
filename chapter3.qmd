@@ -3,6 +3,7 @@ title: "Introduction to `{dplyr}`"
 format: 
   live-html:
     toc: true
+    toc-location: left
 engine: knitr
 webr:
   packages:
@@ -10,6 +11,8 @@ webr:
     - checkdown
     - dplyr
     - fivethirtyeight
+    - knitr
+    - rmarkdown
 ---
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
@@ -29,15 +32,26 @@ webr:
 library(dplyr)
 library(fivethirtyeight)
 data(biopics)
+biopics$country <- factor(biopics$country)
+library(knitr)
 ```
-
 
 ```{webr}
 #| edit: false
 #| echo: false
 library(dplyr)
 library(fivethirtyeight)
+library(knitr)
 data(biopics)
+
+library(knitr)
+
+knit_print.data.frame <- function (x, options, ...) {
+  rmarkdown::paged_table(x, options) |>
+    rmarkdown:::print.paged_df()
+}
+
+registerS3method("knit_print", "data.frame", knit_print.data.frame)
 ```
 
 We've been looking at datasets that fit the `ggplot2` paradigm nicely; however, most data we encounter 
@@ -68,14 +82,6 @@ Also, remember: if you need to know the variables in a `data.frame` called `biop
 #| edit: false
 colnames(biopics)
 ```
-
-If you want more information on a function such as `mutate()`, you can always ask for help:
-
-```{webr}
-?mutate
-```
-
-Move on to the next exercise!
 
 ## Learning about assignment
 
@@ -136,15 +142,14 @@ We're going to use the `biopics` dataset in the `fivethirtyeight` package to do 
 ### Exercise
 
 + Run a `summary` on the `biopics` dataset. It's already loaded up for you. 
-+ How many categories are in the `country` variable? 
-+ Use the `levels()` function to count the categories.
++ How many categories are in the `country` variable? Use the `levels()` function to count the categories.
 
 ```{webr}
 #| exercise: ex_2
 ##run summary() here on biopics
 summary(-----)
 ##show length of country categories here
-length(levels(biopics$------))
+levels(biopics$------)
 ```
 
 ::: { .solution exercise="ex_2"}
@@ -155,7 +160,7 @@ length(levels(biopics$------))
 ##run summary here
 summary(biopics)
 ##show length of country categories here
-length(levels(biopics$country))
+levels(biopics$country)
 ```
 :::
 :::
@@ -172,7 +177,7 @@ For example, if we wanted to subset `biopics` to those movies that were made in 
 #subset the data using filter
 biopicsUK <- filter(biopics, country=="UK")
 #confirm that we have subsetted correctly
-biopicsUK
+head(biopicsUK)
 ```
 
 Three things to note here: 
@@ -261,15 +266,19 @@ nrow(crimeFilms)
 Which statement should be the larger subset? Try them out in the console if you're not sure.
 
 ```{webr}
-nrow(filter(biopics, year_release > 1980 | type_of_subject == 'Criminal'))
+nrow(filter(biopics, 
+            year_release > 1980 | 
+            type_of_subject == 'Criminal'))
 
-nrow(filter(biopics, year_release > 1980 & type_of_subject == 'Criminal'))
+nrow(filter(biopics, 
+            year_release > 1980 & 
+            type_of_subject == 'Criminal'))
 ```
 
 ```{r}
 #| edit: false
 checkdown::check_question("filter(biopics, year_release > 1980 | type_of_subject == 'Criminal')", 
-                          options=c("filter(biopics, year_release > 1980 & type_of_subject == 'Criminal')", "filter(biopics, year_release > 1980 | type_of_subject == 'Criminal')"))
+                          options=c("filter(biopics, year_release > 1980 & type_of_subject == 'Criminal')", "filter(biopics, year_release > 1980 | type_of_subject == 'Criminal')"), type="radio")
 ```
 
 ## The %in% operator 
@@ -455,7 +464,7 @@ mutate(biopics, subject= paste(subject, year_release))
 #| edit: false
 checkdown::check_question("We are defining a brand-new variable with the same name in our dataset and keeping the old variable as well", options = c(
   "We are defining a brand-new variable with the same name in our dataset and keeping the old variable as well", "We are processing the variable `subject` and saving it in place"
-))
+), type="radio")
 ```
 
 ## The difference between `filter()` and `mutate()`
@@ -478,7 +487,7 @@ biopics %>%
 #| echo: false
 checkdown::check_question("The first statement filters the data, whereas the second statement defines a new boolean variable.", options = c(
   "The first statement filters the data, whereas the second statement defines a new boolean variable.", "The second statement is more confusing."
-))
+), type="radio")
 ```
 
 ## What you learned in this chapter

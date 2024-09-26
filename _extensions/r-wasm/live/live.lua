@@ -112,6 +112,23 @@ function ParseBlock(block, engine)
     end
   end
 
+  -- When echo: false: disable the editor
+  if (attr.echo == false) then
+    attr.edit = false
+  end
+
+  -- When `include: false`: disable the editor, source block echo, and output
+  if (attr.include == false) then
+    attr.edit = false
+    attr.echo = false
+    attr.output = false
+  end
+
+  -- If we're not executing anything, there's no point showing an editor
+  if (attr.edit == nil) then
+    attr.edit = attr.eval
+  end
+
   return {
     code = code,
     attr = attr
@@ -238,11 +255,6 @@ function PyodideCodeBlock(code)
     block_input = input,
   }
 
-  -- If we're not executing anything, there's no point showing an editor
-  if (block.attr.edit == nil) then
-    block.attr.edit = block.attr.eval
-  end
-
   -- Render appropriate OJS for the type of client-side block we're working with
   local ojs_source = nil
   if (block.attr.exercise) then
@@ -260,7 +272,7 @@ function PyodideCodeBlock(code)
   append_ojs_template(ojs_source, ojs_vars)
 
   return pandoc.Div({
-    pandoc.Div({}, pandoc.Attr("pyodide-" .. block_id)),
+    pandoc.Div({}, pandoc.Attr("pyodide-" .. block_id, { 'exercise-cell' })),
     pandoc.RawBlock(
       "html",
       "<script type=\"pyodide-" .. block_id .. "-contents\">\n" ..
@@ -356,11 +368,6 @@ function WebRCodeBlock(code)
     block_input = input,
   }
 
-  -- If we're not executing anything, there's no point showing an editor
-  if (block.attr.edit == nil) then
-    block.attr.edit = block.attr.eval
-  end
-
   -- Render appropriate OJS for the type of client-side block we're working with
   local ojs_source = nil
   if (block.attr.exercise) then
@@ -381,7 +388,7 @@ function WebRCodeBlock(code)
   HTMLWidget(block_id)
 
   return pandoc.Div({
-    pandoc.Div({}, pandoc.Attr("webr-" .. block_id)),
+    pandoc.Div({}, pandoc.Attr("webr-" .. block_id, { 'exercise-cell' })),
     pandoc.RawBlock(
       "html",
       "<script type=\"webr-" .. block_id .. "-contents\">\n" ..
