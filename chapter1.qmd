@@ -8,12 +8,12 @@ format:
     df-print: kable
 engine: knitr
 webr:
+  render-df: paged-table
   packages:
     - ggplot2
     - gapminder
     - checkdown
     - dplyr
-    - rmarkdown
     - gradethis
 ---
 
@@ -48,15 +48,6 @@ library(dplyr)
 library(ggplot2)
 library(gapminder)
 gap1992 <- gapminder %>% filter(year == 1992)
-
-library(knitr)
-
-knit_print.data.frame <- function (x, options, ...) {
-  rmarkdown::paged_table(x, options) |>
-    rmarkdown:::print.paged_df()
-}
-
-registerS3method("knit_print", "data.frame", knit_print.data.frame)
 ```
 
 

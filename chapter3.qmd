@@ -6,13 +6,12 @@ format:
     toc-location: left
 engine: knitr
 webr:
+  render-df: paged-table
   packages:
     - ggplot2
     - checkdown
     - dplyr
     - fivethirtyeight
-    - knitr
-    - rmarkdown
     - gradethis
 ---
 
@@ -45,15 +44,6 @@ library(dplyr)
 library(fivethirtyeight)
 library(knitr)
 data(biopics)
-
-library(knitr)
-
-knit_print.data.frame <- function (x, options, ...) {
-  rmarkdown::paged_table(x, options) |>
-    rmarkdown:::print.paged_df()
-}
-
-registerS3method("knit_print", "data.frame", knit_print.data.frame)
 ```
 
 We've been looking at datasets that fit the `ggplot2` paradigm nicely; however, most data we encounter 

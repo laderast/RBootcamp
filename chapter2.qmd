@@ -6,12 +6,12 @@ format:
     toc-location: left
 engine: knitr
 webr:
+  render-df: paged-table
   packages:
     - ggplot2
     - gapminder
     - checkdown
     - dplyr
-    - rmarkdown
     - gradethis
 ---
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
@@ -49,15 +49,6 @@ pets$ageCategory <- factor(pets$ageCategory, ordered = TRUE)
 pets$animal <- factor(pets$animal)
 pets$name <- factor(pets$name)
 pets$shotsCurrent <- factor(pets$shotsCurrent)
-
-library(knitr)
-
-knit_print.data.frame <- function (x, options, ...) {
-  rmarkdown::paged_table(x, options) |>
-    rmarkdown:::print.paged_df()
-}
-
-registerS3method("knit_print", "data.frame", knit_print.data.frame)
 ```
 
 Factors are how R represents categorical data.
