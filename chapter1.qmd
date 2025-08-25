@@ -73,6 +73,14 @@ gap1992
 
 Individual variables within a `data.frame` can be accessed with the `$` operator (such as `gap1992$pop`). We won't use this very often, as the `tidyverse` lets us access the variables without it, as you'll see.
 
+We will be running commands on this `gap1992` table like below. Try running the code using the `Run Code` Button.
+
+```{webr}
+nrow(gap1992)
+```
+
+Notice that our function is called `nrow()`, and we call it on our `gap1992` table by putting it within the parentheses. 
+
 ### Exercise
 
 - Run `colnames()` on the `gap1992` data to see what's in each column. 

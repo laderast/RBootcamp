@@ -6,6 +6,7 @@ format:
     toc-location: left
 engine: knitr
 webr:
+  render-df: paged-table
   packages:
     - ggplot2
     - gapminder
@@ -16,10 +17,18 @@ webr:
 ---
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+{{< include ./_extensions/r-wasm/live/_gradethis.qmd >}}
 
 ```{webr}
 #| echo: false
 #| setup: true
+#| exercise:
+#|   - ex_3
+#|   - ex_4
+#|   - ex_5
+#|   - ex_6
+#|   - ex_7
+#|   - ex_8
 dem_score <- readr::read_csv("data/dem_score.csv")
 health_code_example <- readr::read_csv("data/healthExample.csv")
 ```
@@ -83,8 +92,8 @@ We haven't talked about `tidyselect` verbs, but there are a few that let you sel
 #| exercise: ex_3
 gathered_data <- dem_score %>% 
   pivot_longer(cols = -country, 
-               names_to = "-----",
-               values_to = "-----") %>%
+               names_to = "______",
+               values_to = "______") %>%
   mutate(year=str_replace(year, "X",""))
 
 head(gathered_data)
@@ -92,7 +101,9 @@ head(gathered_data)
 
 ::: { .solution exercise="ex_3"}
 ::: { .callout-tip collapse=false}
-```r
+```{webr}
+#| exercise: ex_3
+#| solution: true
 gatheredData <- dem_score %>% 
   pivot_longer(cols = -country, 
                names_to = "year",
@@ -105,7 +116,7 @@ head(gatheredData)
 :::
 
 
-## `pivot_sider()`
+## `pivot_wider()`
 
 <exercise id="4" title="tidyr::pivot_wider()">
 
@@ -141,8 +152,8 @@ gatheredData <- dem_score %>%
   mutate(year=str_replace(year, "X",""))
 
 spreadData <- gatheredData %>% 
-  pivot_wider(names_from = "------",
-              values_from = "------")
+  pivot_wider(names_from = "_______",
+              values_from = "_______")
 
 head(spreadData)
 
@@ -151,7 +162,9 @@ head(spreadData)
 
 ::: { .solution exercise="ex_4"}
 ::: { .callout-tip collapse=false}
-```r
+```{webr}
+#| exercise: ex_4
+#| solution: true
 gatheredData <- dem_score %>% 
   pivot_longer(cols = -country, 
                names_to = "year",
@@ -184,6 +197,7 @@ health_code_separated <-
         separate(col=HealthCodeEncounterCode, 
         into=c("HealthCode", "EncounterCode"), sep="/")
 ```
+
 Here we specify the variable name with `col`, the names of the new columns with `into`, and the delimiter, or separator in the variable to separate on, with `sep`. Note that `sep` can
 be any string.
 
