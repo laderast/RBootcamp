@@ -94,7 +94,7 @@
     "href": "chapter1.html#quick-check",
     "title": "1  The Magic of {ggplot2}",
     "section": "1.6 Quick Check",
-    "text": "1.6 Quick Check\nWhich of the following is not a mappable aesthetic to geom_point()?\n\n\n\n\n`shape`\n\n\n`linetype`\n\n\n`x`",
+    "text": "1.6 Quick Check\nWhich of the following is not a mappable aesthetic to geom_point()?\n\n\n\n\n`linetype`\n\n\n`x`\n\n\n`shape`",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
     ]
@@ -104,7 +104,7 @@
     "href": "chapter1.html#points-versus-lines",
     "title": "1  The Magic of {ggplot2}",
     "section": "1.7 Points versus lines",
-    "text": "1.7 Points versus lines\nThe great thing about ggplot2 is that it’s easy to swap geometric representations. Instead of x-y points, we can plot the data as a line graph by swapping geom_line() for geom_point().\n\n1.7.1 Exercise\nFirst run the code to see the plot with points. Change the geom_point() in the following graph to geom_line(). What happened?\nHow did the visual presentation of the data change?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip",
+    "text": "1.7 Points versus lines\nThe great thing about ggplot2 is that it’s easy to swap geometric representations. Instead of x-y points, we can plot the data as a line graph by swapping geom_line() for geom_point().\n\n1.7.1 Exercise\nFirst run the code to see the plot with points. Change the geom_point() in the following graph to geom_line(). What happened?\nHow did the visual presentation of the data change?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n\n\n\nggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, color=continent)) +\n  geom_line() \nggplot(gap1992, aes(x = log(gdpPercap), y = lifeExp, color=continent)) +\n  geom_line()",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
     ]
@@ -194,7 +194,7 @@
     "href": "chapter2.html#quick-quiz",
     "title": "2  {ggplot2} and categorical data",
     "section": "2.4 Quick Quiz",
-    "text": "2.4 Quick Quiz\nWhat does mapping color to \"black\" in geom_bar() do? For example:\nggplot(pets, aes(x=animal, fill=shotsCurrent)) + \n  geom_bar(color=\"black\")\n If you’re unsure, compare the graph above to the previous graph.\n\n\n\n\nOutlines the bars in black\n\n\nMakes the default bar fill color black\n\n\nSpecifies the text in the graph to be black",
+    "text": "2.4 Quick Quiz\nWhat does mapping color to \"black\" in geom_bar() do? For example:\nggplot(pets, aes(x=animal, fill=shotsCurrent)) + \n  geom_bar(color=\"black\")\n If you’re unsure, compare the graph above to the previous graph.\n\n\n\n\nOutlines the bars in black\n\n\nSpecifies the text in the graph to be black\n\n\nMakes the default bar fill color black",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
     ]
