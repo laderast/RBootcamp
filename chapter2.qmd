@@ -12,9 +12,10 @@ webr:
     - checkdown
     - dplyr
     - rmarkdown
+    - gradethis
 ---
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
-
+{{< include ./_extensions/r-wasm/live/_gradethis.qmd >}}
 ## `factor` variables
 
 ```{webr}
@@ -83,19 +84,27 @@ pets
 ```{webr}
 #| exercise: ex_1
 ##use glimpse here
-glimpse(----)
+glimpse(______)
 ```
 
 ::: { .solution exercise="ex_1"}
 ::: { .callout-tip collapse=false}
 
-```r
+```{webr}
+#| exercise: ex_1
+#| solution: true
 ##use glimpse here
 glimpse(pets)
 ```
 
 :::
 :::
+
+```{webr}
+#| exercise: ex_1
+#| check: true
+gradethis::grade_this_code()
+```
 
 There are 4 variables that are categorical in this dataset: `name`, `animal`, `shotsCurrent`, and `ageCategory`
 
@@ -116,7 +125,7 @@ Map the `name` variable to `x` in the `ggplot` statement. What is the most popul
 #| exercise: ex_2
 ##Show a barplot and count by name and fill by animal
 ##theme() allows us to angle the text labels so that we can read them
-ggplot(pets, aes(x= -----)) + geom_bar() + 
+ggplot(pets, aes(x= ______)) + geom_bar() + 
     ##We make the x axis text angled 
     ##for better legibility
     theme(axis.text.x = element_text(angle=45))
@@ -125,10 +134,11 @@ ggplot(pets, aes(x= -----)) + geom_bar() +
 ::: { .solution exercise="ex_2"}
 ::: { .callout-tip collapse=false}
 
-
 ## Solution
 
-```r
+```{webr}
+#| exercise: ex_2
+#| solution: true
 ##show a barplot and count by name and fill by animal
 ##theme() allows us to angle the text labels so that we can read them
 ggplot(pets, aes(x=name)) + geom_bar() + 
@@ -139,6 +149,12 @@ ggplot(pets, aes(x=name)) + geom_bar() +
 
 :::
 :::
+
+```{webr}
+#| exercise: ex_2
+#| check: true
+gradethis::grade_this_code()
+```
 
 ## Stacked Bars
 
@@ -151,14 +167,16 @@ Map `shotsCurrent` to the `fill` aesthetic.
 ```{webr}
 #| exercise: ex_3
 #map the right variable in pets to fill
-ggplot(pets, aes(x=animal, fill= ----)) + 
+ggplot(pets, aes(x=animal, fill= _____)) + 
   geom_bar()
 ```
 
 ::: { .solution exercise="ex_3"}
 ::: { .callout-tip collapse=false}
 
-```r
+```{webr}
+#| exercise: ex_3
+#| solution: true
 #map the right variable in pets to fill
 ggplot(pets, aes(x=animal, fill=shotsCurrent)) + 
   geom_bar()
@@ -166,6 +184,12 @@ ggplot(pets, aes(x=animal, fill=shotsCurrent)) +
 
 :::
 :::
+
+```{webr}
+#| exercise: ex_3
+#| check: true
+gradethis::grade_this_code()
+```
 
 ## Quick Quiz
 
@@ -197,19 +221,27 @@ Change the `position` argument in `geom_bar()` to `"fill"`. What percent of dogs
 ```{webr}
 #| exercise: ex_4
 ggplot(pets, aes(x=animal,fill=shotsCurrent)) + 
-  geom_bar(position= ----, color="black")
+  geom_bar(position= ______, color="black")
 ```
 
 ::: { .solution exercise="ex_4"}
 ::: { .callout-tip collapse=false}
 
-```r
+```{webr}
+#| exercise: ex_4
+#| solution: true
 ggplot(pets, aes(x=animal,fill=shotsCurrent)) + 
   geom_bar(position= "fill", color="black")
 ```
 
 :::
 :::
+
+```{webr}
+#| exercise: ex_4
+#| check: true
+gradethis::grade_this_code()
+```
 
 ## Dodge those bars!
 
@@ -222,20 +254,28 @@ Change the `position` argument in `geom_bar()` to `"dodge"`.
 ```{webr}
 #| exercise: ex_5
 ggplot(pets, aes(x=animal,fill=shotsCurrent)) + 
-	  geom_bar(position= -----, color="black")
+	  geom_bar(position= ______, color="black")
 ```
 
 ::: { .solution exercise="ex_5"}
 ::: { .callout-tip collapse=false}
 
 
-```r
+```{webr}
+#| exercise: ex_5
+#| solution: true
 ggplot(pets, aes(x=animal,fill=shotsCurrent)) + 
 	  geom_bar(position= "dodge", color="black")
 ```
 
 :::
 :::
+
+```{webr}
+#| exercise: ex_5
+#| check: true
+gradethis::grade_this_code()
+```
 
 ## Faceting a graph
 
@@ -260,14 +300,16 @@ Add `free_x` to the scale argument. How many animals named "Morris" did not rece
 ```{webr}
 #| exercise: ex_6
 ggplot(pets, aes(x=name)) + geom_bar() + 
-  facet_wrap(facets=~shotsCurrent, scale= ----) +
+  facet_wrap(facets=~shotsCurrent, scale= _______) +
   theme(axis.text.x = element_text(angle=45))
 ```
 
 ::: { .solution exercise="ex_6"}
 ::: { .callout-tip collapse=false}
 
-```r
+```{webr}
+#| exercise: ex_6
+#| solution: true
 ggplot(pets, aes(x=name)) + geom_bar() + 
   facet_wrap(facets=~shotsCurrent, scale= "free_x") +
   theme(axis.text.x = element_text(angle=45))
@@ -275,6 +317,13 @@ ggplot(pets, aes(x=name)) + geom_bar() +
 
 :::
 :::
+
+```{webr}
+#| exercise: ex_6
+#| check: true
+gradethis::grade_this_code()
+```
+
 ## Super Quick Review
 
 Faceting a graph allows us to:
@@ -310,17 +359,19 @@ you need for `geom_bar()`. Finally, think about how to facet the variable.
 
 ```{webr}
 #| exercise: ex_7
-ggplot(pets, aes(x=ageCategory, fill= -----)) + 
+ggplot(pets, aes(x=ageCategory, fill= ______)) + 
     #what argument goes here?
-    geom_bar(position = ---) +
-    facet_wrap(facets = ----, scale = ----)
+    geom_bar(position = ________) +
+    facet_wrap(facets = ______, scale = _____)
 ```
 
 ::: { .solution exercise="ex_7"}
 ::: { .callout-tip collapse=false}
 
 
-```r
+```{webr}
+#| exercise: ex_7
+#| solution: true
 ggplot(pets, aes(x=ageCategory, fill=animal)) + 
   #what argument goes here?
   geom_bar(position = "fill") +
@@ -329,6 +380,12 @@ ggplot(pets, aes(x=ageCategory, fill=animal)) +
 
 :::
 :::
+
+```{webr}
+#| exercise: ex_7
+#| check: true
+gradethis::grade_this_code()
+```
 
 ## Boxplots
 
@@ -351,17 +408,25 @@ Think about what variables map to what aesthetics.
 
 ```{webr-r}
 #| exercise: ex_8
-ggplot(pets, aes(x= -----, y= -----)) + geom_boxplot()
+ggplot(pets, aes(x= ______, y= _____)) + geom_boxplot()
 ```
 
 ::: { .solution exercise="ex_8"}
 ::: { .callout-tip collapse=false}
 
-```r
+```{webr}
+#| exercise: ex_8
+#| solution: true
 ggplot(pets, aes(x= animal, y= weight)) + geom_boxplot()
 ```
 :::
 :::
+
+```{webr}
+#| exercise: ex_8
+#| check: true
+gradethis::grade_this_code()
+```
 
 ## Your final task: How heavy are our pets?
 
@@ -370,20 +435,28 @@ ggplot(pets, aes(x= animal, y= weight)) + geom_boxplot()
 
 ### Exercise
 
-```{webr-r}
+```{webr}
 #| exercise: ex_9
-ggplot(pets, aes(x= -----, y= -----)) + geom_boxplot()
+ggplot(pets, aes(x= _____, y= ______)) + geom_boxplot()
 ```
 
 ::: { .solution exercise="ex_9"}
 ::: { .callout-tip collapse=false}
 
-```r
+```{webr}
+#| exercise: ex_9
+#| solution: true
 ggplot(pets, aes(x= ageCategory, y= weight)) + geom_boxplot()
 ```
 
 :::
 :::
+
+```{webr}
+#| exercise: ex_9
+#| check: true
+gradethis::grade_this_code()
+```
 
 
 ## What you learned in this chapter

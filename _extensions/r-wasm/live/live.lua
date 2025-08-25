@@ -528,7 +528,10 @@ function setupPyodide(doc)
 
   -- Initial Pyodide startup options
   local pyodide_options = {
-    indexURL = "https://cdn.jsdelivr.net/pyodide/v0.26.1/full/",
+    indexURL = "https://cdn.jsdelivr.net/pyodide/v0.28.1/full/",
+    env = {
+      PLOTLY_RENDERER = 'plotly_mimetype',
+    }
   }
   if (pyodide["engine-url"]) then
     pyodide_options["indexURL"] = pandoc.utils.stringify(pyodide["engine-url"])
@@ -593,7 +596,7 @@ function setupWebR(doc)
 
   -- Initial webR startup options
   local webr_options = {
-    baseUrl = "https://webr.r-wasm.org/v0.4.1/"
+    baseUrl = "https://webr.r-wasm.org/v0.5.4/",
   }
   if (webr["engine-url"]) then
     webr_options["baseUrl"] = pandoc.utils.stringify(webr["engine-url"])

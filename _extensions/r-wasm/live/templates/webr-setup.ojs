@@ -1,5 +1,5 @@
 webROjs = {
-  const { WebR } = window._exercise_ojs_runtime.WebR;
+  const { WebR, ChannelType } = window._exercise_ojs_runtime.WebR;
   const {
     WebREvaluator,
     WebREnvironmentManager,
@@ -36,6 +36,10 @@ webROjs = {
   // Grab list of resources to be downloaded
   const filesContent = document.querySelector(`script[type=\"vfs-file\"]`).textContent;
   const files = JSON.parse(b64Decode(filesContent));
+
+  // Use PostMessage channel for async communication
+  // We do not expect to take nested prompt input in Quarto Live cells
+  data.options.channelType = ChannelType.PostMessage;
 
   // Initialise webR and setup for R code evaluation
   let webRPromise = (async (webR) => {
@@ -79,11 +83,12 @@ webROjs = {
       let path = '';
       while (parts.length > 0) {
         path += parts.shift() + '/';
-        try {
-          await webR.FS.mkdir(path);
-        } catch (e) {
-          if (!e.message.includes("FS error")) {
-            throw e;
+        const analysis = await webR.FS.analyzePath(path);
+        if (!analysis.exists) {
+          try {
+            await webR.FS.mkdir(path);
+          } catch (e) {
+            throw new Error(`Filesystem Error: "${e.message}".`);
           }
         }
       }

@@ -13,9 +13,11 @@ webr:
     - fivethirtyeight
     - knitr
     - rmarkdown
+    - gradethis
 ---
 
 {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+{{< include ./_extensions/r-wasm/live/_gradethis.qmd >}}
 
 ```{webr}
 #| setup: true
@@ -123,7 +125,9 @@ multValue
 
 ::: { .solution exercise="ex_1"}
 ::: { .callout-tip collapse=false}
-```r
+```{webr}
+#| exercise: ex_1
+#| solution: true
 ##assign newValue
 newValue <- 10
 ## use newValue to calculate multValue
@@ -133,6 +137,12 @@ multValue
 ```
 :::
 :::
+
+```{webr}
+#| exercise: ex_1
+#| check: true
+gradethis::grade_this_code()
+```
 
 
 ## Let's look at some data and ways to manipulate it.
@@ -147,16 +157,18 @@ We're going to use the `biopics` dataset in the `fivethirtyeight` package to do 
 ```{webr}
 #| exercise: ex_2
 ##run summary() here on biopics
-summary(-----)
+summary(_______)
 ##show length of country categories here
-levels(biopics$------)
+levels(biopics$______)
 ```
 
 ::: { .solution exercise="ex_2"}
 ::: { .callout-tip collapse=false}
 
 
-```r
+```{webr}
+#| exercise: ex_2
+#| solution: true
 ##run summary here
 summary(biopics)
 ##show length of country categories here
@@ -164,6 +176,13 @@ levels(biopics$country)
 ```
 :::
 :::
+
+```{webr}
+#| exercise: ex_2
+#| check: true
+gradethis::grade_this_code()
+```
+
 
 ## `dplyr::filter()`
 
@@ -194,16 +213,18 @@ Three things to note here:
 ```{webr}
 #| exercise: ex_3
 #add your filter statement here
-crimeMovies <- filter(------)
+crimeMovies <- filter(_______)
 
 #show number of crime movies
-nrow(------)
+nrow(_______)
 ```
 
 ::: { .solution exercise="ex_3"}
 ::: { .callout-tip collapse=false}
 
-```r
+```{webr}
+#| exercise: ex_3
+#| solution: true
 #add your filter statement here
 crimeMovies <- filter(biopics, type_of_subject == "Criminal")
 #show number of crime movies
@@ -211,6 +232,13 @@ nrow(crimeMovies)
 ```
 :::
 :::
+
+```{webr}
+#| exercise: ex_1
+#| check: true
+gradethis::grade_this_code()
+```
+
 
 ## Comparison operators and chaining comparisons
 
@@ -238,17 +266,19 @@ Three things to note:
 #add your comparison to the end of this filter statement
 crimeFilms <- filter(biopics, year_release > 1980 & 
                      type_of_subject == "Criminal" &
-                     ------ == ------
+                     ________ == _______
                      )
     
 #show number of rows in crimeFilms
-nrow(------)
+nrow(_______)
 ```
 
 ::: { .solution exercise="ex_4"}
 ::: { .callout-tip collapse=false}
 
 ```{webr}
+#| exercise: ex_4
+#| solution: true
 #add your comparison to the end of this filter statement
 crimeFilms <- filter(biopics, year_release > 1980 & 
                      type_of_subject == "Criminal" & 
@@ -260,6 +290,13 @@ nrow(crimeFilms)
 ```
 :::
 :::
+
+```{webr}
+#| exercise: ex_4
+#| check: true
+gradethis::grade_this_code()
+```
+
 
 ## Quick Quiz about Chaining Comparisons
 
@@ -299,7 +336,7 @@ biopicsUSUK <- biopics %>% filter(country %in% c("US", "UK"))
 ```{webr}
 #| exercise: ex_5
 biopicsArt <- biopics %>%
-  filter(---- %in% ------)
+  filter(_______ %in% c("_____", "______", "______")
 
 head(biopicsArt)
 ```
@@ -307,7 +344,9 @@ head(biopicsArt)
 ::: { .solution exercise="ex_5"}
 ::: { .callout-tip collapse=false}
 
-```r
+```{webr}
+#| exercise: ex_5
+#| solution: true
 biopicsArt <- biopics %>% 
   filter(type_of_subject %in% c("Musician", "Artist", "Singer"))
 
@@ -316,6 +355,13 @@ head(biopicsArt)
 ```
 :::
 :::
+
+```{webr}
+#| exercise: ex_1
+#| check: true
+gradethis::grade_this_code()
+```
+
 
 ## Removing Missing Values
 
@@ -341,7 +387,7 @@ we use the `!`.
 
 ```{webr}
 #| exercise: ex_6
-filteredBiopics <- filter(--------, -------)
+filteredBiopics <- filter(______, _______)
 #show number of rows in biopics
 nrow(biopics)
 #show number of rows in filteredBiopics
@@ -352,6 +398,8 @@ nrow(filteredBiopics)
 ::: { .callout-tip collapse=false}
 
 ```{webr}
+#| exercise: ex_6
+#| solution: true
 filteredBiopics <- filter(biopics, !is.na(box_office))
 #show number of rows in biopics
 nrow(biopics)
@@ -360,6 +408,13 @@ nrow(filteredBiopics)
 ```
 :::
 :::
+
+```{webr}
+#| exercise: ex_6
+#| check: true
+gradethis::grade_this_code()
+```
+
 
 ## `dplyr::mutate()`
 
@@ -389,7 +444,7 @@ Remember, you can use the `paste()` function to paste two strings together.
 ```{webr}
 #| exercise: ex_7
 #assign new variable race_and_gender here using mutate()
-biopics2 <- mutate()
+biopics2 <- mutate(paste(______, ______))
 
 #show first rows of biopics2 using head()
 head(biopics2)
@@ -398,7 +453,9 @@ head(biopics2)
 ::: { .solution exercise="ex_2"}
 ::: { .callout-tip collapse=false}
 
-```r
+```{webr}
+#| exercise: ex_7
+#| solution: true
 #assign new variable race_and_gender here using mutate()
 biopics2 <- mutate(biopics, race_and_gender = paste(subject_race, subject_sex))
 #show first rows of biopics2 using head()
@@ -406,6 +463,13 @@ head(biopics2)
 ```
 :::
 :::
+
+```{webr}
+#| exercise: ex_7
+#| check: true
+gradethis::grade_this_code()
+```
+
 
 ## You can use mutated variables right away!
 
@@ -433,7 +497,7 @@ and then used it right away to define a new variable, `box_office_subject`.
 mutatedBiopics <- mutate(biopics, 
                          box_office_year = year_release * box_office, 
                          box_office_subject = paste0(box_office_year, subject),
-                         box_office_y_s_num= ------)
+                         box_office_y_s_num= ________)
 
 mutatedBiopics
 ```
@@ -441,7 +505,9 @@ mutatedBiopics
 ::: { .solution exercise="ex_8"}
 ::: { .callout-tip collapse=false}
 
-```r
+```{webr}
+#| exercise: ex_8
+#| solution: true
 mutatedBiopics <- mutate(biopics, 
                          box_office_year = year_release * box_office, 
                          box_office_subject = paste0(box_office_year, subject), 
