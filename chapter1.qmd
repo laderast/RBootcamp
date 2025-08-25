@@ -64,7 +64,7 @@ A `data.frame` is a table-like format which has the following properties:
 - Rows correspond to a single observation (ideally)
 - Can be subset or filtered based on criteria
 
-Here's an example of a table:
+Here's an example of a table. You can explore the table by row (by clicking on the numbers at the bottom), or look at the other columns (use the little triangle in the top right of the table).
 
 ```{webr}
 #| edit: false
