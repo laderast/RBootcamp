@@ -94,7 +94,7 @@
     "href": "chapter1.html#quick-check",
     "title": "1  The Magic of {ggplot2}",
     "section": "1.6 Quick Check",
-    "text": "1.6 Quick Check\nWhich of the following is not a mappable aesthetic to geom_point()?\n\n\n\n\n`linetype`\n\n\n`shape`\n\n\n`x`",
+    "text": "1.6 Quick Check\nWhich of the following is not a mappable aesthetic to geom_point()?\n\n\n\n\n`shape`\n\n\n`x`\n\n\n`linetype`",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Magic of `{ggplot2}`</span>"
     ]
@@ -194,7 +194,7 @@
     "href": "chapter2.html#quick-quiz",
     "title": "2  {ggplot2} and categorical data",
     "section": "2.4 Quick Quiz",
-    "text": "2.4 Quick Quiz\nWhat does mapping color to \"black\" in geom_bar() do? For example:\nggplot(pets, aes(x=animal, fill=shotsCurrent)) + \n  geom_bar(color=\"black\")\n If you’re unsure, compare the graph above to the previous graph.\n\n\n\n\nMakes the default bar fill color black\n\n\nOutlines the bars in black\n\n\nSpecifies the text in the graph to be black",
+    "text": "2.4 Quick Quiz\nWhat does mapping color to \"black\" in geom_bar() do? For example:\nggplot(pets, aes(x=animal, fill=shotsCurrent)) + \n  geom_bar(color=\"black\")\n If you’re unsure, compare the graph above to the previous graph.\n\n\n\n\nOutlines the bars in black\n\n\nMakes the default bar fill color black\n\n\nSpecifies the text in the graph to be black",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
     ]
@@ -234,7 +234,7 @@
     "href": "chapter2.html#super-quick-review",
     "title": "2  {ggplot2} and categorical data",
     "section": "2.8 Super Quick Review",
-    "text": "2.8 Super Quick Review\nFaceting a graph allows us to:\n\n\n\n\n\n\n\n\n\n\n\n\nadd another set of categories to the x-axis\n\n\nplot points as pretty gems\n\n\nstratify our graph by another category",
+    "text": "2.8 Super Quick Review\nFaceting a graph allows us to:\n\n\n\n\n\n\n\n\n\n\n\n\nadd another set of categories to the x-axis\n\n\nstratify our graph by another category\n\n\nplot points as pretty gems",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>`{ggplot2}` and categorical data</span>"
     ]

@@ -203,7 +203,7 @@ Three things to note here:
 ```{webr}
 #| exercise: ex_3
 #add your filter statement here
-crimeMovies <- filter(_______)
+crimeMovies <- filter(biopics, type_of_subject == "_______")
 
 #show number of crime movies
 nrow(_______)

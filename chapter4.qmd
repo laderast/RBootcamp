@@ -31,6 +31,7 @@ webr:
 #|   - ex_8
 dem_score <- readr::read_csv("data/dem_score.csv")
 health_code_example <- readr::read_csv("data/healthExample.csv")
+MouseBalanceTimeSeries <- read.csv("data/mouse.csv")
 ```
 
 # The Whys and Hows of Tidy Data
@@ -115,6 +116,12 @@ head(gatheredData)
 :::
 :::
 
+```{webr}
+#| exercise: ex_3
+#| check: true
+gradethis::grade_this_code()
+```
+
 
 ## `pivot_wider()`
 
@@ -180,6 +187,13 @@ head(spreadData)
 :::
 :::
 
+```{webr}
+#| exercise: ex_4
+#| check: true
+gradethis::grade_this_code()
+```
+
+
 
 ## `dplyr::separate()`
 
@@ -192,6 +206,7 @@ separated by something? Something like this?
 `separate()` is made to make this one variable into many other variable. Separate takes the following arguments:
 
 ```{webr}
+#| edit: false
 health_code_separated <- 
     health_code_example %>% 
         separate(col=HealthCodeEncounterCode, 
@@ -219,11 +234,47 @@ be any string.
 + Show those patients that had `HealthCode==410`, assigning them to `patients410`. 
 + Show the `head()` of `patients410`.
 
-<codeblock id="04_05">
-</codeblock>
-</exercise>
+```{webr}
+#| exercise: ex_5
+health_code_separated <- 
+  health_code_example %>%
+  separate(col = ______, 
+           into = c(_____,______), 
+           sep = _______)
+        
+patients410 <- health_code_separated %>% 
+  filter(HealthCode == _____)
 
-<exercise id="6" title="Wide Versus Long Data">
+patients410
+```
+
+::: { .solution exercise="ex_5"}
+::: { .callout-tip collapse=false}
+```{webr}
+#| exercise: ex_5
+#| solution: true
+health_code_separated <- 
+    health_code_example %>% 
+        separate(col=HealthCodeEncounterCode, 
+        into=c("HealthCode", "EncounterCode"), 
+        sep="/")
+        
+patients410 <- health_code_separated %>% 
+    filter(HealthCode==410)
+
+patients410
+```
+:::
+:::
+
+```{webr}
+#| exercise: ex_5
+#| check: true
+gradethis::grade_this_code()
+```
+
+
+## Wide Versus Long Data
 
 In addition to tidy data, we can have long data versus wide data. We call a dataset as *long data*
 because the format of the data has many more rows than columns, and we call data *wide data*, 
@@ -256,10 +307,61 @@ original data as `fertilityData`. We'll summarize it in two different ways.
 summarized data to `fertilityMeanByYear`. 
 + Show `fertilityMeanByYear`.
 
-<codeblock id="04_06">
-You'll have to first use a `filter()` statement, and then a `group_by/summarize` statement.</codeblock></exercise>
+```{webr}
+#| exercise: ex_6
+fertilityMeanByCountry <- fertilityTidy %>%
+        _________________ %>%
+        _________________
 
-<exercise id="7" title="Putting  dplyr, tidyr, and ggplot2 all together">
+#show fertlityMeanByCountry
+fertilityMeanByCountry
+
+fertilityMeanByYear <- fertilityTidy %>%
+  ___________() %>%
+  __________()
+
+#show fertilityMeanByYear
+fertilityMeanByYear
+```
+
+::: { .solution exercise="ex_6"}
+::: { .callout-tip collapse=false}
+
+You'll have to first use a `filter()` statement, and then a `group_by/summarize` statement.
+
+```{webr}
+#| exercise: ex_6
+#| solution: true
+fertilityMeanByCountry <- fertilityTidy %>% 
+  group_by(Country) %>% 
+  summarize(meanCountryRate=mean(fertilityRate))
+    
+#show fertlityMeanByCountry
+fertilityMeanByCountry
+        
+fertilityMeanByYear <- fertilityTidy %>% 
+  group_by(Year) %>% 
+  summarize(meanYearRate=mean(fertilityRate))
+        
+#show fertilityMeanByYear
+fertilityMeanByYear
+```
+:::
+:::
+
+```{webr}
+#| exercise: ex_6
+#| check: true
+gradethis::grade_this_code()
+```
+
+
+
+
+## Putting  dplyr, tidyr, and ggplot2 all together
+
+
+
 
 Let's put everything we've learned together on a new data.frame called `MouseBalanceTimeSeries`.
 
@@ -281,8 +383,45 @@ mouseID PreTreat1 PreTreat2 PreTreat3 PostTreat1 PostTreat2 PostTreat3
 + Remove any observations that are `NA`. Assign the output to `gatheredMouse`. 
 + Finally, make a boxplot of `gatheredMouse`, plotting `time` versus `intervention` using `geom_boxplot`.
 
-<codeblock id="04_07">
-</codeblock></exercise>
+```{webr}
+#| exercise: ex_7
+gatheredMouse <- MouseBalanceTimeSeries %>% 
+  gather(_________) %>%
+  filter(!is.na(time)) %>% 
+  #we have to recast time as numeric here
+  mutate(time = as.numeric(time)) %>%
+  separate(__________)
+
+ggplot(gatheredMouse, aes(x=intervention, y=time)) + geom_boxplot()
+```
+
+::: { .solution exercise="ex_7"}
+::: { .callout-tip collapse=false}
+
+You'll have to first use a `filter()` statement, and then a `group_by/summarize` statement.
+
+```{webr}
+#| exercise: ex_7
+#| solution: true
+gatheredMouse <- MouseBalanceTimeSeries %>% 
+  gather(key=measurementStatus, value=time, -mouseID) %>%
+  filter(!is.na(time)) %>% 
+  mutate(time = as.numeric(time)) %>%
+  separate(measurementStatus, 
+           c("intervention","replicate"), 
+           sep="Treat")
+
+ggplot(gatheredMouse, aes(x=intervention, y=time)) + geom_boxplot()
+```
+:::
+:::
+
+```{webr}
+#| exercise: ex_7
+#| check: true
+gradethis::grade_this_code()
+```
+
 
 <exercise id="8" title="Was there a difference?">
 
@@ -302,7 +441,7 @@ Yes, there is a difference in medians, although the intervals overlapped.</opt>
 
 </codeblock></exercise>
 
-<exercise id="9" title="What you learned in this lesson">
+## What you learned in this lesson
 
 + How to identify tidy data
 + How to make messy data tidy using `tidyr`
